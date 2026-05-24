@@ -306,11 +306,58 @@ const FeatureRow = ({ f, idx }) => (
         </ul>
       </div>
     </Reveal>
-    <Reveal className="md:col-span-6 flex justify-center" delay={0.1}>
+    <Reveal className="md:col-span-6 hidden md:flex justify-center" delay={0.1}>
       <Phone src={f.img} alt={f.alt} rotate={f.rotate} className="w-[260px] sm:w-[300px] md:w-[330px]" />
     </Reveal>
   </div>
 );
+
+// ---------- Mobile-only Phone carousel ----------
+const PhoneCarousel = ({ items }) => {
+  const trackRef = useRef(null);
+  const [active, setActive] = useState(0);
+  useEffect(() => {
+    const el = trackRef.current;
+    if (!el) return;
+    const onScroll = () => {
+      const w = el.clientWidth;
+      const idx = Math.round(el.scrollLeft / w);
+      setActive(Math.max(0, Math.min(items.length - 1, idx)));
+    };
+    el.addEventListener("scroll", onScroll, { passive: true });
+    return () => el.removeEventListener("scroll", onScroll);
+  }, [items.length]);
+  const scrollTo = (i) => {
+    const el = trackRef.current;
+    if (!el) return;
+    el.scrollTo({ left: i * el.clientWidth, behavior: "smooth" });
+  };
+  return (
+    <div className="md:hidden -mx-5">
+      <div
+        ref={trackRef}
+        className="flex overflow-x-auto snap-x snap-mandatory no-scrollbar"
+        style={{ scrollSnapType: "x mandatory" }}
+      >
+        {items.map((f, i) => (
+          <div key={i} className="snap-center shrink-0 w-full flex justify-center px-5 py-4">
+            <Phone src={f.img} alt={f.alt} rotate={0} className="w-[260px] sm:w-[300px]" />
+          </div>
+        ))}
+      </div>
+      <div className="mt-4 flex justify-center gap-2">
+        {items.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => scrollTo(i)}
+            aria-label={`スライド ${i + 1}`}
+            className={`h-1.5 rounded-full transition-all ${active === i ? "w-6 bg-purple-400" : "w-1.5 bg-white/20"}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
 
 const Features = () => (
   <section id="features" className="relative py-24 md:py-32">
@@ -319,10 +366,13 @@ const Features = () => (
         <div className="text-center max-w-2xl mx-auto">
           <p className="text-xs tracking-[0.25em] uppercase text-purple-300/80 mb-4">Features</p>
           <h2 className="h-display text-balance text-4xl md:text-5xl text-white">
-            ポケットの中に、<br className="sm:hidden"/>運用担当を。
+            ポケットの中に、<br className="sm:hidden"/>マーケティングチームを。
           </h2>
           <p className="mt-4 text-slate-400 text-pretty">スマホ完結。3つのAIが、あなたのX運用を24時間まわす。</p>
         </div>
+      </Reveal>
+      <Reveal>
+        <PhoneCarousel items={FEATURES} />
       </Reveal>
       {FEATURES.map((f, i) => <FeatureRow key={i} f={f} idx={i} />)}
     </div>
@@ -371,7 +421,7 @@ const PLANS = [
     sub: "クレジットカード不要",
     features: [
       { v: true,  t: "AI投稿生成 / 月 10件まで" },
-      { v: true,  t: "スケジュール投稿 / 3件まで" },
+      { v: true,  t: "スケジュール投稿 / 100件まで" },
       { v: true,  t: "基本分析（過去7日分）" },
       { v: true,  t: "1アカウント" },
       { v: false, t: "AI自動リプライ" },
@@ -392,7 +442,7 @@ const PLANS = [
       { v: true, t: "AI自動リプライ" },
       { v: true, t: "投稿分析ダッシュボード" },
       { v: true, t: "スタイル学習エンジン" },
-      { v: true, t: "最大 3 アカウント" },
+      { v: true, t: "最大 100 アカウント" },
       { v: true, t: "優先サポート" },
     ],
     cta: "Pro を始める",
@@ -484,7 +534,7 @@ const FAQS = [
   { q: "AIが生成する投稿の質は？", a: "あなたの過去投稿を学習させることで、語彙・トーン・改行スタイルまで再現します。生成後の手動修正もスマホから1タップで可能です。日本語ネイティブ精度のモデルを採用しています。" },
   { q: "Xの利用規約に違反しませんか？", a: "XToolsPro4はX公式APIを通じて動作します。レート制御・スパム検出を内蔵しており、規約に準じた範囲で運用できる設計です。" },
   { q: "解約はできますか？", a: "いつでもマイページから解約できます。解約手続きは1タップ、月望までは引き続きご利用いただけます。長期拘束はありません。" },
-  { q: "複数アカウントで使えますか？", a: "Free プランは1アカウント、Pro プランでは最大3アカウントまで運用可能です。それ以上は追加ライセンスをご案内します。" },
+  { q: "複数アカウントで使えますか？", a: "Free プランは1アカウント、Pro プランでは最大100アカウントまで運用可能です。それ以上は追加ライセンスをご案内します。" },
   { q: "サポートはありますか？", a: "メール / チャットサポートを提供しています。営業日2時間以内の返信を目安に対応しています。" },
 ];
 
@@ -541,7 +591,7 @@ const FinalCTA = () => (
           <div className="absolute inset-0 grid-overlay opacity-30" />
           <div className="relative">
             <h2 className="h-display text-white text-balance text-5xl md:text-7xl">X運用、再発明。</h2>
-            <p className="mt-5 text-white/85 text-pretty text-lg md:text-xl">今日から、ポケットの中に運用担当を。</p>
+            <p className="mt-5 text-white/85 text-pretty text-lg md:text-xl">今日から、ポケットの中にマーケティングチームを。</p>
             <div className="mt-9 flex flex-wrap justify-center gap-3">
               <a href="#" className="ring-focus inline-flex items-center gap-2 rounded-full px-7 py-4 text-base font-bold text-[#2A1B6E] bg-white hover:bg-slate-100 transition">
                 無料で始める <I.Arrow size={16} />
