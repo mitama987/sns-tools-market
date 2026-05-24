@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Market — SNS自動化ツールアトリエ</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+  html, body {
+    background: #F2EDE3;
+  }
+
+  body {
+    /* Amazon-like type stack: Arial-first, Noto for JP */
+    font-family: "Amazon Ember", "Noto Sans JP", Arial, "Helvetica Neue", Helvetica, sans-serif;
+    color: #0F1111;
+    font-size: 14px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "palt";
+  }
+
+  .font-mono { font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace; }
+
+  /* Allow long product titles to truncate cleanly */
+  .line-clamp-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Anchored sections need scroll offset under sticky nav (none here, but keep) */
+  section[id] { scroll-margin-top: 16px; }
+
+  /* Selection */
+  ::selection { background: #F1DDB8; color: #1F1B16; }
+
+  /* Focus ring */
+  :focus-visible {
+    outline: 2px solid #C2533C;
+    outline-offset: 2px;
+  }
+
+  /* Smoother scrollbar for filter overflow */
+  .nav-scroll::-webkit-scrollbar { display: none; }
+</style>
+</head>
+
+<body>
+
+<div id="root"></div>
+
+<!-- React + Babel -->
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="components-amazon.jsx"></script>
+
+</body>
+</html>
