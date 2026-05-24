@@ -366,7 +366,7 @@ const Features = () => (
         <div className="text-center max-w-2xl mx-auto">
           <p className="text-xs tracking-[0.25em] uppercase text-purple-300/80 mb-4">Features</p>
           <h2 className="h-display text-balance text-4xl md:text-5xl text-white">
-            ポケットの中に、<br className="sm:hidden"/>マーケティングチームを。
+            ポケットの中に、<br/>マーケティングチームを。
           </h2>
           <p className="mt-4 text-slate-400 text-pretty">スマホ完結。3つのAIが、あなたのX運用を24時間まわす。</p>
         </div>
