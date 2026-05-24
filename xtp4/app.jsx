@@ -428,7 +428,7 @@ const PLANS = [
       { v: false, t: "スタイル学習エンジン" },
     ],
     cta: "無料で始める",
-    href: "#",
+    href: "https://line.me/ti/g2/KGlX13eiEN7aM1cHqu_LMaakdFiYveFak8AZPQ?utm_source=invitation&utm_medium=link_copy&utm_campaign=default",
     featured: false,
   },
   {
@@ -491,7 +491,7 @@ const PlanCard = ({ p }) => (
           ))}
         </ul>
 
-        <a href={p.href} className={`mt-8 ring-focus inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-3.5 text-[15px] font-bold transition ${p.featured ? "btn-grad text-white" : "text-white border border-white/15 hover:bg-white/5"}`}>
+        <a href={p.href} {...(/^https?:/.test(p.href) ? { target: "_blank", rel: "noopener" } : {})} className={`mt-8 ring-focus inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-3.5 text-[15px] font-bold transition ${p.featured ? "btn-grad text-white" : "text-white border border-white/15 hover:bg-white/5"}`}>
           {p.cta} <I.Arrow size={15} />
         </a>
         {p.featured && (
@@ -593,7 +593,7 @@ const FinalCTA = () => (
             <h2 className="h-display text-white text-balance text-5xl md:text-7xl">X運用、再発明。</h2>
             <p className="mt-5 text-white/85 text-pretty text-lg md:text-xl">今日から、ポケットの中にマーケティングチームを。</p>
             <div className="mt-9 flex flex-wrap justify-center gap-3">
-              <a href="#" className="ring-focus inline-flex items-center gap-2 rounded-full px-7 py-4 text-base font-bold text-[#2A1B6E] bg-white hover:bg-slate-100 transition">
+              <a href="https://line.me/ti/g2/KGlX13eiEN7aM1cHqu_LMaakdFiYveFak8AZPQ?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank" rel="noopener" className="ring-focus inline-flex items-center gap-2 rounded-full px-7 py-4 text-base font-bold text-[#2A1B6E] bg-white hover:bg-slate-100 transition">
                 無料で始める <I.Arrow size={16} />
               </a>
               <a href="#pricing" className="ring-focus inline-flex items-center gap-2 rounded-full px-7 py-4 text-base font-semibold text-white border border-white/30 hover:bg-white/10 transition">
