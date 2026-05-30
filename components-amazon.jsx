@@ -428,7 +428,7 @@ function CategoryTiles() {
               <div className="grid grid-cols-2 gap-2 mb-3">
                 {t.items.map((it, j) => (
                   <a
-                    href={it.name === 'XToolsPro4' ? 'xtp4/' : '#'}
+                    href={it.name === 'XToolsPro4' ? 'xtp4/' : it.name === 'XToolsPro3' ? 'xtp3/' : '#'}
                     key={j}
                     className="group">
                     <div className="aspect-square bg-[#FAF7F2] rounded-sm overflow-hidden flex items-center justify-center text-[28px] group-hover:bg-[#EFE9DD] transition-colors">
@@ -474,7 +474,7 @@ function ProductTile({ p, onAdd }) {
     <article className="bg-white rounded-sm p-4 hover:shadow-md transition-shadow flex flex-col h-full">
       {/* Image area */}
       <a
-        href={p.id === 'xtp4' ? 'xtp4/' : '#'}
+        href={p.id === 'xtp4' ? 'xtp4/' : p.id === 'xtp3' ? 'xtp3/' : '#'}
         className="relative block mb-3"
         aria-label={p.name}>
         <div className="rounded-sm overflow-hidden aspect-square">
@@ -501,7 +501,7 @@ function ProductTile({ p, onAdd }) {
       )}
 
       <a
-        href={p.id === 'xtp4' ? 'xtp4/' : '#'}
+        href={p.id === 'xtp4' ? 'xtp4/' : p.id === 'xtp3' ? 'xtp3/' : '#'}
         className="text-[14px] text-[#0F1111] hover:text-[#0F4B47] leading-[1.4] mb-1 line-clamp-2">
         {p.name}
       </a>
