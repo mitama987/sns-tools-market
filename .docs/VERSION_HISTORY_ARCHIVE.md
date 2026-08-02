@@ -2,6 +2,15 @@
 
 ## xtp3/index.html
 
+### ver1.2 (2026-08-02) — Appsアフィリエイト計測タグ導入
+アフィリエイト広告導入Appのキャンペーン登録・トラッキング計測のため、Apps公式マニュアルの埋め込みコードを設置。
+
+- **head (L45-47)**: `</head>` 直前に `<!-- Apps Affiliate Tracking -->` ＋ `<script src="https://admin.theapps.jp/htdocs/js/spf.js"></script>` を追加
+- **決済リンク5箇所** (L76, L230, L244, L447, L448): `page.theapps.jp/charge/join/` へのaタグのclass先頭に `apps-af` を追加（既存class維持）
+  - hero「¥2,980から始める」/ pricing「このプランを購入」「フル装備で買う」/ final-cta「¥2,980から始める」「フル装備で買う ¥19,800」
+- note.com・forms.gle等の非決済リンクには付与しない
+- 既存パターン踏襲: `31_xtools-docs-auth/public/upgrade_lp_v2.html`、`30_XTP2_POST_r5/templates/lp/upgrade_premium.html`
+
 ### ver1.1 (2026-07-30) — FVコピー④案差し替え
 外部フィードバック「LP全体は現行（③）が良い。FVタイトル文は④が1番刺さる」を反映。
 
