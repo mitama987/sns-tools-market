@@ -172,7 +172,7 @@ const Hero = () => (
           </Reveal>
           <Reveal delay={0.12}>
             <p className="mt-6 text-slate-300 text-pretty text-lg md:text-xl leading-relaxed max-w-xl">
-              AIが投稿を自動生成・自動リプライ。<br className="hidden sm:inline" />
+              AIが投稿を自動生成。<br className="hidden sm:inline" />
               あなたはアイデアだけ。
             </p>
           </Reveal>
@@ -258,21 +258,7 @@ const FEATURES = [
     reverse: false,
   },
   {
-    eyebrow: "FEATURE 02 ／ AI自動リプライ",
-    title: <>リプライは、<br/><span className="gradient-text">AI</span>に任せる。</>,
-    body: "指定アカウントの投稿に、関連性の高いリプライをAIが自動送信。エンゲージメントを自然に積み上げる。",
-    bullets: [
-      { icon: <I.Target size={16}/>, label: "ターゲットアカウント指定" },
-      { icon: <I.Reply size={16}/>, label: "文脈理解リプライ" },
-      { icon: <I.Clock size={16}/>, label: "過剰投稿を防ぐレート制御" },
-    ],
-    img: "images/xtp4-appstore-A3-auto-reply.png",
-    alt: "AI自動リプライの画面",
-    rotate: -2,
-    reverse: true,
-  },
-  {
-    eyebrow: "FEATURE 03 ／ 投稿分析",
+    eyebrow: "FEATURE 02 ／ 投稿分析",
     title: <>何が効いたか、<br/><span className="gradient-text">データ</span>で分かる。</>,
     body: "インプレッション・エンゲージメント・フォロワー増加をリアルタイムで可視化。次に何を投稿すべきかが、データで見える。",
     bullets: [
@@ -282,8 +268,8 @@ const FEATURES = [
     ],
     img: "images/xtp4-appstore-A4-analytics.png",
     alt: "投稿分析の画面",
-    rotate: 2,
-    reverse: false,
+    rotate: -2,
+    reverse: true,
   },
 ];
 
@@ -368,7 +354,7 @@ const Features = () => (
           <h2 className="h-display text-balance text-4xl md:text-5xl text-white">
             ポケットの中に、<br/>マーケティングチームを。
           </h2>
-          <p className="mt-4 text-slate-400 text-pretty">スマホ完結。3つのAIが、あなたのX運用を24時間まわす。</p>
+          <p className="mt-4 text-slate-400 text-pretty">スマホ完結。AIが、あなたのX運用を24時間まわす。</p>
         </div>
       </Reveal>
       <Reveal>
@@ -383,7 +369,7 @@ const Features = () => (
 const STEPS = [
   { n: "01", title: "アカウント連携", body: "X API認証で、安全にあなたのアカウントへ接続。" },
   { n: "02", title: "スタイル学習", body: "過去投稿を読み込ませて、あなたらしさを学習。" },
-  { n: "03", title: "自動運転開始", body: "あとはAIが運用。投稿・リプライ・分析を24時間。" },
+  { n: "03", title: "自動運転開始", body: "あとはAIが運用。投稿と分析を24時間。" },
 ];
 
 const HowItWorks = () => (
@@ -420,13 +406,13 @@ const PLANS = [
     cadence: "/ 月",
     sub: "クレジットカード不要",
     features: [
-      { v: true,  t: "AI投稿生成 / 月 10件まで" },
-      { v: true,  t: "スケジュール投稿 / 100件まで" },
-      { v: true,  t: "基本分析（過去7日分）" },
+      { v: true,  t: "投稿 1日1件まで" },
+      { v: true,  t: "分析 1日1回まで" },
+      { v: true,  t: "基本ダッシュボード" },
       { v: true,  t: "1アカウント" },
-      { v: false, t: "AI自動リプライ" },
       { v: false, t: "スタイル学習エンジン" },
     ],
+    note: "運営のAPIキーで投稿するため、ご自身のX APIキーの登録は不要です。",
     cta: "無料で始める",
     href: "https://line.me/ti/g2/KGlX13eiEN7aM1cHqu_LMaakdFiYveFak8AZPQ?utm_source=invitation&utm_medium=link_copy&utm_campaign=default",
     featured: false,
@@ -438,15 +424,19 @@ const PLANS = [
     cadence: "/ 月",
     sub: "いつでも解約 OK",
     features: [
-      { v: true, t: "AI自動投稿（無制限）" },
-      { v: true, t: "AI自動リプライ" },
+      // 10,000/日 は X API のアプリ単位上限であって、顧客が自分の API 契約で実際に
+      // 出せる件数ではない。単独で置くと「月1,000円で投稿し放題」に読めるため必ず併記する。
+      { v: true, t: "AI自動投稿（1日最大10,000件・ご自身のX API契約の上限に依存）" },
       { v: true, t: "投稿分析ダッシュボード" },
       { v: true, t: "スタイル学習エンジン" },
-      { v: true, t: "最大 100 アカウント" },
+      { v: true, t: "最大50アカウント対応" },
       { v: true, t: "優先サポート" },
     ],
+    note: "ご自身のX APIキーで投稿します。XのAPI利用料（従量課金・プラン料金など）はお客様のご負担となり、月額料金には含まれません。",
     cta: "Pro を始める",
-    href: "#",
+    // page.theapps.jp は /paid/join/<商品ID> が購入入口。/contract/<契約ID> は
+    // 消費済みの契約1件を指し、誰が開いても「既に決済されています。」になる。
+    href: "https://page.theapps.jp/paid/join/C8hv3G40M25l68i1",
     featured: true,
   },
 ];
@@ -491,6 +481,12 @@ const PlanCard = ({ p }) => (
           ))}
         </ul>
 
+        {p.note && (
+          <p className="mt-6 rounded-xl border border-white/10 bg-white/[0.03] p-3 text-[11px] leading-relaxed text-slate-400">
+            ※ {p.note}
+          </p>
+        )}
+
         <a href={p.href} {...(/^https?:/.test(p.href) ? { target: "_blank", rel: "noopener" } : {})} className={`mt-8 ring-focus inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-3.5 text-[15px] font-bold transition ${p.featured ? "btn-grad text-white" : "text-white border border-white/15 hover:bg-white/5"}`}>
           {p.cta} <I.Arrow size={15} />
         </a>
@@ -534,7 +530,7 @@ const FAQS = [
   { q: "AIが生成する投稿の質は？", a: "あなたの過去投稿を学習させることで、語彙・トーン・改行スタイルまで再現します。生成後の手動修正もスマホから1タップで可能です。日本語ネイティブ精度のモデルを採用しています。" },
   { q: "Xの利用規約に違反しませんか？", a: "XToolsPro4はX公式APIを通じて動作します。レート制御・スパム検出を内蔵しており、規約に準じた範囲で運用できる設計です。" },
   { q: "解約はできますか？", a: "いつでもマイページから解約できます。解約手続きは1タップ、月望までは引き続きご利用いただけます。長期拘束はありません。" },
-  { q: "複数アカウントで使えますか？", a: "Free プランは1アカウント、Pro プランでは最大100アカウントまで運用可能です。それ以上は追加ライセンスをご案内します。" },
+  { q: "複数アカウントで使えますか？", a: "Free プランは1アカウント、Pro プランでは最大50アカウントまで運用可能です。それ以上は追加ライセンスをご案内します。" },
   { q: "サポートはありますか？", a: "メール / チャットサポートを提供しています。営業日2時間以内の返信を目安に対応しています。" },
 ];
 
