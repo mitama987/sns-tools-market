@@ -125,6 +125,11 @@ const Phone = ({ src, alt, rotate = 0, className = "" }) => (
   </div>
 );
 
+// アプリ本体の認証ルート。2026-09-20 まで、このLPからアプリへ入る手段が
+// 一つも無かった（無料CTAはLINEオープンチャット、有料CTAはデッドリンク）。
+const APP_SIGN_IN_URL = "https://xtoolspro4.vercel.app/sign-in";
+const APP_SIGN_UP_URL = "https://xtoolspro4.vercel.app/sign-up";
+
 // ---------- Nav ----------
 const Nav = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -141,6 +146,7 @@ const Nav = () => {
           <a href="#features" className="hover:text-white transition">機能</a>
           <a href="#pricing" className="hover:text-white transition">料金</a>
           <a href="#faq" className="hover:text-white transition">FAQ</a>
+          <a href={APP_SIGN_IN_URL} target="_blank" rel="noopener" className="hover:text-white transition">ログイン</a>
         </nav>
         <a href="#pricing" className="btn-grad ring-focus inline-flex items-center gap-1.5 rounded-full px-4 md:px-5 py-2 md:py-2.5 text-sm font-semibold text-white">
           無料で始める
@@ -414,6 +420,9 @@ const PLANS = [
     ],
     note: "運営のAPIキーで投稿するため、ご自身のX APIキーの登録は不要です。",
     cta: "無料で始める",
+    // 無料の主導線は LINE コミュニティ。LINE を使わない人が行き止まりに
+    // ならないよう、直接アカウントを作る経路も並べる。
+    secondaryCta: { label: "LINEを使わずアカウントを作成", href: APP_SIGN_UP_URL },
     href: "https://line.me/ti/g2/KGlX13eiEN7aM1cHqu_LMaakdFiYveFak8AZPQ?utm_source=invitation&utm_medium=link_copy&utm_campaign=default",
     featured: false,
   },
@@ -490,6 +499,12 @@ const PlanCard = ({ p }) => (
         <a href={p.href} {...(/^https?:/.test(p.href) ? { target: "_blank", rel: "noopener" } : {})} className={`mt-8 ring-focus inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-3.5 text-[15px] font-bold transition ${p.featured ? "btn-grad text-white" : "text-white border border-white/15 hover:bg-white/5"}`}>
           {p.cta} <I.Arrow size={15} />
         </a>
+        {p.secondaryCta && (
+          <a href={p.secondaryCta.href} target="_blank" rel="noopener"
+             className="mt-3 block text-center text-xs text-slate-400 underline underline-offset-4 hover:text-white transition">
+            {p.secondaryCta.label}
+          </a>
+        )}
         {p.featured && (
           <p className="mt-4 text-center text-[11px] text-slate-500">
             <I.Shield size={11} className="inline -mt-0.5 mr-1 text-purple-400" />
