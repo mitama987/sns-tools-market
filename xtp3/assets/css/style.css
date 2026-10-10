@@ -512,6 +512,13 @@ h3 { font-family: var(--sans); font-weight: 700; font-size: 18px; margin: 0 0 8p
   width: 100%; height: auto; display: block;
   border-radius: var(--r-s);
 }
+.review-stack figcaption {
+  padding: 14px 8px 4px;
+  font-size: 15px; line-height: 1.7; color: var(--ink-2);
+}
+.review-stack figcaption strong { display: block; font-weight: 700; color: var(--ink); }
+.review-stack figcaption span { display: block; margin-top: 4px; font-size: 13px; color: var(--ink-3); }
+.reviews-note { margin: -24px 0 32px; font-size: 14px; color: var(--ink-3); }
 
 /* ============================================================
    Developer
