@@ -2,6 +2,11 @@
 
 ## xtp3/index.html
 
+### ver1.9 (2026-10-17) — 決済を Stripe 直販に（main `2c6a9f1`）
+- 決済リンク 9 箇所（ベース・フル・アドオン 5・最下部 CTA）を theapps の `page.theapps.jp/charge/join/<code>` から Stripe Payment Links（`buy.stripe.com/…`・lookup_key=sku）に差し替え
+- `spf.js` と `apps-af`（Apps アフィリ計測）を撤去。`?ref=<ID>` を localStorage に保存し、`buy.stripe.com` のリンクに `client_reference_id` として付ける計測スクリプトを追加（半角英数と `-` `_` のみ）
+- 無料メール登録（theapps `advance/join/F8hv…`）→ 無料版の Google フォーム。フッターに特定商取引法のリンク（docs サイト `tokushoho.html`）
+
 ### ver1.4 (2026-08-02) — アドオン5種の単品購入リンク追加（Apps公開検証対応・最終解）
 Chrome実機での再現・APIバイセクトにより、公開時検証の仕様を特定:
 **「アフィリエイトリンクを設置するランディングページ」内に、キャンペーンで選択した成果発生用プラン
