@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XTP3・XTP4・XTP6 機能比較</title>
+<meta name="description" content="XToolsPro3・XToolsPro4・XToolsPro6 の機能をスマホで見やすく比較。PCつけっぱなし・X の API・料金・アカウント数・自動投稿・AI・プロキシの違い（2026年10月時点）。">
+<link rel="canonical" href="https://sns-tools-market.vercel.app/xtp-compare/">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta property="og:title" content="XTP3・XTP4・XTP6 機能比較">
+<meta property="og:description" content="自分に合うツールがひと目で分かる比較表（2026年10月時点）">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://sns-tools-market.vercel.app/xtp-compare/">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZKGY7RFRGX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZKGY7RFRGX');
+</script>
+<style>
+html,body{margin:0;background:#F4F6FA}
+body{padding:0 max(4px,env(safe-area-inset-right,0px)) 0 max(4px,env(safe-area-inset-left,0px))}
+</style>
+</head>
+<body>
+<style>
+.xtpcmp{--page:#F4F6FA;--card:#FFFFFF;--ink:#111318;--sub:#4A5265;--rule:#E2E6EE;--side:#2B3445;--group:#3D4A63;--x3:#5A6578;--x4:#2F6FD6;--x6:#E8463A;--ok:#15A34A;--none:#9AA3B2;--ng:#D92D20;--badge:#FFC21A;--on:#FFFFFF;--head:#1B2230;
+  font-family:"Yu Gothic UI","Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Meiryo",sans-serif;
+  background:var(--page);color:var(--ink);max-width:440px;margin:0 auto;padding:20px 12px 24px;box-sizing:border-box;border-radius:16px}
+.xtpcmp *{box-sizing:border-box}
+.xtpcmp h2.xc-title{font-size:24px;font-weight:900;text-align:center;line-height:1.3;margin:0;padding:0;border:0;background:none;color:var(--ink)}
+.xtpcmp h2.xc-title::before,.xtpcmp h2.xc-title::after{display:none}
+.xtpcmp .xc-lead{font-size:13px;font-weight:700;color:var(--sub);text-align:center;margin:6px 0 14px}
+.xtpcmp table{width:100%;table-layout:fixed;border-collapse:separate;border-spacing:0;background:var(--card);border-radius:14px;overflow:hidden;box-shadow:0 4px 14px rgba(0,0,0,.10);margin:0;border:0}
+.xtpcmp col.k{width:30%} .xtpcmp col.v{width:23.33%}
+.xtpcmp th,.xtpcmp td{padding:7px 3px;text-align:center;vertical-align:middle;border:0;border-bottom:1px solid var(--rule);font-size:13px;font-weight:700;line-height:1.3;word-break:keep-all;overflow-wrap:anywhere;background:var(--card);color:var(--ink)}
+.xtpcmp thead th{color:var(--on);font-size:16px;font-weight:900;padding:12px 2px 10px;position:relative}
+.xtpcmp thead th.k{background:var(--head);font-size:12px}
+.xtpcmp thead th.x3{background:var(--x3)} .xtpcmp thead th.x4{background:var(--x4)} .xtpcmp thead th.x6{background:var(--x6)}
+.xtpcmp .badge{position:absolute;top:0;left:50%;transform:translateX(-50%);background:var(--badge);color:var(--ink);font-size:9px;padding:1px 7px;border-radius:0 0 6px 6px;font-weight:900;letter-spacing:.5px;line-height:1.4}
+.xtpcmp td.k{background:var(--side);color:var(--on);text-align:left;padding-left:9px;font-size:12.5px}
+.xtpcmp tr.g td{background:var(--group);color:var(--on);text-align:left;padding:5px 9px;font-size:12px;font-weight:900;letter-spacing:2px;border-bottom:0}
+.xtpcmp tr.g td::before{content:"■ ";color:var(--badge)}
+.xtpcmp td.x6{border-left:3px solid var(--x6);border-right:3px solid var(--x6)}
+.xtpcmp tbody tr:last-child td{border-bottom:0}
+.xtpcmp tbody tr:last-child td.x6{border-bottom:3px solid var(--x6)}
+.xtpcmp .m{display:block;margin:0 auto}
+.xtpcmp .o{width:18px;height:18px;border:4px solid var(--ok);border-radius:50%}
+.xtpcmp .n{width:14px;height:3px;background:var(--none);border-radius:2px;margin:8px auto}
+.xtpcmp .x{color:var(--ng);font-size:18px;font-weight:900;line-height:18px}
+.xtpcmp .need{display:inline-block;color:var(--on);background:var(--ng);font-size:12px;font-weight:900;padding:2px 8px;border-radius:6px}
+.xtpcmp small{display:block;font-size:10.5px;font-weight:700;color:var(--sub);margin-top:3px;line-height:1.25}
+.xtpcmp .xc-foot{margin:14px 0 0;display:grid;gap:6px;font-size:12px;font-weight:700;color:var(--sub);line-height:1.5}
+.xtpcmp .xc-foot p{margin:0}
+.xtpcmp .xc-foot b{color:var(--ink)}
+.xtpcmp .xc-cta{display:block;margin:18px auto 0;text-align:center;background:var(--x6);color:var(--on);font-size:16px;font-weight:900;padding:14px 12px;border-radius:12px;text-decoration:none;box-shadow:0 4px 10px rgba(232,70,58,.35)}
+.xtpcmp .xc-cta:hover,.xtpcmp .xc-cta:focus-visible{color:var(--on);filter:brightness(1.05);outline:3px solid var(--badge);outline-offset:2px}
+.xtpcmp .xc-cta small{color:var(--on);font-size:11px;margin-top:2px;opacity:.95}
+</style>
+<div class="xtpcmp">
+<h2 class="xc-title">XTP3・XTP4・XTP6<br>機能比較</h2>
+<p class="xc-lead">自分に合うツールがひと目で分かる（2026年10月時点）</p>
+<table>
+<colgroup><col class="k"><col class="v"><col class="v"><col class="v"></colgroup>
+<thead><tr><th class="k">機能</th><th class="x3">XTP3</th><th class="x4">XTP4</th><th class="x6"><span class="badge">NEW</span>XTP6</th></tr></thead>
+<tbody>
+<tr class="g"><td colspan="4">基本</td></tr>
+<tr><td class="k">PCつけっぱなし</td><td><span class="need">必要</span></td><td>不要</td><td class="x6">不要</td></tr>
+<tr><td class="k">X の API</td><td>不要</td><td>必要<small>有料版は<br>自分のキー</small></td><td class="x6">不要</td></tr>
+<tr><td class="k">料金</td><td>買い切り<small>¥9,800〜<br>フル¥29,800</small></td><td>無料<small>有料 月¥1,000</small></td><td class="x6">無料<small>有料 月¥1,000<br>14日お試し</small></td></tr>
+<tr><td class="k">無料版</td><td>定期投稿<small>のみ</small></td><td>1日1件<small>URL不可</small></td><td class="x6">1日10件<small>予約・オート<br>分析・AI</small></td></tr>
+<tr><td class="k">アカウント数</td><td>目安100</td><td>50まで</td><td class="x6">10まで</td></tr>
+<tr><td class="k">スマホで使える</td><td><span class="m x">×</span></td><td><span class="m o"></span></td><td class="x6"><span class="m o"></span><small>最初の登録<br>だけPC</small></td></tr>
+<tr class="g"><td colspan="4">投稿</td></tr>
+<tr><td class="k">予約投稿</td><td><span class="m o"></span></td><td><span class="m o"></span></td><td class="x6"><span class="m o"></span></td></tr>
+<tr><td class="k">自動投稿</td><td>ランダム<small>アドオン</small></td><td>ランダム</td><td class="x6">オート<small>ターゲットの<br>時間帯</small></td></tr>
+<tr><td class="k">ゆらぎ</td><td><span class="m o"></span></td><td><span class="m n"></span></td><td class="x6"><span class="m o"></span></td></tr>
+<tr><td class="k">ツリー投稿</td><td><span class="m n"></span></td><td><span class="m o"></span><small>有料・10件</small></td><td class="x6"><span class="m o"></span><small>有料・10件</small></td></tr>
+<tr><td class="k">画像・動画</td><td><span class="m o"></span></td><td><span class="m o"></span></td><td class="x6"><span class="m o"></span></td></tr>
+<tr><td class="k">スプシ取込</td><td><span class="m o"></span><small>アドオン</small></td><td><span class="m o"></span></td><td class="x6"><span class="m o"></span></td></tr>
+<tr class="g"><td colspan="4">AI・分析</td></tr>
+<tr><td class="k">AI 投稿生成</td><td><span class="m o"></span><small>アドオン</small></td><td><span class="m o"></span><small>自分の<br>勝ちパターン</small></td><td class="x6"><span class="m o"></span><small>伸びている<br>人の型</small></td></tr>
+<tr><td class="k">分析</td><td><span class="m o"></span></td><td><span class="m o"></span></td><td class="x6"><span class="m o"></span><small>自分＋他の人</small></td></tr>
+<tr class="g"><td colspan="4">安全・交流</td></tr>
+<tr><td class="k">プロキシ</td><td><span class="m o"></span><small>アドオン</small></td><td><span class="m n"></span></td><td class="x6"><span class="m o"></span></td></tr>
+<tr><td class="k">自動いいね<br>フォロー・リプ</td><td><span class="m o"></span><small>アドオン</small></td><td><span class="m n"></span></td><td class="x6"><span class="m n"></span></td></tr>
+<tr><td class="k">自動 DM</td><td><span class="m o"></span></td><td><span class="m n"></span></td><td class="x6"><span class="m n"></span></td></tr>
+<tr><td class="k">コミュニティ投稿</td><td><span class="m o"></span><small>アドオン</small></td><td><span class="m o"></span></td><td class="x6"><span class="m n"></span></td></tr>
+<tr class="g"><td colspan="4">その他</td></tr>
+<tr><td class="k">Amazon<br>在庫復活</td><td><span class="m o"></span><small>アドオン</small></td><td><span class="m n"></span></td><td class="x6"><span class="m n"></span></td></tr>
+</tbody></table>
+<div class="xc-foot">
+<p><b>XTP3</b>：PCつけっぱなしで、いいね・フォロー・DMまで自動に</p>
+<p><b>XTP4</b>：公式APIで安定して投稿</p>
+<p><b>XTP6</b>：PC不要。スマホで予約から自動投稿・AIの投稿案まで<span style="white-space:nowrap">（API代0円）</span></p>
+</div>
+<a class="xc-cta" href="https://xtools-go.web.app/x6-cmp-lp" target="_blank" rel="noopener">XTP6 を無料で始める<small>カード登録なし・Google でログインするだけ</small></a>
+</div>
+</body>
+</html>
+<!--
+Version History
+- ver1.0 (2026-10-19): 新規。XTP3・XTP4・XTP6 の機能比較（スマホ幅向け）。元は ClaudeCompany .company/marketing/content-plan/xtp-compare-page.html。LINE の告知から短縮リンク x6-cmp-x3／x4／oc で流入
+-->
