@@ -59,3 +59,10 @@ Chrome実機での再現・APIバイセクトにより、公開時検証の仕�
 - `.hero-copy h1.h1-long { font-size: clamp(26px, 3.4vw, 38px); line-height: 1.45; }` を追加（デスクトップ。46pxでは1行目が途中改行したため38pxに調整）
 - SPメディアクエリ（max-width:640px）に `.hero-copy h1.h1-long { font-size: clamp(24px, 6.5vw, 30px); }` を追加
 - 既存 `.hero-copy h1` ルールは xtp3/amazon/ サブLPと共有のため変更せず、クラス限定で上書き
+
+## xtp-compare/index.html
+
+### ver1.0 (2026-10-19) — 新規: XTP3・XTP4・XTP6 機能比較ページ
+- スマホ幅（360〜430px）でズームせずに読める縦長の比較表。ジャンル分け（基本／投稿／AI・分析／安全・交流／その他）・○は中央・補足は下
+- 下に「XTP6 を無料で始める」ボタン（短縮リンク x6-cmp-lp → XTP6 LP・utm_source=youpapatools&utm_medium=compare）
+- LINE（XTP3 オプチャ／XTP4 グループ／XTP6 オプチャ）の告知から短縮リンク x6-cmp-x3／x4／oc で流入。元は ClaudeCompany `.company/marketing/content-plan/xtp-compare-page.html`
