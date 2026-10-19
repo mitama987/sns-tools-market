@@ -66,3 +66,6 @@ Chrome実機での再現・APIバイセクトにより、公開時検証の仕�
 - スマホ幅（360〜430px）でズームせずに読める縦長の比較表。ジャンル分け（基本／投稿／AI・分析／安全・交流／その他）・○は中央・補足は下
 - 下に「XTP6 を無料で始める」ボタン（短縮リンク x6-cmp-lp → XTP6 LP・utm_source=youpapatools&utm_medium=compare）
 - LINE（XTP3 オプチャ／XTP4 グループ／XTP6 オプチャ）の告知から短縮リンク x6-cmp-x3／x4／oc で流入。元は ClaudeCompany `.company/marketing/content-plan/xtp-compare-page.html`
+
+### ver1.1 (2026-10-20) — 見出しを固定
+- 下にスクロールしても見出し（機能・XTP3・XTP4・XTP6）が画面の上に残るように（`position:sticky`）。sticky を効かせるため表の `overflow:hidden` をやめ、角丸は四隅のマスに付けた
