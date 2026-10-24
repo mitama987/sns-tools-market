@@ -1,5 +1,20 @@
 # VERSION_HISTORY_ARCHIVE — sns-tools-market
 
+## index.html（トップ）
+
+### ver2.0 (2026-10-24) — モックから実物のハブへ
+- 2026-05 のデザインモック（React 開発ビルド＋Babel・`components-amazon.jsx`・`tweaks-panel.jsx`・架空の製品 7 点／価格／レビュー 1,842 件／タイムセール／カート／全部入り月額）を撤去し、静的 HTML 1 枚に
+- サイト名を「Youパパツールマーケット」に（登録 GAS・メール署名と同じ）。載せるのは今買える／使える製品だけ: XToolsPro3（/xtp3/・買い切り ¥9,800〜）、XToolsPro6（xtp6.youpapatools.com・無料〜月 ¥1,000）、XToolsPro4（/xtp4/・無料〜月 ¥1,000）、ThreadsToolsPro2（docs＋theapps 購入登録・月 ¥1,000）。比較表 /xtp-compare/ への導線、購入後の流れ 3 ステップ、フッターに特商法・お問い合わせ・手順書・note・RAIJIN
+- 「X自動投稿ツール」の名乗りは置かず、「API 不要」は料金の後ろに添える（第一想起の方針）
+- JSON-LD（WebSite＋ItemList/SoftwareApplication）。GA `G-ZKGY7RFRGX` は維持。`href="#"` 0 件
+- `Market-notion.html`・`components.jsx`（.vercelignore 済みだった）も削除
+- canonical／og:url は当面 `https://sns-tools-market.vercel.app/`（独自ドメイン `market.youpapatools.com` が付いたら差し替え）
+
+## xtp3/amazon/index.html
+
+### ver1.1 (2026-10-24) — canonical を本番 URL に
+- `https://mitama987.github.io/youpapa-school/xtp3/amazon/` → `https://sns-tools-market.vercel.app/xtp3/amazon/`
+
 ## xtp3/index.html
 
 ### ver1.9 (2026-10-17) — 決済を Stripe 直販に（main `2c6a9f1`）

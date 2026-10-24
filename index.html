@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Market — SNS自動化ツールアトリエ</title>
-
-<!-- Favicon -->
-<link rel="icon" href="favicon.ico" sizes="any" />
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
-<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Youパパツールマーケット｜X・Threads の運用ツール（XToolsPro・ThreadsToolsPro）</title>
+<meta name="description" content="Youパパが個人で開発・販売している X（旧 Twitter）と Threads の運用ツールの一覧。無料で始められる XTP6・XTP4、買い切りの XTP3、Threads 向けの ThreadsToolsPro2。料金と選び方をまとめています。">
+<link rel="canonical" href="https://sns-tools-market.vercel.app/">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta property="og:site_name" content="Youパパツールマーケット">
+<meta property="og:title" content="Youパパツールマーケット｜X・Threads の運用ツール">
+<meta property="og:description" content="無料で始められる XTP6・XTP4、買い切りの XTP3、Threads 向けの ThreadsToolsPro2。料金と選び方を 1 ページで。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sns-tools-market.vercel.app/">
+<meta property="og:image" content="https://sns-tools-market.vercel.app/apple-touch-icon.png">
+<meta name="twitter:card" content="summary">
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZKGY7RFRGX"></script>
@@ -20,72 +27,286 @@
   gtag('config', 'G-ZKGY7RFRGX');
 </script>
 
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
 
-<script src="https://cdn.tailwindcss.com"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://sns-tools-market.vercel.app/#website",
+      "url": "https://sns-tools-market.vercel.app/",
+      "name": "Youパパツールマーケット",
+      "description": "Youパパが個人で開発・販売している X（旧 Twitter）と Threads の運用ツールの一覧",
+      "inLanguage": "ja",
+      "publisher": { "@type": "Person", "name": "Youパパ", "url": "https://note.com/youpapalife" }
+    },
+    {
+      "@type": "ItemList",
+      "name": "販売中のツール",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "item": {
+          "@type": "SoftwareApplication", "name": "XToolsPro3", "url": "https://sns-tools-market.vercel.app/xtp3/",
+          "applicationCategory": "BusinessApplication", "operatingSystem": "Windows",
+          "offers": { "@type": "Offer", "price": "9800", "priceCurrency": "JPY", "description": "買い切り。フルパックは 29,800 円" } } },
+        { "@type": "ListItem", "position": 2, "item": {
+          "@type": "SoftwareApplication", "name": "XToolsPro6", "url": "https://xtp6.youpapatools.com/",
+          "applicationCategory": "BusinessApplication", "operatingSystem": "Web",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY", "description": "無料版あり。有料は月 1,000 円（14 日お試し）" } } },
+        { "@type": "ListItem", "position": 3, "item": {
+          "@type": "SoftwareApplication", "name": "XToolsPro4", "url": "https://sns-tools-market.vercel.app/xtp4/",
+          "applicationCategory": "BusinessApplication", "operatingSystem": "Web",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY", "description": "無料版あり。有料は月 1,000 円" } } },
+        { "@type": "ListItem", "position": 4, "item": {
+          "@type": "SoftwareApplication", "name": "ThreadsToolsPro2", "url": "https://threadtoolspro2.vercel.app/docs",
+          "applicationCategory": "BusinessApplication", "operatingSystem": "Web",
+          "offers": { "@type": "Offer", "price": "1000", "priceCurrency": "JPY", "description": "月額（税込）" } } }
+      ]
+    }
+  ]
+}
+</script>
 
 <style>
-  html, body {
-    background: #F2EDE3;
-  }
+:root{
+  --cream:#F4EFE6; --paper:#FBF8F2; --card:#FFFFFF;
+  --ink:#2A2219; --sub:#6B5F52; --rule:#E6DDD0;
+  --persimmon:#C2533C; --persimmon-deep:#A8432F; --persimmon-soft:#FBEDD9;
+  --teal:#1B7670; --teal-deep:#0F4B47;
+  --x3:#5A6578; --x4:#2F6FD6; --x6:#E8463A; --th:#1F1B16;
+  --maxw:1080px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:"Noto Sans JP","Hiragino Sans","Yu Gothic UI",sans-serif;font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;font-feature-settings:"palt"}
+a{color:var(--teal)}
+a:hover{color:var(--teal-deep)}
+:focus-visible{outline:3px solid var(--persimmon);outline-offset:3px;border-radius:4px}
+.serif{font-family:"Fraunces","Noto Sans JP",serif}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 16px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 
-  body {
-    /* Amazon-like type stack: Arial-first, Noto for JP */
-    font-family: "Amazon Ember", "Noto Sans JP", Arial, "Helvetica Neue", Helvetica, sans-serif;
-    color: #0F1111;
-    font-size: 14px;
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-feature-settings: "palt";
-  }
+/* 背景の紙っぽい粒 */
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.35;
+  background-image:radial-gradient(rgba(42,34,25,.08) .6px,transparent .7px);background-size:5px 5px}
+main,header,footer{position:relative;z-index:1}
 
-  .font-mono { font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace; }
+/* ヘッダー */
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 0}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+.mark{width:36px;height:36px;border-radius:9px;background:linear-gradient(135deg,var(--persimmon),var(--persimmon-deep));display:grid;place-items:center;color:#FBEDD9;font-family:"Fraunces",serif;font-weight:700;font-size:22px;box-shadow:0 2px 6px rgba(168,67,47,.35)}
+.brand b{font-weight:900;font-size:17px;letter-spacing:.02em}
+.brand small{display:block;font-size:11.5px;color:var(--sub);font-weight:500;line-height:1.2}
+.top nav{display:flex;gap:6px}
+.top nav a{white-space:nowrap;font-size:14px;font-weight:700;color:var(--ink);text-decoration:none;padding:8px 12px;border-radius:999px;min-height:44px;display:inline-flex;align-items:center}
+.top nav a:hover{background:var(--persimmon-soft)}
+@media(max-width:480px){.brand{gap:8px}.mark{width:32px;height:32px;font-size:19px}.brand b{font-size:13px;letter-spacing:0}.top nav{gap:0}.brand small{display:none}.top nav a{padding:8px 9px;font-size:13.5px}}
 
-  /* Allow long product titles to truncate cleanly */
-  .line-clamp-1 {
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-  .line-clamp-2 {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
+/* ファーストビュー */
+.hero{padding:40px 0 36px}
+.hero h1{font-family:"Fraunces","Noto Sans JP",serif;font-weight:600;font-size:clamp(30px,6vw,50px);line-height:1.2;margin:0 0 14px;letter-spacing:-.01em}
+.hero h1 em{font-style:normal;color:var(--persimmon)}
+.hero .lede{font-size:clamp(15px,2.4vw,18px);color:var(--sub);margin:0 0 22px;max-width:40em}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 26px;padding:0;list-style:none}
+.chips li{font-size:13px;font-weight:700;color:var(--ink);background:var(--card);border:1px solid var(--rule);padding:7px 12px;border-radius:999px;display:flex;align-items:center;gap:6px}
+.chips li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--teal)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:12px 22px;border-radius:12px;font-weight:900;font-size:16px;text-decoration:none;transition:transform .15s,box-shadow .15s,background .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--persimmon);color:#FBEDD9;box-shadow:0 6px 16px rgba(194,83,60,.35)}
+.btn-primary:hover{background:var(--persimmon-deep);color:#FBEDD9}
+.btn-ghost{background:var(--card);color:var(--ink);border:1.5px solid var(--rule)}
+.btn-ghost:hover{border-color:var(--ink);color:var(--ink)}
 
-  /* Anchored sections need scroll offset under sticky nav (none here, but keep) */
-  section[id] { scroll-margin-top: 16px; }
+/* セクション共通 */
+section{padding:34px 0}
+.eyebrow{font-family:"Fraunces",serif;font-weight:600;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--persimmon);margin:0 0 6px}
+h2{font-size:clamp(22px,4vw,30px);font-weight:900;margin:0 0 8px;line-height:1.3}
+.sub{color:var(--sub);margin:0 0 20px;font-size:15px}
 
-  /* Selection */
-  ::selection { background: #F1DDB8; color: #1F1B16; }
+/* 選び方 */
+.guide{display:grid;gap:10px;margin:0 0 26px;padding:0;list-style:none}
+.guide li{background:var(--paper);border-left:4px solid var(--rule);padding:12px 14px;border-radius:0 10px 10px 0;font-size:15px}
+.guide li b{display:inline-block;margin-right:6px;font-weight:900}
+.guide li.x3{border-color:var(--x3)} .guide li.x6{border-color:var(--x6)} .guide li.x4{border-color:var(--x4)}
 
-  /* Focus ring */
-  :focus-visible {
-    outline: 2px solid #C2533C;
-    outline-offset: 2px;
-  }
+/* カード */
+.cards{display:grid;gap:18px;grid-template-columns:1fr}
+@media(min-width:760px){.cards{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--card);border-radius:18px;padding:22px 20px 20px;border:1px solid var(--rule);box-shadow:0 10px 30px rgba(42,34,25,.06);display:flex;flex-direction:column;position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;left:0;top:0;right:0;height:6px;background:var(--accent,var(--x3))}
+.card.x3{--accent:var(--x3)} .card.x6{--accent:var(--x6)} .card.x4{--accent:var(--x4)} .card.th{--accent:var(--th)}
+.card .tag{position:absolute;top:14px;right:14px;background:#FFC21A;color:var(--ink);font-size:11px;font-weight:900;padding:3px 9px;border-radius:999px;letter-spacing:.06em}
+.card h3{margin:4px 0 2px;font-size:22px;font-weight:900;line-height:1.25}
+.card h3 small{display:block;font-size:12.5px;color:var(--sub);font-weight:700;letter-spacing:.04em;margin-bottom:2px}
+.card .for{margin:8px 0 14px;font-size:14.5px;color:var(--ink)}
+.card .for b{color:var(--sub);font-weight:700;font-size:12.5px;display:block;letter-spacing:.06em}
+.facts{list-style:none;margin:0 0 18px;padding:0;display:grid;gap:8px;font-size:14px}
+.facts li{display:grid;grid-template-columns:4.5em 1fr;gap:8px;padding:8px 0;border-top:1px solid var(--rule)}
+.facts li:last-child{border-bottom:1px solid var(--rule)}
+.facts li span:first-child{color:var(--sub);font-weight:700;font-size:12.5px;padding-top:2px}
+.price{font-family:"Fraunces","Noto Sans JP",serif;font-weight:700;font-size:20px;line-height:1.2}
+.price small{font-family:"Noto Sans JP",sans-serif;font-weight:700;font-size:12.5px;color:var(--sub);display:block;margin-top:2px}
+.card .btn{margin-top:auto;width:100%}
+.card .more{margin:10px 0 0;font-size:13px;text-align:center}
 
-  /* Smoother scrollbar for filter overflow */
-  .nav-scroll::-webkit-scrollbar { display: none; }
+/* 比較 */
+.compare{margin-top:6px;background:var(--ink);color:#F4EFE6;border-radius:20px;padding:26px 22px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px}
+.compare h2{color:#F4EFE6;font-size:22px;margin:0 0 4px}
+.compare p{margin:0;color:#D9CFC1;font-size:14.5px}
+.compare .btn{background:#FFC21A;color:var(--ink)}
+.compare .btn:hover{background:#FFD24D;color:var(--ink)}
+
+/* 購入後 */
+.steps{display:grid;gap:14px;grid-template-columns:1fr;counter-reset:s;margin:0;padding:0;list-style:none}
+@media(min-width:760px){.steps{grid-template-columns:repeat(3,1fr)}}
+.steps li{background:var(--paper);border:1px solid var(--rule);border-radius:14px;padding:18px 18px 16px 18px;font-size:14.5px;position:relative}
+.steps li::before{counter-increment:s;content:counter(s);font-family:"Fraunces",serif;font-weight:700;font-size:28px;color:var(--persimmon);display:block;line-height:1;margin-bottom:6px}
+.steps li b{display:block;font-weight:900;margin-bottom:4px}
+
+/* フッター */
+footer{margin-top:30px;border-top:1px solid var(--rule);padding:28px 0 40px;font-size:13.5px;color:var(--sub)}
+footer .cols{display:flex;flex-wrap:wrap;gap:10px 22px;margin:0 0 14px;padding:0;list-style:none}
+footer a{color:var(--ink);text-decoration:none;font-weight:700;min-height:44px;display:inline-flex;align-items:center}
+footer a:hover{color:var(--persimmon)}
+footer p{margin:0}
+
+/* 登場の動き（控えめ） */
+@media(prefers-reduced-motion:no-preference){
+  .hero>*,.card{animation:rise .6s cubic-bezier(.2,.7,.2,1) both}
+  .hero .lede{animation-delay:.08s}.hero .chips{animation-delay:.14s}.hero .btn{animation-delay:.2s}
+  .card:nth-child(2){animation-delay:.08s}.card:nth-child(3){animation-delay:.16s}
+  @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+}
 </style>
 </head>
-
 <body>
 
-<div id="root"></div>
+<header class="wrap top">
+  <a class="brand" href="/" aria-label="Youパパツールマーケット ホーム">
+    <span class="mark" aria-hidden="true">M</span>
+    <span><b>Youパパツールマーケット</b><small>X・Threads の運用ツール</small></span>
+  </a>
+  <nav aria-label="ページ内">
+    <a href="/xtp-compare/">比較表</a>
+    <a href="https://forms.gle/sDG46hdxTo9E4p4CA" target="_blank" rel="noopener">お問い合わせ</a>
+  </nav>
+</header>
 
-<!-- React + Babel -->
-<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<main>
+  <section class="wrap hero">
+    <h1>SNS運用を、<em>仕組み</em>に任せる。</h1>
+    <p class="lede">Youパパが個人で開発・販売している、X（旧 Twitter）と Threads の運用ツールです。無料で始められるものから、買い切りまで。</p>
+    <ul class="chips" aria-label="安心材料">
+      <li>無料版は Google アカウントで即開始</li>
+      <li>買い切りは Stripe 決済</li>
+      <li>購入後は手順書とお問い合わせ窓口</li>
+    </ul>
+    <a class="btn btn-primary" href="#tools">ツールを選ぶ</a>
+  </section>
 
-<script type="text/babel" src="tweaks-panel.jsx"></script>
-<script type="text/babel" src="components-amazon.jsx"></script>
+  <section class="wrap" id="tools">
+    <p class="eyebrow">For X</p>
+    <h2>X（旧 Twitter）の運用ツール</h2>
+    <p class="sub">まず自分の使い方に合うものを 1 つ選べば十分です。</p>
+
+    <ul class="guide" aria-label="選び方">
+      <li class="x3"><b>PC をつけっぱなしにできて、腰を据えて運用したい</b>→ XToolsPro3（買い切り）</li>
+      <li class="x6"><b>スマホから、まず無料で始めたい</b>→ XToolsPro6</li>
+      <li class="x4"><b>X 公式 API で動かしたい・AI に投稿案を作らせたい</b>→ XToolsPro4</li>
+    </ul>
+
+    <div class="cards">
+      <article class="card x3">
+        <h3><small>XTP3 · Windows アプリ</small>XToolsPro3</h3>
+        <p class="for"><b>こんな人に</b>複数アカウントを PC で本格的に運用したい。月額を払い続けたくない。</p>
+        <ul class="facts">
+          <li><span>動く場所</span><span>Windows PC（つけっぱなしが必要）</span></li>
+          <li><span>料金</span><span class="price">¥9,800〜<small>買い切り。フルパック ¥29,800。X の API 不要</small></span></li>
+          <li><span>無料版</span><span>あり（定期投稿のみ）</span></li>
+        </ul>
+        <a class="btn btn-primary" href="/xtp3/">XToolsPro3 を見る</a>
+      </article>
+
+      <article class="card x6">
+        <span class="tag">NEW</span>
+        <h3><small>XTP6 · Web アプリ</small>XToolsPro6</h3>
+        <p class="for"><b>こんな人に</b>スマホのブラウザで予約投稿・分析・AI の投稿案まで使いたい。</p>
+        <ul class="facts">
+          <li><span>動く場所</span><span>Web（最初の X アカウント登録だけ PC）</span></li>
+          <li><span>料金</span><span class="price">無料〜<small>有料は月 ¥1,000・14 日お試し</small></span></li>
+          <li><span>無料版</span><span>1 日 10 件（予約・オート・分析・AI）</span></li>
+        </ul>
+        <a class="btn btn-primary" href="https://xtp6.youpapatools.com/?utm_source=market&utm_medium=hub">XToolsPro6 を見る</a>
+      </article>
+
+      <article class="card x4">
+        <h3><small>XTP4 · Web アプリ</small>XToolsPro4</h3>
+        <p class="for"><b>こんな人に</b>X 公式 API で運用したい。AI の下書きで投稿づくりを楽にしたい。</p>
+        <ul class="facts">
+          <li><span>動く場所</span><span>Web（スマホ可）</span></li>
+          <li><span>料金</span><span class="price">無料〜<small>有料は月 ¥1,000。有料版は自分の API キーが必要</small></span></li>
+          <li><span>無料版</span><span>1 日 1 件</span></li>
+        </ul>
+        <a class="btn btn-primary" href="/xtp4/">XToolsPro4 を見る</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="compare">
+      <div>
+        <h2 class="serif">XTP3・XTP4・XTP6 の違いを 1 枚で</h2>
+        <p>PC の有無・API・料金・アカウント数・AI。スマホで読める比較表です。</p>
+      </div>
+      <a class="btn" href="/xtp-compare/">比較表を見る</a>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <p class="eyebrow">For Threads</p>
+    <h2>Threads の運用ツール</h2>
+    <p class="sub">Threads 公式 API と OAuth で動く Web アプリです。</p>
+    <div class="cards">
+      <article class="card th">
+        <h3><small>TTP2 · Web アプリ</small>ThreadsToolsPro2</h3>
+        <p class="for"><b>こんな人に</b>Threads を複数アカウントで、予約・定期・ランダム投稿で回したい。</p>
+        <ul class="facts">
+          <li><span>動く場所</span><span>Web（24 時間稼働・PC 不要）</span></li>
+          <li><span>料金</span><span class="price">月 ¥1,000<small>税込</small></span></li>
+          <li><span>取込</span><span>スプレッドシート・CSV の一括取込</span></li>
+        </ul>
+        <a class="btn btn-primary" href="https://threadtoolspro2.vercel.app/docs" target="_blank" rel="noopener">使い方と登録を見る</a>
+        <p class="more"><a href="https://page.theapps.jp/paid/join/H8hv3G40M25l77c8" target="_blank" rel="noopener">購入登録へ進む →</a></p>
+      </article>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <p class="eyebrow">After purchase</p>
+    <h2>購入してからの流れ</h2>
+    <ol class="steps">
+      <li><b>各ツールのページで購入・無料登録</b>買い切りは Stripe、Web アプリは Google アカウントで登録します。</li>
+      <li><b>手順書を見ながら設定</b>セットアップの手順書は <a href="https://xtools-docs-auth.web.app/" target="_blank" rel="noopener">こちら</a>。5〜10 分で終わります。</li>
+      <li><b>困ったらお問い合わせ</b><a href="https://forms.gle/sDG46hdxTo9E4p4CA" target="_blank" rel="noopener">お問い合わせフォーム</a>から。開発者本人が返信します。</li>
+    </ol>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <ul class="cols">
+      <li><a href="https://xtools-docs-auth.web.app/tokushoho.html" target="_blank" rel="noopener">特定商取引法に基づく表記</a></li>
+      <li><a href="https://forms.gle/sDG46hdxTo9E4p4CA" target="_blank" rel="noopener">お問い合わせ</a></li>
+      <li><a href="https://xtools-docs-auth.web.app/" target="_blank" rel="noopener">手順書</a></li>
+      <li><a href="https://note.com/youpapalife" target="_blank" rel="noopener">note</a></li>
+      <li><a href="https://raijin.youpapatools.com/" target="_blank" rel="noopener">法人の方・開発者について（RAIJIN）</a></li>
+    </ul>
+    <p>© Youパパツールマーケット — 個人開発の SNS 運用ツールを、作った本人が販売・サポートしています。</p>
+  </div>
+</footer>
 
 </body>
 </html>
