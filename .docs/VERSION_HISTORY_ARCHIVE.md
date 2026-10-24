@@ -2,6 +2,14 @@
 
 ## index.html（トップ）
 
+### ver2.1 (2026-10-24) — 見た目を 5 月の Amazon 風デザインに戻し、中身だけ実物に
+- ゆうさん「デザインは圧倒的に旧（Amazon 風）が好み」→ ver2.0 の静的レイアウトを取り下げ、`components-amazon.jsx` を復元して書き換え
+- 残したもの: 黒い 2 段ナビ・検索・ヒーローバナー・4 枚タイル・左フィルタ＋商品カード・比較表・3 ステップ・FAQ・暗いフッターの構成と配色（walnut／persimmon／cream）
+- 変えたもの: 製品は実在の 4 つ（XTP3／XTP6／XTP4／TTP2）と実価格・実リンクのみ。架空のレビュー数・星・在庫・参考価格・タイムセール・カート・オールインワン月額・お届け先・ログイン・注文履歴・ダミーのフッター列を撤去。検索はページ内のツールへスクロール、フィルタ（対応 SNS／料金の形／使う場所）は実際に絞り込む。「どれを選べばいい？」タイルと「無料で試す ¥0」タイルを追加。FAQ は実情に合わせた 6 問
+- React は本番ビルド（production.min）に。Tweaks パネル削除。noscript のフォールバック一覧と JSON-LD（WebSite＋ItemList）
+- 画像: XTP6・TTP2 の製品サムネとタイルアイコン 3 枚・FAQ「スマホで使える？」の線画を gpt-image-2 で追加（`scripts/gen_thumbs.py` に定義）。thumbs は全部 640px WebP に（19.9MB → 0.24MB）。使わない sale/ は削除
+- canonical／og:url は引き続き `https://sns-tools-market.vercel.app/`
+
 ### ver2.0 (2026-10-24) — モックから実物のハブへ
 - 2026-05 のデザインモック（React 開発ビルド＋Babel・`components-amazon.jsx`・`tweaks-panel.jsx`・架空の製品 7 点／価格／レビュー 1,842 件／タイムセール／カート／全部入り月額）を撤去し、静的 HTML 1 枚に
 - サイト名を「Youパパツールマーケット」に（登録 GAS・メール署名と同じ）。載せるのは今買える／使える製品だけ: XToolsPro3（/xtp3/・買い切り ¥9,800〜）、XToolsPro6（xtp6.youpapatools.com・無料〜月 ¥1,000）、XToolsPro4（/xtp4/・無料〜月 ¥1,000）、ThreadsToolsPro2（docs＋theapps 購入登録・月 ¥1,000）。比較表 /xtp-compare/ への導線、購入後の流れ 3 ステップ、フッターに特商法・お問い合わせ・手順書・note・RAIJIN
