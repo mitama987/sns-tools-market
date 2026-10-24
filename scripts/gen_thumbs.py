@@ -109,6 +109,23 @@ VARIANTS: dict[str, dict[str, str]] = {
         ),
         "text_color": "deep ocean blue (#0B3D66)",
     },
+    "xtp6": {
+        "label": "XToolsPro6",
+        "glyph": "X logo (post-Twitter rebrand: two crossing diagonal strokes forming an X)",
+        "gradient": "from coral red (#E8463A) at the top-left to deep crimson (#B91C1C) at the bottom-right",
+        "background": DARK_BG,
+        "text_color": "pure white",
+    },
+    "ttp2": {
+        "label": "ThreadsToolsPro2",
+        "glyph": "Threads-style '@' glyph (a single continuous looping stroke forming an at-sign)",
+        "gradient": "from charcoal (#2A2A2A) at the top-left to near-black (#0B0B0B) at the bottom-right, with a thin subtle white rim",
+        "background": (
+            "a soft warm cream to light grey gradient (#F6F1E8 at top-left to "
+            "#E8E4DD at bottom-right) with a faint grey glow in the corners."
+        ),
+        "text_color": "near-black (#111111)",
+    },
     "yay": {
         "label": "yayToolsPro",
         "glyph": "playful chat-bubble glyph with a small sparkle / star inside",
@@ -176,6 +193,27 @@ EXTRAS: dict[str, dict[str, str]] = {
         "prompt": tile_icon_prompt(
             gradient="from royal blue (#3B5BFF) at the top-left to vivid violet (#8B5CF6) at the bottom-right",
             glyph="X logo (post-Twitter rebrand: two crossing diagonal strokes forming an X)",
+        ),
+    },
+    "tile-xtp3-icon": {
+        "out_subdir": "tiles",
+        "prompt": tile_icon_prompt(
+            gradient="from indigo (#4F46E5) at the top-left to vivid violet (#7C3AED) at the bottom-right",
+            glyph="X logo (post-Twitter rebrand: two crossing diagonal strokes forming an X)",
+        ),
+    },
+    "tile-xtp6-icon": {
+        "out_subdir": "tiles",
+        "prompt": tile_icon_prompt(
+            gradient="from coral red (#E8463A) at the top-left to deep crimson (#B91C1C) at the bottom-right",
+            glyph="X logo (post-Twitter rebrand: two crossing diagonal strokes forming an X)",
+        ),
+    },
+    "tile-ttp2-icon": {
+        "out_subdir": "tiles",
+        "prompt": tile_icon_prompt(
+            gradient="from charcoal (#2A2A2A) at the top-left to near-black (#0B0B0B) at the bottom-right",
+            glyph="Threads-style '@' glyph (a single continuous looping stroke forming an at-sign)",
         ),
     },
     "tile-ig-icon": {
@@ -250,6 +288,17 @@ EXTRAS: dict[str, dict[str, str]] = {
                 "and pointing back at the coin to suggest a refund. Clean "
                 "and balanced composition. The only character on the canvas "
                 "is the ¥ glyph on the coin"
+            ),
+        ),
+    },
+    "faq-phone": {
+        "out_subdir": "faq",
+        "prompt": faq_line_prompt(
+            subject=(
+                "a simple upright smartphone outline with rounded corners, "
+                "a small speech-bubble with three dots floating just above "
+                "its top-right corner to suggest posting from a phone. No "
+                "other props"
             ),
         ),
     },
