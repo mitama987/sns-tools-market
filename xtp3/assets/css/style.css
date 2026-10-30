@@ -328,6 +328,8 @@ h3 { font-family: var(--sans); font-weight: 700; font-size: 18px; margin: 0 0 8p
    ============================================================ */
 .pricing { padding: 96px 0; background: var(--paper-2); }
 .pricing h2 { margin-bottom: 16px; }
+.pricing .pay-methods { margin-top: 28px; font-size: 14px; line-height: 1.8; }
+.pricing .pay-methods b { color: var(--ink, #1f1f1f); }
 .plan-grid {
   display: grid; gap: 24px; align-items: stretch;
   grid-template-columns: 1fr 1.08fr 1fr;
