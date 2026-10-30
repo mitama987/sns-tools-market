@@ -256,7 +256,7 @@
         <a href="https://stripe-webhook-r260221-01.web.app/api/buy/xtp3_full" class="btn btn-dark btn-block" target="_blank" rel="noopener">フル装備で買う</a>
       </article>
     </div>
-    <p class="center muted pay-methods">お支払い: クレジットカード（<b>分割払い可</b>・日本発行のクレジットカード）／ Apple Pay ／ Google Pay。<br class="br-pc">決済は Stripe の安全な画面で行われ、カード情報は当方に保存されません。</p>
+    <p class="center muted pay-methods">お支払い: クレジットカード（<b>分割払い可</b>・日本発行のクレジットカード）／ <b>銀行振込</b> ／ Apple Pay ／ Google Pay。<br class="br-pc">決済は Stripe の安全な画面で行われ、カード情報は当方に保存されません。銀行振込は入金確認後にご利用いただけます。</p>
   </div>
 </section>
 
@@ -542,6 +542,7 @@
 
 <!--
 Version History
+- ver2.1 (2026-10-30): 料金表下のお支払い注記に銀行振込を追加（Stripe で本番有効化済み・入金確認後に利用開始の一文）
 - ver2.0 (2026-10-30): 決済手段の拡充。購入ボタン 9 箇所を Payment Links（buy.stripe.com）から Functions の GET /api/buy/<sku>（サーバーが Customer 付き Checkout を作る＝銀行振込を出せる・PayPay は Stripe 承認待ち）へ差し替え。?ref は ref パラメータで渡す。料金表の下に「お支払い: クレジットカード（分割払い可）／Apple Pay／Google Pay」の注記
 - ver1.9 (2026-10-18): 料金プラン「買い切り＋アドオン」カードに「アカウント分析・シャドウバンチェック」を追加（ベースプランの機能・アプリのプラン比較と同じ文言）
 - ver1.8 (2026-10-11): 紹介動画の埋め込みを v4（声の場面を差し替えた 77 秒版・MSSG1IbBqts）に差し替え（旧 EmrgY5hKBt8 は非公開）
