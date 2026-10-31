@@ -171,7 +171,7 @@ function Logo({ size = 22 }) {
 function MockStrip() {
   return (
     <div className="bg-[#FFE7A3] text-[#5A3B00] text-[12px] text-center py-1 px-3">
-      モック（v3 案・2026-10-31）— 本番ではありません。新しいツールの製品ページはこれから作ります
+      モック（v3 案・第 2 版・2026-10-31）— 本番ではありません。新しいツールの製品ページはこれから作ります
     </div>
   );
 }
@@ -191,8 +191,6 @@ function TopNav() {
     document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
   };
   const sub = [
-    { l: '★ 無料で始める（XTP6）', href: '#p-xtp6', hot: true },
-    { l: '強化版・買い切り（XTP3）', href: '#p-xtp3' },
     { l: 'X', href: '#shelf-x' },
     { l: 'Threads・Bluesky・Yay!', href: '#shelf-text' },
     { l: 'Facebook・Instagram', href: '#shelf-meta' },
@@ -251,7 +249,7 @@ function TopNav() {
 
       <div className="bg-[#2D2620] text-white text-[13px]">
         <div className="mx-auto max-w-[1500px] flex items-center gap-1 px-2 h-10 overflow-x-auto whitespace-nowrap nav-scroll">
-          <a href="#products" className="flex items-center gap-1 px-3 py-1.5 rounded border border-transparent hover:border-white/60 transition-colors font-bold">
+          <a href="#tools" className="flex items-center gap-1 px-3 py-1.5 rounded border border-transparent hover:border-white/60 transition-colors font-bold">
             <svg width="16" height="14" viewBox="0 0 24 18" fill="currentColor"><rect y="0" width="24" height="2"/><rect y="8" width="24" height="2"/><rect y="16" width="24" height="2"/></svg>
             すべてのツール
           </a>
@@ -272,59 +270,20 @@ function HeroBanner() {
   return (
     <div className="bg-gradient-to-b from-[#2D2620] to-transparent">
       <div className="mx-auto max-w-[1500px] px-3 pt-3">
-        <div className="relative rounded-sm overflow-hidden bg-gradient-to-br from-[#1F1B16] via-[#3A2F25] to-[#1F1B16] text-white">
-          <div className="grid md:grid-cols-[1.4fr_1fr] gap-6 p-6 md:p-10 items-center">
+        <div className="rounded-sm overflow-hidden bg-gradient-to-br from-[#1F1B16] via-[#3A2F25] to-[#1F1B16] text-white">
+          <div className="flex flex-wrap items-end justify-between gap-4 px-6 py-6 md:px-10 md:py-8">
             <div>
-              <div className="inline-flex items-center gap-2 mb-3 text-[#E8A87C] text-[11px] font-bold tracking-[0.12em] uppercase">
+              <div className="inline-flex items-center gap-2 mb-2 text-[#E8A87C] text-[11px] font-bold tracking-[0.12em] uppercase">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#E8A87C]"></span>
                 作った本人が販売・サポート
               </div>
-              <h1 className="text-[28px] md:text-[40px] font-bold leading-[1.15] mb-4">
-                SNS運用を、<br/>
-                <span className="text-[#E8A87C]">仕組み</span>に任せる。
-              </h1>
-              <p className="text-[14px] md:text-[15px] text-gray-200 leading-[1.7] mb-5 max-w-[540px]">
-                Youパパが個人で開発している SNS 運用ツール <span className="text-white font-bold tabular-nums">{ON_SALE.length}</span> 種を、SNS ごとの棚に値札つきで並べました。
-                X・Threads・Bluesky・Yay!・Facebook・アメブロ・note。
-              </p>
-              <div className="flex flex-wrap gap-2">
-                <a href={XTP6_URL} target="_blank" rel="noopener" className="inline-flex items-center justify-center h-10 px-6 rounded-sm bg-[#C2533C] hover:bg-[#A8432F] text-[#FBEDD9] text-[14px] font-medium border border-[#A8432F]">
-                  XToolsPro6 を無料で始める
-                </a>
-                <a href="#products" className="inline-flex items-center justify-center h-10 px-6 rounded-sm bg-white/10 hover:bg-white/20 text-white text-[14px] font-medium border border-white/30">
-                  全ツールの棚を見る
-                </a>
-              </div>
-              <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-1 text-[12px] text-gray-300">
-                <span>✓ 無料版は Google アカウントで即開始</span>
-                <span>✓ 買い切りは Stripe 決済（カード・銀行振込）</span>
-                <span>✓ 購入後は手順書とお問い合わせ窓口</span>
-              </div>
+              <h1 className="text-[24px] md:text-[34px] font-bold leading-[1.2]">SNS運用を、<span className="text-[#E8A87C]">仕組み</span>に任せる。</h1>
+              <p className="text-[13px] md:text-[14px] text-gray-200 mt-2">X・Threads・Bluesky・Yay!・Facebook・アメブロ・note の運用ツール <span className="font-bold text-white tabular-nums">{ON_SALE.length}</span> 種。</p>
             </div>
-
-            <div className="relative hidden md:block h-[260px]" aria-hidden="true">
-              <FloatCard className="top-0 right-8 rotate-[-4deg]" tool="XToolsPro6" title="予約投稿 10:00" tag="予約済" tagClass="bg-green-100 text-green-700" />
-              <FloatCard className="top-12 right-32 rotate-[3deg]" tool="XToolsPro3" title="定期投稿 稼働中" tag="稼働中" tagClass="bg-green-100 text-green-700" />
-              <FloatCard className="top-28 right-12 rotate-[-2deg]" tool="AmebloToolsPro" title="いいね 128 / 300" tag="次回 18:30" tagClass="bg-yellow-100 text-yellow-800" />
-            </div>
+            <a href="#tools" className="inline-flex items-center justify-center h-10 px-6 rounded-sm bg-[#C2533C] hover:bg-[#A8432F] text-[#FBEDD9] text-[14px] font-medium border border-[#A8432F]">ツール一覧を見る</a>
           </div>
         </div>
       </div>
-    </div>
-  );
-}
-
-function FloatCard({ className, tool, title, tag, tagClass }) {
-  return (
-    <div className={"absolute w-44 h-32 bg-white rounded shadow-xl p-3 " + className}>
-      <div className="text-[10px] text-gray-500 font-mono">{tool}</div>
-      <div className="text-[13px] font-bold text-[#0F1111] mt-1">{title}</div>
-      <div className="mt-2 space-y-1">
-        <div className="h-1.5 bg-gray-200 rounded-full w-3/4"></div>
-        <div className="h-1.5 bg-gray-200 rounded-full w-full"></div>
-        <div className="h-1.5 bg-gray-200 rounded-full w-2/3"></div>
-      </div>
-      <div className={"absolute bottom-2 right-2 px-1.5 py-0.5 text-[9px] rounded " + tagClass}>{tag}</div>
     </div>
   );
 }
@@ -332,168 +291,90 @@ function FloatCard({ className, tool, title, tag, tagClass }) {
 // ─── ① ステップアップ帯（無料の XTP6 → 強化版 XTP3） ─────────────────────
 
 function StepUp() {
-  const check = (t) => (
-    <li key={t} className="flex gap-1.5"><span className="text-[#C2533C] font-bold">✓</span><span>{t}</span></li>
+  const check = (t) => <li key={t} className="flex gap-1.5"><span className="text-[#C2533C] font-bold">✓</span><span>{t}</span></li>;
+  const Step = ({ no, label, img, name, price, points, btn, strong }) => (
+    <div className={"relative rounded-sm p-4 " + (strong ? 'border-2 border-[#C2533C] bg-[#FBEDD9] mt-3 md:mt-0' : 'border border-[#E3DACB] bg-[#FAF7F2]')}>
+      {strong && <span className="absolute -top-3 left-4 bg-[#A8392A] text-white text-[11px] font-bold px-2 py-0.5 rounded-sm">強化版</span>}
+      <div className="flex items-center gap-3">
+        <img src={B(img)} alt="" className="w-11 h-11 rounded-sm object-cover flex-shrink-0" />
+        <div className="min-w-0 flex-1">
+          <div className="text-[11px] text-[#7A4A20] font-bold tracking-[0.1em]">{no}<span className="ml-2 text-gray-500 font-normal tracking-normal">{label}</span></div>
+          <div className="text-[14px] font-bold text-[#0F1111] leading-tight">{name}<span className="ml-2 font-medium tabular-nums">{price}</span></div>
+        </div>
+      </div>
+      <ul className="text-[12px] text-gray-800 space-y-0.5 mt-2.5 mb-3">{points.map(check)}</ul>
+      {btn}
+    </div>
   );
   return (
-    <section id="stepup" className="mx-auto max-w-[1500px] px-3 mt-3 relative z-10 scroll-mt-4">
-      <div className="bg-white rounded-sm shadow-sm p-5 md:p-7">
-        <div className="flex flex-wrap items-baseline justify-between gap-2 mb-1">
-          <h2 className="text-[20px] md:text-[22px] font-bold text-[#0F1111]">まずは無料で。慣れたら、強化版へ。</h2>
-          <a href={B('xtp-compare/')} className="text-[13px] text-[#1B7670] hover:text-[#0F4B47] hover:underline">XTP3・4・6 の違いを表で見る ›</a>
+    <section id="stepup" className="mx-auto max-w-[1500px] px-3 mt-8 scroll-mt-4">
+      <div className="bg-white rounded-sm p-5 md:p-6">
+        <div className="flex flex-wrap items-baseline justify-between gap-2 mb-5">
+          <h2 className="text-[18px] md:text-[20px] font-bold text-[#0F1111]">X は、無料で試してから強化版へ</h2>
+          <a href={B('xtp-compare/')} className="text-[13px] text-[#1B7670] hover:text-[#0F4B47] hover:underline">XTP3・4・6 の比較表 ›</a>
         </div>
-        <p className="text-[13px] text-gray-600 mb-7">X の自動化は、スマホで始められる XToolsPro6 がいちばん手軽です。アカウントや投稿を増やしたくなったら、買い切りの XToolsPro3 へ。</p>
-
-        <div className="grid md:grid-cols-[1fr_auto_1fr] gap-3 md:gap-4 items-end">
-          {/* STEP 1 */}
-          <div className="rounded-sm border border-[#E3DACB] bg-[#FAF7F2] p-4 md:mb-0">
-            <div className="flex items-center gap-2 mb-2">
-              <span className="text-[11px] font-bold tracking-[0.12em] text-[#7A4A20]">STEP 1</span>
-              <span className="text-[11px] text-gray-500">まず試す</span>
-            </div>
-            <div className="flex items-center gap-3 mb-3">
-              <img src={B('thumbs/xtp6.webp')} alt="" className="w-14 h-14 rounded-sm object-cover" />
-              <div>
-                <div className="text-[15px] font-bold text-[#0F1111] leading-tight">XToolsPro6 無料版</div>
-                <div className="text-[24px] font-medium tabular-nums leading-none mt-1">¥0</div>
-              </div>
-            </div>
-            <ul className="text-[12px] text-gray-700 space-y-1 mb-4">
-              {['スマホのブラウザで、今日から', 'X アカウント 1 個・1 日 10 件まで', 'カード登録なし（Google でログイン）'].map(check)}
-            </ul>
-            <a href={XTP6_URL} target="_blank" rel="noopener" className="h-9 w-full inline-flex items-center justify-center rounded-full bg-white hover:bg-gray-50 border border-gray-300 text-[#0F1111] text-[13px] font-medium">
-              無料で始める
-            </a>
+        <div className="grid md:grid-cols-[1fr_auto_1fr] gap-3 md:gap-4 items-center">
+          <Step no="STEP 1" label="まず試す" img="thumbs/xtp6.webp" name="XToolsPro6 無料版" price="¥0"
+            points={['スマホのブラウザで、今日から', 'カード登録なし']}
+            btn={<a href={XTP6_URL} target="_blank" rel="noopener" className="h-9 w-full inline-flex items-center justify-center rounded-full bg-white hover:bg-gray-50 border border-gray-300 text-[#0F1111] text-[13px] font-medium">無料で始める</a>} />
+          <div className="flex md:flex-col items-center justify-center gap-1.5 text-[#C2533C]">
+            <svg className="rotate-90 md:rotate-0" width="30" height="18" viewBox="0 0 34 20" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M2 10h28M22 3l8 7-8 7"/></svg>
+            <span className="text-[11px] font-bold whitespace-nowrap">物足りなくなったら</span>
           </div>
-
-          {/* 矢印 */}
-          <div className="flex md:flex-col items-center justify-center gap-2 text-[#C2533C] py-1 md:pb-24">
-            <svg className="rotate-90 md:rotate-0" width="34" height="20" viewBox="0 0 34 20" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <path d="M2 10h28M22 3l8 7-8 7"/>
-            </svg>
-            <span className="text-[12px] font-bold whitespace-nowrap">物足りなくなったら</span>
-          </div>
-
-          {/* STEP 2（強化版・一段高く） */}
-          <div className="relative rounded-sm border-2 border-[#C2533C] bg-[#FBEDD9] p-4 md:pt-5 shadow-md mt-3 md:mt-0">
-            <span className="absolute -top-3 left-4 bg-[#A8392A] text-white text-[11px] font-bold px-2 py-0.5 rounded-sm">強化版</span>
-            <div className="flex items-center gap-2 mb-2">
-              <span className="text-[11px] font-bold tracking-[0.12em] text-[#7A4A20]">STEP 2</span>
-              <span className="text-[11px] text-gray-600">本格的に回す</span>
-            </div>
-            <div className="flex items-center gap-3 mb-3">
-              <img src={B('thumbs/xtp3.webp')} alt="" className="w-14 h-14 rounded-sm object-cover" />
-              <div>
-                <div className="text-[15px] font-bold text-[#0F1111] leading-tight">XToolsPro3（買い切り）</div>
-                <div className="text-[24px] font-medium tabular-nums leading-none mt-1"><span className="text-[14px] align-top mr-0.5">¥</span>9,800<span className="text-[13px] ml-0.5">〜</span></div>
-              </div>
-            </div>
-            <ul className="text-[12px] text-gray-800 space-y-1 mb-3">
-              {['複数アカウント・全基本機能が無制限', 'アカウント分析・シャドウバンチェック', 'AI 1,000pt＋お好きなアドオン 1 つつき', '月額なし。一度買えばずっと使える'].map(check)}
-            </ul>
-            <div className="text-[12px] text-[#5A3B1A] bg-white/70 rounded-sm px-2.5 py-1.5 mb-3 leading-[1.6]">
-              XTP6 ベース（月払い ¥3,000）の<b>約 3 か月分</b>で、ずっと使えます。<br className="hidden sm:block"/>
-              <span className="text-gray-600">※ Windows PC（つけっぱなし）が必要。スマホだけで続けたい方は XTP6 のベースへ。</span>
-            </div>
-            <a href={B('xtp3/')} className="h-10 w-full inline-flex items-center justify-center rounded-full bg-[#C2533C] hover:bg-[#A8432F] border border-[#A8432F] text-[#FBEDD9] text-[14px] font-medium">
-              XToolsPro3 を見る
-            </a>
-          </div>
+          <Step strong no="STEP 2" label="本格的に回す" img="thumbs/xtp3.webp" name="XToolsPro3" price="¥9,800〜"
+            points={['複数アカウント・全基本機能が無制限', '買い切り。月額なし']}
+            btn={<a href={B('xtp3/')} className="h-9 w-full inline-flex items-center justify-center rounded-full bg-[#C2533C] hover:bg-[#A8432F] border border-[#A8432F] text-[#FBEDD9] text-[13px] font-medium">XToolsPro3 を見る</a>} />
         </div>
+        <p className="text-[12px] text-gray-600 mt-3">XToolsPro3 は XTP6 ベース（月払い ¥3,000）の約 3 か月分で、ずっと使えます。Windows PC（つけっぱなし）が必要です。</p>
       </div>
     </section>
   );
 }
 
-// ─── Category tiles row ───────────────────────────────────────────────────
+// ─── ツール一覧（早見表） ─────────────────────────────────────────────────
 
-function CategoryTiles() {
-  const tiles = [
-    {
-      title: 'SNS から選ぶ', cta: 'すべての棚を見る', ctaHref: '#products',
-      items: [
-        { name: 'X', sub: '3 ツール', img: B('thumbs/tiles/tile-xtp6-icon.webp'), href: '#shelf-x' },
-        { name: 'Threads・Bluesky・Yay!', sub: '3 ツール', img: B('thumbs/tiles/tile-ttp2-icon.webp'), href: '#shelf-text' },
-        { name: 'Facebook・Instagram', sub: '1 ツール＋準備中', img: B('thumbs/fb.webp'), href: '#shelf-meta' },
-        { name: 'アメブロ・note', sub: '2 ツール', img: B('thumbs/tiles/tile-note-icon.webp'), href: '#shelf-blog' },
-      ],
-    },
-    {
-      title: 'どれを選べばいい？', cta: 'XTP3・4・6 の比較表', ctaHref: B('xtp-compare/'),
-      guide: [
-        { k: 'スマホから無料で始めたい', v: 'XToolsPro6', href: '#p-xtp6', color: '#E8463A' },
-        { k: 'PC で本格的に・月額なし', v: 'XToolsPro3（強化版）', href: '#p-xtp3', color: '#5A6578' },
-        { k: 'Threads・Bluesky を回したい', v: 'TTP2／BskyToolsPro2', href: '#shelf-text', color: '#1F1B16' },
-        { k: 'ブログや Facebook の交流を時短', v: '各 ¥3,000 の買い切り', href: '#shelf-blog', color: '#2E9E4F' },
-      ],
-    },
-    {
-      title: 'よくある質問', cta: 'すべて見る', ctaHref: '#faq',
-      items: [
-        { name: '買い切りと月額の違い', img: B('thumbs/faq/faq-pricing.webp'), href: '#faq-0' },
-        { name: 'XTP6 から XTP3 へ', img: B('thumbs/faq/faq-link.webp'), href: '#faq-1' },
-        { name: '凍結のリスクは？', img: B('thumbs/faq/faq-ban.webp'), href: '#faq-2' },
-        { name: 'スマホで使える？', img: B('thumbs/faq/faq-phone.webp'), href: '#faq-3' },
-      ],
-    },
-    { title: '無料で試す', cta: 'XToolsPro6 を無料で始める', ctaHref: XTP6_URL, external: true, hero: true },
-  ];
+function ToolIndex() {
+  const label = (p) => p.comingSoon ? '準備中'
+    : p.kind === 'free' ? '無料〜'
+    : p.kind === 'monthly' ? '月¥' + p.price.toLocaleString('ja-JP')
+    : '¥' + p.price.toLocaleString('ja-JP') + (p.id === 'xtp3' ? '〜' : '');
+  const color = (p) => p.comingSoon ? 'text-gray-400' : p.kind === 'free' ? 'text-[#1B7670]' : 'text-[#0F1111]';
   return (
-    <div className="mx-auto max-w-[1500px] px-3 mt-3">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-        {tiles.map((t, i) => (
-          <div key={i} className="bg-white rounded-sm shadow-sm p-5 flex flex-col">
-            <h2 className="text-[18px] font-bold text-[#0F1111] mb-3 leading-tight">{t.title}</h2>
-            {t.hero ? (
-              <div className="mb-3">
-                <div className="rounded-sm bg-gradient-to-br from-[#FBEDD9] to-[#E8A87C] h-[140px] flex flex-col items-center justify-center mb-2">
-                  <div className="text-[11px] font-bold tracking-[0.12em] uppercase text-[#0F1111]/70 mb-1">Free plan</div>
-                  <div className="text-[40px] font-bold leading-none tabular-nums text-[#0F1111]">¥0</div>
-                  <div className="text-[12px] text-[#0F1111]/70 mt-1">カード登録なし・Google でログイン</div>
+    <section id="tools" className="mx-auto max-w-[1500px] px-3 mt-3 scroll-mt-4">
+      <div className="bg-white rounded-sm shadow-sm p-4 md:p-6">
+        <div className="flex items-baseline justify-between gap-2 mb-3 md:mb-4">
+          <h2 className="text-[18px] md:text-[22px] font-bold text-[#0F1111]">ツール一覧<span className="ml-2 text-[13px] text-gray-500 font-normal">{ON_SALE.length} 種＋準備中 1</span></h2>
+          <span className="hidden sm:inline text-[12px] text-gray-500">押すと詳しい説明へ</span>
+        </div>
+        {/* スマホ＝アイコン＋名前＋価格の 2 列リスト、sm〜＝タイル（lg は 1 行 10 個） */}
+        <ul className="grid grid-cols-2 sm:grid-cols-5 lg:grid-cols-10 gap-2">
+          {PRODUCTS.map((p) => (
+            <li key={p.id}>
+              <a href={'#p-' + p.id} className="flex sm:block items-center gap-2 h-full rounded-sm bg-[#FAF7F2] hover:bg-[#EFE9DD] p-1.5 sm:text-center transition-colors">
+                <div className="w-11 h-11 sm:w-auto sm:h-auto sm:aspect-square flex-shrink-0 rounded-sm overflow-hidden sm:mb-1.5"><Thumb p={p} small /></div>
+                <div className="min-w-0">
+                  <div className="text-[12px] font-bold text-[#0F1111] leading-tight truncate">{p.short}</div>
+                  <div className="text-[10px] text-gray-500 truncate">{p.sns}</div>
+                  <div className={"text-[13px] font-medium tabular-nums leading-tight " + color(p)}>{label(p)}</div>
                 </div>
-                <p className="text-[12px] text-gray-700 leading-[1.6]">XToolsPro6 の無料版は X アカウント 1 個・1 日 10 件まで、予約・オート投稿・分析・AI が使えます。XToolsPro4（1 日 1 件）と XToolsPro3（定期投稿）にも無料版があります。</p>
-              </div>
-            ) : t.guide ? (
-              <ul className="space-y-1.5 mb-3 text-[12px]">
-                {t.guide.map((g) => (
-                  <li key={g.k}>
-                    <a href={g.href} className="block rounded-sm bg-[#FAF7F2] hover:bg-[#EFE9DD] px-2.5 py-2 border-l-4 transition-colors" style={{ borderColor: g.color }}>
-                      <div className="text-gray-700">{g.k}</div>
-                      <div className="font-bold text-[#0F1111]">→ {g.v}</div>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <div className="grid grid-cols-2 gap-2 mb-3">
-                {t.items.map((it, j) => (
-                  <a href={it.href} key={j} className="group">
-                    <div className="aspect-square bg-[#FAF7F2] rounded-sm overflow-hidden flex items-center justify-center group-hover:bg-[#EFE9DD] transition-colors">
-                      <img src={it.img} alt="" loading="lazy" className="w-full h-full object-cover block" />
-                    </div>
-                    <div className="text-[11px] text-[#0F1111] mt-1 line-clamp-1 font-medium">{it.name}</div>
-                    {it.sub && <div className="text-[10px] text-gray-500 line-clamp-1">{it.sub}</div>}
-                  </a>
-                ))}
-              </div>
-            )}
-            <a href={t.ctaHref} {...(t.external ? { target: '_blank', rel: 'noopener' } : {})} className="mt-auto text-[12px] text-[#1B7670] hover:text-[#0F4B47] hover:underline">{t.cta} ›</a>
-          </div>
-        ))}
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
-    </div>
+    </section>
   );
 }
 
 // ─── ② 棚（カップ麺棚: SNS ごとに値札つきで並べる） ───────────────────────
 
-function Thumb({ p }) {
+function Thumb({ p, small }) {
   if (p.thumbFallback) {
     const f = p.thumbFallback;
     return (
       <div className="w-full h-full flex flex-col items-center justify-center gap-3" style={{ background: f.bg }}>
-        <div className="w-[38%] aspect-square rounded-[22%] flex items-center justify-center text-white font-bold shadow-lg" style={{ background: f.icon, fontSize: 'clamp(28px,6vw,56px)' }}>{f.letter}</div>
-        <div className="text-[13px] sm:text-[15px] font-bold text-[#1F3D26]">{f.label}</div>
+        <div className="w-[38%] aspect-square rounded-[22%] flex items-center justify-center text-white font-bold shadow-lg" style={{ background: f.icon, fontSize: small ? 'clamp(18px,4vw,36px)' : 'clamp(28px,6vw,56px)' }}>{f.letter}</div>
+        {!small && <div className="text-[13px] sm:text-[15px] font-bold text-[#1F3D26]">{f.label}</div>}
       </div>
     );
   }
@@ -507,6 +388,7 @@ function PriceTag({ p }) {
         <div className="text-[10px] font-bold tracking-[0.12em] text-gray-500">COMING SOON</div>
         <div className="text-[20px] font-medium text-gray-500 leading-tight">準備中</div>
         <div className="text-[11px] text-gray-500">価格は公開時にお知らせします</div>
+        <div className="h-[1.5em]"></div>
       </div>
     );
   }
@@ -516,7 +398,6 @@ function PriceTag({ p }) {
     <div className="rounded-sm border border-[#E3DACB] bg-[#FFFBF3] pl-3 pr-2 py-2 border-l-4" style={{ borderLeftColor: kindColor }}>
       <div className="flex items-center justify-between gap-2">
         <span className="text-[10px] font-bold tracking-[0.1em] text-white px-1.5 py-0.5 rounded-sm" style={{ background: kindColor }}>{kindLabel}</span>
-        {p.free && <span className="text-[10px] text-[#007600] font-medium">無料版あり</span>}
       </div>
       <div className="mt-1 leading-none">
         {p.price === 0 ? (
@@ -530,6 +411,7 @@ function PriceTag({ p }) {
         )}
       </div>
       <div className="text-[11px] text-gray-700 mt-1 line-clamp-1">{p.priceNote}</div>
+      <div className="text-[11px] text-[#007600] h-[1.5em] line-clamp-1">{p.free || ''}</div>
     </div>
   );
 }
@@ -538,7 +420,7 @@ function ShelfCard({ p }) {
   return (
     <article id={'p-' + p.id} className="bg-white rounded-sm p-3 sm:p-4 hover:shadow-md transition-shadow flex flex-col h-full scroll-mt-24">
       <a href={p.href || undefined} {...ext(p)} className={"relative block mb-3 " + (p.comingSoon ? 'pointer-events-none' : '')} aria-label={p.name}>
-        <div className="rounded-sm overflow-hidden aspect-[4/3] sm:aspect-square bg-[#FAF7F2]"><Thumb p={p} /></div>
+        <div className="rounded-sm overflow-hidden aspect-[4/3] bg-[#FAF7F2]"><Thumb p={p} /></div>
         {p.badges.length > 0 && (
           <span className="absolute top-2 left-2 flex flex-col items-start gap-1">
             {p.badges.map((b, i) => <span key={b} className={(i === 0 ? 'bg-[#A8392A] text-[11px]' : 'bg-[#7A4A20] text-[10px]') + ' text-white font-bold px-1.5 py-0.5 rounded-sm'}>{b}</span>)}
@@ -550,9 +432,8 @@ function ShelfCard({ p }) {
       <div className="text-[14px] text-[#0F1111] leading-[1.4] mb-1 line-clamp-2 font-medium h-[2.8em]">{p.name}</div>
       <div className="text-[12px] text-gray-600 mb-2 line-clamp-1">{p.sns} · {p.env}</div>
       <PriceTag p={p} />
-      <div className="text-[11px] text-[#007600] mt-1 h-[1.5em] line-clamp-1">{p.free || ''}</div>
-      <ul className="text-[12px] text-gray-700 space-y-0.5 mt-1 mb-3 leading-[1.55]">
-        {p.bullets.map((b, i) => <li key={i} className="flex gap-1.5"><span className="text-gray-400">•</span><span>{b}</span></li>)}
+      <ul className="text-[12px] text-gray-700 space-y-0.5 mt-2 mb-3 leading-[1.55]">
+        {p.bullets.slice(0, 2).map((b, i) => <li key={i} className="flex gap-1.5"><span className="text-gray-400">•</span><span>{b}</span></li>)}
       </ul>
       <div className="mt-auto flex flex-col gap-2">
         {p.comingSoon ? (
@@ -568,17 +449,6 @@ function ShelfCard({ p }) {
   );
 }
 
-// 棚のポップ（棚の空いた枠に置く案内カード・PC の xl だけ）
-function ShelfPop({ shelf }) {
-  return (
-    <div className="hidden xl:flex flex-col justify-center rounded-sm border-2 border-dashed border-[#C2533C]/40 bg-[#FFF6E6] p-5 text-[13px] text-[#3A2F25] leading-[1.7]">
-      <div className="text-[11px] font-bold tracking-[0.12em] text-[#A8392A] mb-2">店主のひとこと</div>
-      <p className="mb-3">{shelf.pop}</p>
-      {shelf.compare && <a href={B('xtp-compare/')} className="text-[#1B7670] hover:underline font-medium">XTP3・4・6 の比較表 ›</a>}
-    </div>
-  );
-}
-
 function Shelf({ shelf, items }) {
   const wide = shelf.wide;
   return (
@@ -588,20 +458,19 @@ function Shelf({ shelf, items }) {
         <h3 className="text-[15px] font-bold">{shelf.title}</h3>
         <span className="text-[12px] text-gray-300 tabular-nums whitespace-nowrap">{items.filter((p) => !p.comingSoon).length} ツール</span>
       </div>
-      <p className="xl:hidden bg-[#FFF6E6] text-[12px] text-[#5A3B1A] px-4 py-1.5 border-x border-[#E3DACB]">{shelf.pop}</p>
+      <p className="bg-[#FFF6E6] text-[12px] text-[#5A3B1A] px-4 py-1.5 border-x border-[#E3DACB]">{shelf.pop}</p>
       {/* 棚板 */}
       <div className="bg-[#EFE6D6] px-3 pt-3 pb-3 border-b-[6px] border-[#7A4A20] rounded-b-sm">
         <div className={
           "shelf-scroll flex overflow-x-auto snap-x snap-mandatory gap-3 -mx-3 px-3 pb-1 " +
           "sm:mx-0 sm:px-0 sm:pb-0 sm:grid sm:overflow-visible sm:grid-cols-2 " +
-          (wide ? 'lg:grid-cols-3 xl:grid-cols-4' : 'lg:grid-cols-2')
+          (wide ? 'lg:grid-cols-3' : 'lg:grid-cols-2')
         }>
           {items.map((p) => (
             <div key={p.id} className="w-[78%] flex-shrink-0 snap-start sm:w-auto">
               <ShelfCard p={p} />
             </div>
           ))}
-          {wide && items.length < 4 && <ShelfPop shelf={shelf} />}
         </div>
       </div>
     </section>
@@ -804,7 +673,7 @@ const FAQS = [
 ];
 
 function FAQ() {
-  const [openIdx, setOpenIdx] = React.useState(1);
+  const [openIdx, setOpenIdx] = React.useState(0);
   React.useEffect(() => {
     const pick = () => { const m = location.hash.match(/^#faq-(\d)$/); if (m) setOpenIdx(Number(m[1])); };
     pick();
@@ -900,37 +769,23 @@ function Footer() {
   );
 }
 
-// ─── ③ スマホの下部固定バー ───────────────────────────────────────────────
-
-function MobileStickyCta() {
-  return (
-    <div className="md:hidden fixed bottom-0 inset-x-0 z-50 bg-[#1F1B16]/95 backdrop-blur px-3 py-2 flex items-center gap-2 border-t border-white/10">
-      <a href={XTP6_URL} target="_blank" rel="noopener" className="flex-1 h-11 inline-flex items-center justify-center rounded-full bg-[#C2533C] text-[#FBEDD9] text-[14px] font-bold">XToolsPro6 を無料で始める</a>
-      <a href="#stepup" className="h-11 px-3 inline-flex flex-col items-center justify-center rounded-full border border-white/30 text-white text-[11px] leading-tight">
-        <span>強化版</span><span className="font-bold">XTP3</span>
-      </a>
-    </div>
-  );
-}
-
 // ─── App ──────────────────────────────────────────────────────────────────
 
 function App() {
   const [active, setActive] = React.useState([]);
   const toggle = (f) => setActive((a) => (f === null ? [] : a.includes(f) ? a.filter((x) => x !== f) : [...a, f]));
   return (
-    <div className="amz-app pb-16 md:pb-0" id="top">
+    <div className="amz-app" id="top">
       <MockStrip />
       <TopNav />
       <HeroBanner />
-      <StepUp />
-      <CategoryTiles />
+      <ToolIndex />
       <ProductsSection active={active} toggle={toggle} />
+      <StepUp />
       <ComparisonTable />
       <Steps />
       <FAQ />
       <Footer />
-      <MobileStickyCta />
     </div>
   );
 }
@@ -939,5 +794,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(<App />);
 
 /*
 Version History
+- ver3.0-mock2 (2026-10-31): 第 2 版。ゆうさん「情報量多い・最初にツールを並べる・XTP6→XTP3 は劣後」→ ヒーロー直下にツール一覧（10 マスの早見表）、4 枚タイル・棚のポップ・下部固定バー・浮きカードを削除、ヒーローを 1 文に、ステップアップ帯は棚の下で小さく、カードの箇条書きは 2 行・サムネは 4:3
 - ver3.0-mock (2026-10-31): v3 のモック。ver2.1 の Amazon 風の骨格と配色はそのまま、①ステップアップ帯（無料の XTP6 → 強化版 XTP3）②SNS 別の棚（9 製品＋Instagram 準備中・値札の高さをそろえる・スマホは棚ごとに横スクロール）③スマホの下部固定バー ④XTP6 の料金・上限を 27_XTP6 limits.ts に合わせる（無料 1 垢・1 日 10 件／ベース 月¥3,000・年払い月¥1,000・20 垢／プレミアム 100）。FAQ に「XTP6 から XTP3 に乗り換えられる？」
 */
