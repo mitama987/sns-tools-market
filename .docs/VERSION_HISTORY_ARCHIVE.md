@@ -2,6 +2,14 @@
 
 ## index.html（トップ）
 
+### ver3.0-mock (2026-10-31) — v3 のモック（/mock-v3/・本番は未変更・ブランチ feature/market-v3-mock）
+- 協業相手の提案（XTP6 無料 → XTP3 強化版へのアップセル・全ツールを一目で比べられる棚）を受けて作成。見た目は ver2.1 の Amazon 風を維持（ゆうさん決定）
+- 追加: ステップアップ帯（STEP 1 XTP6 無料版 ¥0 → STEP 2 XTP3 買い切り ¥9,800〜・「XTP6 ベース月払いの約 3 か月分」・Windows PC 必要の注記）、SNS 別の棚 4 つ（X／Threads・Bluesky・Yay!／Facebook・Instagram／アメブロ・note）、棚の空き枠に「店主のひとこと」、スマホの下部固定バー
+- 製品: XTP3・XTP6・XTP4・TTP2 に BskyToolsPro2・YayToolsPro・FacebookToolsPro・AmebloToolsPro・noteToolsPro（各 ¥3,000 買い切り・10/24 決定）を足して 9 つ＋InstagramToolsPro（準備中・購入ボタンなし）
+- 直したデータ: XTP6 を「10 アカウント・月¥1,000」→ 27_XTP6 limits.ts の値（無料 1 垢・1 日 10 件／ベース 20 垢・月¥3,000・年払い月¥1,000／プレミアム 100 垢）
+- 新ツールのリンク先（fb-like/・ameblo-like/・note-bot/・yay/・bluesky/）はまだ無い（LP はこのあと作る）
+- 確認: 1280px／390px でコンソールエラー 0・横はみ出し 0・href="#" 0・カード 10・棚 4。スクショは ClaudeCompany outputs/99_ops/market-v3-mock/
+
 ### ver2.1 (2026-10-24) — 見た目を 5 月の Amazon 風デザインに戻し、中身だけ実物に
 - ゆうさん「デザインは圧倒的に旧（Amazon 風）が好み」→ ver2.0 の静的レイアウトを取り下げ、`components-amazon.jsx` を復元して書き換え
 - 残したもの: 黒い 2 段ナビ・検索・ヒーローバナー・4 枚タイル・左フィルタ＋商品カード・比較表・3 ステップ・FAQ・暗いフッターの構成と配色（walnut／persimmon／cream）
