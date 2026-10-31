@@ -140,6 +140,8 @@ const Nav = () => {
   }, []);
   return (
     <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${scrolled ? "backdrop-blur-xl bg-[#0A0D1F]/70 border-b border-white/5" : ""}`}>
+      {/* マーケットへ戻る帯（2026-11-01・見た目は index.html の .mk-back）。ヘッダーが fixed なのでヘッダーの中に置く */}
+      <div className="mk-back"><div className="mk-in"><a className="mk-brand" href="../">Youパパツールマーケット</a><a className="mk-to" href="../#tools">← ツール一覧</a></div></div>
       <div className="max-w-6xl mx-auto px-5 md:px-6 h-16 flex items-center justify-between">
         <Logo />
         <nav className="hidden md:flex items-center gap-8 text-sm text-slate-300">
@@ -660,3 +662,8 @@ const App = () => (
 );
 
 ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+
+/*
+Version History
+- ver1.2 (2026-11-01): ヘッダーの上にマーケットへ戻る帯（Youパパツールマーケット／← ツール一覧）を追加。ヘッダーが fixed なのでヘッダーの中に入れた
+*/

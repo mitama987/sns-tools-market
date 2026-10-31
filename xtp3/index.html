@@ -45,6 +45,16 @@
 
 </head>
 <body>
+<!-- マーケットへ戻る帯（2026-11-01・新 LP 5 枚のヘッダーと同じ見た目） -->
+<style>
+.mk-back{background:#1F1B16;color:#fff;font-family:"Noto Sans JP","Hiragino Sans","Yu Gothic UI",Meiryo,sans-serif;position:relative;z-index:50}
+.mk-back .mk-in{max-width:960px;margin:0 auto;padding:0 16px;height:44px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.mk-back a{color:#fff;text-decoration:none;font-size:14px;line-height:1}
+.mk-back .mk-brand{font-weight:700}
+.mk-back .mk-to{opacity:.9;white-space:nowrap}
+.mk-back a:hover{text-decoration:underline}
+</style>
+<div class="mk-back"><div class="mk-in"><a class="mk-brand" href="../">Youパパツールマーケット</a><a class="mk-to" href="../#tools">← ツール一覧</a></div></div>
 
 <!-- ============ HEADER ============ -->
 <header class="site-header">
@@ -542,6 +552,7 @@
 
 <!--
 Version History
+- ver2.2 (2026-11-01): ページ先頭にマーケットへ戻る帯（Youパパツールマーケット／← ツール一覧）を追加（協業相手「戻れない」の指摘）
 - ver2.1 (2026-10-30): 料金表下のお支払い注記に銀行振込を追加（Stripe で本番有効化済み・入金確認後に利用開始の一文）
 - ver2.0 (2026-10-30): 決済手段の拡充。購入ボタン 9 箇所を Payment Links（buy.stripe.com）から Functions の GET /api/buy/<sku>（サーバーが Customer 付き Checkout を作る＝銀行振込を出せる・PayPay は Stripe 承認待ち）へ差し替え。?ref は ref パラメータで渡す。料金表の下に「お支払い: クレジットカード（分割払い可）／Apple Pay／Google Pay」の注記
 - ver1.9 (2026-10-18): 料金プラン「買い切り＋アドオン」カードに「アカウント分析・シャドウバンチェック」を追加（ベースプランの機能・アプリのプラン比較と同じ文言）
