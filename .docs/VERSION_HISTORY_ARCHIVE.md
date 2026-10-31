@@ -112,3 +112,9 @@ Chrome実機での再現・APIバイセクトにより、公開時検証の仕�
 
 ## 2026-10-31 独自ドメイン market.youpapatools.com
 - sns-tools-market.vercel.app → https://market.youpapatools.com に差し替え（Vercel に domain 追加・Value Domain に A market 76.76.21.21）。旧 URL も Vercel で開ける
+
+## 2026-10-31 トップ v3 本番化＋簡易 LP 5 枚
+- トップ ver3.0: mock-v3 を components-amazon.jsx に（ツール一覧の早見表 10 マス・SNS 別の棚・XTP6→XTP3 は棚の下・XTP 系サムネは淡色）。index.html の title／description／JSON-LD（9 製品）／noscript を更新。mock-v3/ は削除
+- 簡易 LP 5 枚（fb-like/ ameblo-like/ note-bot/ yay/ bluesky/）を scripts/build_tool_lps.py で生成。共通 assets/css/lp.css・assets/js/ref.js（?ref= を /api/buy に引き継ぐ）。購入ボタンは /api/buy/<sku>（¥3,000 買い切り）。#howto は購入メールの手順と同じ文
+- thumbs/ameblo.webp を gpt-image-2 で追加（gen_thumbs.py に ameblo）
+- 確認: ローカルで 6 ページ × 1280／390 のエラー 0・はみ出し 0・href="#" 0・画像切れ 0・購入ボタンに ref が付く

@@ -132,6 +132,16 @@ VARIANTS: dict[str, dict[str, str]] = {
         ),
         "text_color": "near-black (#111111)",
     },
+    "ameblo": {
+        "label": "AmebloToolsPro",
+        "glyph": "simple friendly heart-and-pen glyph (a small heart above a stylized pen nib), suggesting blog reactions",
+        "gradient": "from fresh green (#3CB371) at the top-left to deep green (#1F8A4C) at the bottom-right",
+        "background": (
+            "a soft mint to pale green gradient (#EAF8EE at top-left to "
+            "#CFEBD8 at bottom-right) with a faint green glow in the corners."
+        ),
+        "text_color": "deep forest green (#14402A)",
+    },
     "yay": {
         "label": "yayToolsPro",
         "glyph": "playful chat-bubble glyph with a small sparkle / star inside",
