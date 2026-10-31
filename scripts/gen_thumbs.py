@@ -1,6 +1,6 @@
 """Generate Market product thumbnails via OpenAI Images API (gpt-image-2).
 
-Unified design: dark navy background with faint dot grid, centered rounded-square
+Unified design: soft pastel background (per-tool tint; XTP3/4/6 switched from dark navy on 2026-10-31) with faint dot grid, centered rounded-square
 app icon with per-tool brand gradient and white glyph, tool name in white sans
 beneath the icon. Matches the XTP4 LP hero treatment.
 
@@ -58,15 +58,19 @@ VARIANTS: dict[str, dict[str, str]] = {
         "label": "XToolsPro3",
         "glyph": "X logo (post-Twitter rebrand: two crossing diagonal strokes forming an X)",
         "gradient": "from indigo (#4F46E5) at the top-left to vivid violet (#7C3AED) at the bottom-right",
-        "background": DARK_BG,
-        "text_color": "pure white",
+        "background": (
+            "a soft lavender gradient (#F0ECFF at top-left to #DDD5FB at bottom-right) with a faint violet glow in the corners."
+        ),
+        "text_color": "deep indigo (#1E1B4B)",
     },
     "xtp4": {
         "label": "XToolsPro4",
         "glyph": "X logo (post-Twitter rebrand: two crossing diagonal strokes forming an X)",
         "gradient": "from royal blue (#3B5BFF) at the top-left to vivid violet (#8B5CF6) at the bottom-right",
-        "background": DARK_BG,
-        "text_color": "pure white",
+        "background": (
+            "a soft pale blue gradient (#E8F0FF at top-left to #D3DEFB at bottom-right) with a faint royal-blue glow in the corners."
+        ),
+        "text_color": "deep navy (#14204F)",
     },
     "ig": {
         "label": "InstagramToolsPro",
@@ -113,8 +117,10 @@ VARIANTS: dict[str, dict[str, str]] = {
         "label": "XToolsPro6",
         "glyph": "X logo (post-Twitter rebrand: two crossing diagonal strokes forming an X)",
         "gradient": "from coral red (#E8463A) at the top-left to deep crimson (#B91C1C) at the bottom-right",
-        "background": DARK_BG,
-        "text_color": "pure white",
+        "background": (
+            "a soft coral to blush gradient (#FFECE8 at top-left to #FFD6CF at bottom-right) with a faint red glow in the corners."
+        ),
+        "text_color": "deep crimson (#5A1010)",
     },
     "ttp2": {
         "label": "ThreadsToolsPro2",
@@ -125,6 +131,16 @@ VARIANTS: dict[str, dict[str, str]] = {
             "#E8E4DD at bottom-right) with a faint grey glow in the corners."
         ),
         "text_color": "near-black (#111111)",
+    },
+    "ameblo": {
+        "label": "AmebloToolsPro",
+        "glyph": "simple friendly heart-and-pen glyph (a small heart above a stylized pen nib), suggesting blog reactions",
+        "gradient": "from fresh green (#3CB371) at the top-left to deep green (#1F8A4C) at the bottom-right",
+        "background": (
+            "a soft mint to pale green gradient (#EAF8EE at top-left to "
+            "#CFEBD8 at bottom-right) with a faint green glow in the corners."
+        ),
+        "text_color": "deep forest green (#14402A)",
     },
     "yay": {
         "label": "yayToolsPro",
