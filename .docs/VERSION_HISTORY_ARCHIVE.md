@@ -92,3 +92,6 @@ Chrome実機での再現・APIバイセクトにより、公開時検証の仕�
 
 ### ver1.1 (2026-10-20) — 見出しを固定
 - 下にスクロールしても見出し（機能・XTP3・XTP4・XTP6）が画面の上に残るように（`position:sticky`）。sticky を効かせるため表の `overflow:hidden` をやめ、角丸は四隅のマスに付けた
+
+## 2026-10-31 独自ドメイン market.youpapatools.com
+- sns-tools-market.vercel.app → https://market.youpapatools.com に差し替え（Vercel に domain 追加・Value Domain に A market 76.76.21.21）。旧 URL も Vercel で開ける
