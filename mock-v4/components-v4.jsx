@@ -559,21 +559,27 @@ function FilterGroup({ title, items, active, toggle }) {
 
 function ComparisonTable() {
   const cols = [
-    { id: 'xtp6', name: 'XToolsPro6', price: '無料〜', sub: 'ベース 月¥3,000（年払いは月¥1,000）', color: '#E8463A', tag: 'まず試す', href: XTP6_URL, cta: '無料で始める' },
-    { id: 'xtp3', name: 'XToolsPro3', price: '¥9,800〜', sub: '買い切り・月額なし', color: '#5A6578', tag: '強化版', recommended: true, href: B('xtp3/'), cta: '製品ページへ' },
-    { id: 'xtp4', name: 'XToolsPro4', price: '無料〜', sub: '有料 月¥1,000', color: '#2F6FD6', href: B('xtp4/'), cta: '製品ページへ' },
+    { id: 'xtp6', name: 'XToolsPro6', price: '無料〜', sub: 'ベース 月¥3,000（年払いは月¥1,000）', color: '#E8463A', tag: 'まず試す', href: XTP6_URL, cta: '無料で始める', ctaShort: '始める' },
+    { id: 'xtp3', name: 'XToolsPro3', price: '¥9,800〜', sub: '買い切り・月額なし', color: '#5A6578', tag: '強化版', recommended: true, href: B('xtp3/'), cta: '製品ページへ', ctaShort: '詳しく' },
+    { id: 'xtp4', name: 'XToolsPro4', price: '無料〜', sub: '有料 月¥1,000', color: '#2F6FD6', href: B('xtp4/'), cta: '製品ページへ', ctaShort: '詳しく' },
   ];
+  // ○＝できる・△＝条件つき・×＝できない（同じ記号は同じ色）。記号の下に小さく補足
   const rows = [
-    ['PC つけっぱなし', ['不要', '必要', '不要']],
-    ['X の API', ['不要', '不要', '必要（有料版は自分のキー）']],
-    ['スマホで使える', ['○（最初の登録だけ PC）', '—', '○']],
-    ['無料版', ['1 アカウント・1 日 10 件', '定期投稿のみ（1 アカウント）', '1 日 1 件']],
-    ['アカウント数', ['20 まで（プレミアム 100）', '目安 100', '50 まで']],
-    ['AI の投稿案', ['○', '1,000pt つき', '○']],
+    ['PC つけっぱなし不要', [['○'], ['×', 'PC をつけたまま動かす'], ['○']]],
+    ['X の API キー不要', [['○'], ['○'], ['△', '有料版は自分のキー']]],
+    ['スマホで使える', [['○', '最初の登録だけ PC'], ['×', 'Windows PC'], ['○']]],
+    ['無料で試せる', [['○', '1 アカウント・1 日 10 件'], ['△', '定期投稿のみ・1 アカウント'], ['△', '1 日 1 件']]],
+    ['複数アカウント', [['○', '20（プレミアム 100）'], ['○', '目安 100'], ['○', '50 まで']]],
+    ['AI の投稿案', [['○'], ['○', '1,000pt つき'], ['○']]],
   ];
-  const cell = 'border border-[#D9CFBF] py-3 px-4';
+  const MARK = {
+    '○': { color: '#1B7670', sr: 'できる' },
+    '△': { color: '#B7791F', sr: '条件つき' },
+    '×': { color: '#C0392B', sr: 'できない' },
+  };
+  const cell = 'border border-[#D9CFBF] py-2.5 px-1 sm:py-3 sm:px-4'; // スマホでも 3 列が 1 画面に収まるよう余白を詰める
   const head = 'bg-[#F3EDE3]';
-  const stick = ' sticky left-0 z-[1]'; // スマホで横に送っても項目名を残す
+  const stick = '';
   const Pill = ({ c }) => (
     <span className="inline-flex items-center gap-1.5 font-bold text-[#0F1111]">
       <span className="inline-block w-2.5 h-2.5 rounded-sm" style={{ background: c.color }}></span>{c.name}
@@ -596,18 +602,18 @@ function ComparisonTable() {
           <div className="mt-1 text-[15px] text-gray-700">X の公式 API で動かしたい人は <Pill c={cols[2]} /></div>
         </div>
         <div className="overflow-x-auto">
-          <table className="w-full text-[16px] border-collapse min-w-[680px]">
+          <table className="w-full table-fixed text-[14px] sm:text-[16px] border-collapse" style={{ wordBreak: "auto-phrase" }}>
             <thead>
               <tr>
-                <th className={cell + ' ' + head + stick + ' w-[22%]'}></th>
+                <th className={cell + ' ' + head + stick + ' w-[25%] sm:w-[22%]'}></th>
                 {cols.map((c) => (
-                  <th key={c.id} className={cell + ' ' + head + ' text-left align-top'}>
-                    <div className="flex items-center gap-2 mb-1.5">
-                      <Pill c={c} />
-                      {c.tag && <span className={"text-white text-[12px] font-bold px-1.5 py-0.5 rounded " + (c.recommended ? 'bg-[#A8392A]' : 'bg-[#7A4A20]')}>{c.tag}</span>}
+                  <th key={c.id} className={cell + ' ' + head + ' text-center align-top'}>
+                    <div className="flex flex-wrap items-center justify-center gap-2 mb-1.5">
+                      <span className="inline-flex items-center gap-1.5 font-bold text-[#0F1111] text-[12px] sm:text-[16px]"><span className="hidden sm:inline-block w-2.5 h-2.5 rounded-sm" style={{ background: c.color }}></span>{c.name}</span>
+                      {c.tag && <span className={"text-white text-[11px] sm:text-[12px] font-bold px-1.5 py-0.5 rounded " + (c.recommended ? 'bg-[#A8392A]' : 'bg-[#7A4A20]')}>{c.tag}</span>}
                     </div>
-                    <div className="text-[24px] font-medium text-[#0F1111] tabular-nums leading-none">{c.price}</div>
-                    <div className="text-[14px] text-gray-700 font-normal mt-1.5">{c.sub}</div>
+                    <div className="text-[17px] sm:text-[24px] font-medium text-[#0F1111] tabular-nums leading-none">{c.price}</div>
+                    <div className="text-[11px] sm:text-[14px] text-gray-700 font-normal mt-1.5 leading-snug">{c.sub}</div>
                   </th>
                 ))}
               </tr>
@@ -615,11 +621,11 @@ function ComparisonTable() {
             <tbody>
               {rows.map(([label, vals]) => (
                 <tr key={label}>
-                  <th scope="row" className={cell + ' ' + head + stick + ' text-right font-bold text-[#0F1111] whitespace-nowrap'}>{label}</th>
-                  {vals.map((v, i) => (
-                    <td key={i} className={cell + ' text-gray-900'}>
-                      {v === '必要' ? <span className="inline-block bg-[#D92D20] text-white text-[14px] font-bold px-2 py-0.5 rounded">必要</span>
-                        : v === '—' ? <span className="text-gray-400 text-[18px]">—</span> : v}
+                  <th scope="row" className={cell + ' ' + head + stick + ' text-right font-bold text-[#0F1111] text-[12px] sm:text-[16px] leading-snug'}>{label}</th>
+                  {vals.map(([m, note], i) => (
+                    <td key={i} className={cell + ' text-center align-middle'}>
+                      <div className="text-[22px] sm:text-[26px] font-bold leading-none" style={{ color: MARK[m].color }} aria-label={MARK[m].sr}>{m}</div>
+                      {note && <div className="text-[11px] sm:text-[13px] text-gray-700 mt-1.5 leading-snug">{note}</div>}
                     </td>
                   ))}
                 </tr>
@@ -627,16 +633,19 @@ function ComparisonTable() {
               <tr>
                 <th scope="row" className={cell + ' ' + head + stick}></th>
                 {cols.map((c) => (
-                  <td key={c.id} className={cell}>
-                    <a href={c.href} className={"inline-flex items-center h-10 px-4 rounded-full text-[15px] font-bold border " +
-                      (c.recommended ? "bg-[#C2533C] hover:bg-[#A8432F] border-[#A8432F] text-[#FBEDD9]" : "bg-white hover:bg-gray-50 border-gray-300 text-[#0F1111]")}>{c.cta}</a>
+                  <td key={c.id} className={cell + " text-center"}>
+                    <a href={c.href} className={"inline-flex items-center justify-center min-h-10 px-2 sm:px-4 py-1 rounded-full text-[12px] sm:text-[15px] leading-tight font-bold border " +
+                      (c.recommended ? "bg-[#C2533C] hover:bg-[#A8432F] border-[#A8432F] text-[#FBEDD9]" : "bg-white hover:bg-gray-50 border-gray-300 text-[#0F1111]")}><span className="sm:hidden">{c.ctaShort}</span><span className="hidden sm:inline">{c.cta}</span></a>
                   </td>
                 ))}
               </tr>
             </tbody>
           </table>
         </div>
-        <p className="text-[13px] text-gray-500 mt-2">2026 年 10 月時点</p>
+        <p className="text-[14px] text-gray-600 mt-2 flex flex-wrap gap-x-4 gap-y-1">
+          {Object.entries(MARK).map(([m, v]) => <span key={m}><b className="text-[16px]" style={{ color: v.color }}>{m}</b> {v.sr}</span>)}
+          <span className="text-gray-500">2026 年 10 月時点</span>
+        </p>
       </div>
     </section>
   );
