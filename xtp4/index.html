@@ -130,8 +130,8 @@
 .mk-back .mk-sub{font-size:9px;color:#D1D5DB;letter-spacing:.18em;text-transform:uppercase;white-space:nowrap}
 </style>
   <div id="root"></div>
-  <div data-mk-footer></div>
-  <script src="../assets/js/market-footer.js?v=20261101b"></script>
+  <div data-mk-footer data-mk-footer-wait="#root"></div>
+  <script src="../assets/js/market-footer.js?v=20261101c"></script>
 
   <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
@@ -140,6 +140,7 @@
 
 <!--
 Version History
+- ver1.7 (2026-11-01): 共通フッターは React の本体が描き終わってから出す（data-mk-footer-wait="#root"）。読み込み中にフッターだけが一瞬見えていた
 - ver1.6 (2026-11-01): app.jsx ver1.6（自身のフッター削除・?v=20261101d）
 - ver1.5 (2026-11-01): アプリの下にマーケット共通フッター（market-footer.js）。下にスクロールするとロゴ帯が上に隠れる（app.jsx）
 - ver1.4 (2026-11-01): マーケットのロゴ帯を右寄せに（ゆうさん「やっぱり右側」）
