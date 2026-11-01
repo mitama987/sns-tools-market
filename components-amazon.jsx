@@ -269,7 +269,6 @@ function HeroBanner() {
               <h1 className="text-[24px] md:text-[34px] font-bold leading-[1.2]">SNS運用を、<span className="text-[#E8A87C]">仕組み</span>に任せる。</h1>
               <p className="text-[13px] md:text-[14px] text-gray-200 mt-2">X・Threads・Bluesky・Yay!・Facebook・アメブロ・note の運用ツール <span className="font-bold text-white tabular-nums">{ON_SALE.length}</span> 種。</p>
             </div>
-            <a href="#tools" className="inline-flex items-center justify-center h-10 px-6 rounded-sm bg-[#C2533C] hover:bg-[#A8432F] text-[#FBEDD9] text-[14px] font-medium border border-[#A8432F]">ツール一覧を見る</a>
           </div>
         </div>
       </div>
@@ -301,7 +300,7 @@ function ToolIndex() {
         <ul className="grid grid-cols-2 sm:grid-cols-5 lg:grid-cols-10 gap-2">
           {PRODUCTS.map((p) => (
             <li key={p.id}>
-              <a href={'#p-' + p.id} className="flex sm:block items-center gap-2 h-full rounded-sm bg-[#FAF7F2] hover:bg-[#EFE9DD] p-1.5 sm:text-center transition-colors">
+              <a href={p.href || ('#p-' + p.id)} className="flex sm:block items-center gap-2 h-full rounded-sm bg-[#FAF7F2] hover:bg-[#EFE9DD] p-1.5 sm:text-center transition-colors">
                 <div className="w-11 h-11 sm:w-auto sm:h-auto sm:aspect-square flex-shrink-0 rounded-sm overflow-hidden sm:mb-1.5"><Thumb p={p} small /></div>
                 <div className="min-w-0">
                   <div className="text-[14px] font-bold text-[#0F1111] leading-tight sm:min-h-[2.5em]"><ShortName s={p.short} /></div>
@@ -814,6 +813,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(<App />);
 Version History
 - ver3.0-mock2 (2026-10-31): 第 2 版。ゆうさん「情報量多い・最初にツールを並べる・XTP6→XTP3 は劣後」→ ヒーロー直下にツール一覧（10 マスの早見表）、4 枚タイル・棚のポップ・下部固定バー・浮きカードを削除、ヒーローを 1 文に、ステップアップ帯は棚の下で小さく、カードの箇条書きは 2 行・サムネは 4:3
 - ver3.0-mock (2026-10-31): v3 のモック。ver2.1 の Amazon 風の骨格と配色はそのまま、①ステップアップ帯（無料の XTP6 → 強化版 XTP3）②SNS 別の棚（9 製品＋Instagram 準備中・値札の高さをそろえる・スマホは棚ごとに横スクロール）③スマホの下部固定バー ④XTP6 の料金・上限を 27_XTP6 limits.ts に合わせる（無料 1 垢・1 日 10 件／ベース 月¥3,000・年払い月¥1,000・20 垢／プレミアム 100）。FAQ に「XTP6 から XTP3 に乗り換えられる？」
+- ver3.2 (2026-11-01): ツール一覧のマスを押すと各ツールの製品ページ（LP・XTP6 はアプリ・TTP2 は使い方）へ（準備中の Instagram だけ棚のカードへ）。ヒーローの「ツール一覧を見る」ボタンを削除（ゆうさん）
 - ver3.1 (2026-11-01): 協業相手のフィードバック 6 点を反映（モック mock-v4 で確認・ゆうさん OK）。ツール一覧の SNS 名を削除・文字を大きく（名前は ToolsPro の前で折り返す）／値札の札を 13px に／ロゴを大きく／棚のカードは補足（使う場所・料金の注記・無料版・箇条書き）を (i) に移し、名前 18px・ボタン 15px／棚の説明・パンくず・凡例を削除／「X は、無料で試してから強化版へ」カードを削除し、比較表の上に選び方の 2 行／比較表は ○△×＋記号の下に補足・16px・縦横の罫線・ヘッダーと左端列に薄い色・左端は右揃え・スマホでも 3 列が 1 画面／購入後の流れは 1 行ずつ＋▶／FAQ は最初全部閉じる・1 問ずつ枠・1 列／XTP6・TTP2 のリンクも同じタブで開く（戻るが効く）
 - ver3.0 (2026-10-31): 本番化。mock-v3 を components-amazon.jsx に（BASE を '' に・モックの目印を削除・アメブロのサムネを thumbs/ameblo.webp に）。新ツール 5 つは各 LP（fb-like/ ameblo-like/ note-bot/ yay/ bluesky/）へ
 */
