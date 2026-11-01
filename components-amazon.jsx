@@ -702,7 +702,7 @@ const FAQS = [
   { q: 'XToolsPro6 から XToolsPro3 に乗り換えられる？', a: 'はい。XToolsPro6 は無料版のまま残せるので、XToolsPro3 を買ってからしばらく並べて使い、慣れたら移る形がおすすめです。投稿データの自動引き継ぎはないので、XToolsPro3 には投稿文を入れ直してください（一括で入れるならスプレッドシート取込のアドオンが便利です）。' },
   { q: 'アカウント凍結のリスクは？', a: 'どのツールも、間隔や 1 日の件数を安全側の既定値にしていますが、凍結しないことは保証できません。ご自身の運用ルールの範囲で件数と頻度を決めてください。XToolsPro4 と ThreadsToolsPro2 は各 SNS の公式 API で動きます。' },
   { q: 'スマホで使える？', a: 'XToolsPro6・XToolsPro4・ThreadsToolsPro2 はスマホのブラウザで使えます（XToolsPro6 は最初の X アカウント登録だけ PC の Chrome）。BskyToolsPro2 はスプレッドシートなのでスマホからも書けます。XToolsPro3・FacebookToolsPro・AmebloToolsPro・noteToolsPro は Windows PC、YayToolsPro は PC の Chrome で使います。' },
-  { q: '支払い方法は？', a: '買い切り（XToolsPro3・各 ¥3,000 のツール）は Stripe でクレジットカード・銀行振込などに対応しています。XToolsPro6／XToolsPro4 の有料版はアプリ内で登録します。ThreadsToolsPro2 は決済ページ（theapps）からの月額です。' },
+  { q: '支払い方法は？', a: '買い切り（XToolsPro3・各 ¥3,000 のツール）と、XToolsPro4・ThreadsToolsPro2 の月額は Stripe でクレジットカードなどに対応しています（買い切りは銀行振込も可）。XToolsPro6 の有料版はアプリ内で登録します。' },
   { q: '困ったときの連絡先は？', a: 'お問い合わせフォームからご連絡ください。開発者本人が返信します。購入後のセットアップは手順書にまとめています。' },
 ];
 
@@ -786,6 +786,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(<App />);
 Version History
 - ver3.0-mock2 (2026-10-31): 第 2 版。ゆうさん「情報量多い・最初にツールを並べる・XTP6→XTP3 は劣後」→ ヒーロー直下にツール一覧（10 マスの早見表）、4 枚タイル・棚のポップ・下部固定バー・浮きカードを削除、ヒーローを 1 文に、ステップアップ帯は棚の下で小さく、カードの箇条書きは 2 行・サムネは 4:3
 - ver3.0-mock (2026-10-31): v3 のモック。ver2.1 の Amazon 風の骨格と配色はそのまま、①ステップアップ帯（無料の XTP6 → 強化版 XTP3）②SNS 別の棚（9 製品＋Instagram 準備中・値札の高さをそろえる・スマホは棚ごとに横スクロール）③スマホの下部固定バー ④XTP6 の料金・上限を 27_XTP6 limits.ts に合わせる（無料 1 垢・1 日 10 件／ベース 月¥3,000・年払い月¥1,000・20 垢／プレミアム 100）。FAQ に「XTP6 から XTP3 に乗り換えられる？」
+- ver3.10 (2026-11-01): FAQ「支払い方法は？」を更新（XTP4・TTP2 の月額も Stripe）
 - ver3.9 (2026-11-01): XTP6・XTP4 の「有料版を購入する」も LP の最初へ（4 つとも同じ動き・ゆうさん）
 - ver3.8 (2026-11-01): XTP3 も「無料で始める」（無料版の登録フォーム）と「有料版を購入する」（LP の最初）に。TTP2 の「有料版を購入する」は Stripe 直行 → LP の最初へ（ゆうさん）
 - ver3.7 (2026-11-01): TTP2 の LP を新住所 https://ttp2.youpapatools.com/ に（アプリは vercel.app のまま）

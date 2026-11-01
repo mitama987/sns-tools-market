@@ -154,3 +154,4 @@ Chrome実機での再現・APIバイセクトにより、公開時検証の仕�
 - 2026-11-01 components ver3.8: XTP3 も「無料で始める」（登録フォーム forms.gle/hyrb2QmFnnoU96VR6）と「有料版を購入する」（/xtp3/）に。TTP2 の有料は Stripe 直行 → LP（ttp2.youpapatools.com）へ
 - 2026-11-01 components ver3.9: XTP6・XTP4 の「有料版を購入する」も LP の最初へ（XTP6＝xtp6.youpapatools.com・XTP4＝/xtp4/）。4 つとも「無料＝登録／有料＝LP の最初」
 - 2026-11-01 market-footer ver1.2・xtp4 ver1.7: 共通フッターは本体（#root）が描き終わってから出す（data-mk-footer-wait）。XTP4 の LP で読み込み中にフッターだけが一瞬見えていた
+- 2026-11-01 xtp4 app.jsx ver1.7: 料金表の「Pro を始める」を Stripe 直販（/api/buy/xtp4_premium_monthly）に。components ver3.10: FAQ の支払い方法を更新
