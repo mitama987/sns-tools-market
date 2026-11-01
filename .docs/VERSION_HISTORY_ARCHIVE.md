@@ -136,3 +136,8 @@ Chrome実機での再現・APIバイセクトにより、公開時検証の仕�
 - components-amazon.jsx ver3.2: ツール一覧のマスの行き先を棚のカード（#p-…）→ 各ツールの製品ページ（p.href）に。準備中の Instagram だけ棚のカードへ。ヒーローの「ツール一覧を見る」ボタンを削除
 - xtp3 ver2.3・xtp4 ver1.3・xtp-compare ver1.3: 戻る帯をマーケットのヘッダー左上と同じロゴ（M.＋Youパパツールマーケット＋SNS TOOLS · 9 ITEMS）にして左上へ。「← ツール一覧」は外した
 - components-amazon.jsx ver3.3: 比較表の ○△× を SVG（線の太さ 3）で描いてそろえた（文字の ○△ が × より細く見えた）
+
+## 2026-11-01 TTP2 の手順書を /ttp2/ へ
+- 40_ThreadsToolsPro2 の public/docs（index.html・styles.css・script.js・screenshots）を ttp2/ にコピー。読み込みパスを相対に・canonical 追加・左上にマーケットのロゴ帯（fixed 48px・サイドバー／メニューボタン／本文／アンカー位置を 48px 下げ・script.js の headerOffset 32→80）。正本は今後こちら
+- 旧 https://threadtoolspro2.vercel.app/docs は TTP2 側の next.config で /ttp2/ へ転送（一時・307）
+- components-amazon.jsx ver3.4・index.html: TTP2 のリンク（棚・一覧・フッター・JSON-LD・noscript）を /ttp2/ に
