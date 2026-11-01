@@ -451,9 +451,9 @@ const PLANS = [
     ],
     note: "ご自身のX APIキーで投稿します。XのAPI利用料（従量課金・プラン料金など）はお客様のご負担となり、月額料金には含まれません。",
     cta: "Pro を始める",
-    // page.theapps.jp は /paid/join/<商品ID> が購入入口。/contract/<契約ID> は
-    // 消費済みの契約1件を指し、誰が開いても「既に決済されています。」になる。
-    href: "https://page.theapps.jp/paid/join/C8hv3G40M25l68i1",
+    // 2026-11-01 から Stripe 直販（32_stripe-webhook の /api/buy → Stripe Checkout・月額 ¥1,000）。
+    // 決済が通るとマスターの XTP4 列とアプリ（同じメールのワークスペースをプレミアムに）が更新される。theapps の既存会員はそのまま
+    href: "https://stripe-webhook-r260221-01.web.app/api/buy/xtp4_premium_monthly",
     featured: true,
   },
 ];
@@ -651,6 +651,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(<App />);
 
 /*
 Version History
+- ver1.7 (2026-11-01): 料金表の「Pro を始める」を theapps → Stripe 直販（/api/buy/xtp4_premium_monthly）に（ゆうさん）
 - ver1.6 (2026-11-01): XTP4 自身のフッター（Made for X.・ロゴ・©）を削除し、マーケット共通フッターだけに（ゆうさん）
 - ver1.5 (2026-11-01): マーケットの帯は下にスクロールした分だけ上に隠れる（XTP3 と同じ見え方・ゆうさん）。フッターの中身の無いリンク（href="#" の特商法・規約・プライバシー・問い合わせ）を削除＝下のマーケット共通フッターに特商法・問い合わせがある
 - ver1.3 (2026-11-01): マーケットへ戻る帯をマーケットのヘッダー左上と同じロゴ（M.＋Youパパツールマーケット＋SNS TOOLS · 9 ITEMS）にして左上へ。「← ツール一覧」は外した（ゆうさん指示）
