@@ -121,8 +121,8 @@
 <!-- マーケットへ戻る帯（2026-11-01 v2・マーケットのヘッダー左上と同じロゴ） -->
 <style>
 .mk-back{background:#1F1B16;font-family:"Noto Sans JP","Hiragino Sans","Yu Gothic UI",Meiryo,sans-serif;position:relative;z-index:50}
-.mk-back .mk-in{height:48px;padding:0 12px;display:flex;align-items:center}
-.mk-back a{display:inline-flex;align-items:center;gap:8px;color:#fff;text-decoration:none;padding:4px 6px;margin-left:-6px;border:1px solid transparent;border-radius:4px}
+.mk-back .mk-in{height:48px;padding:0 12px;display:flex;align-items:center;justify-content:flex-end}
+.mk-back a{display:inline-flex;align-items:center;gap:8px;color:#fff;text-decoration:none;padding:4px 6px;margin-right:-6px;border:1px solid transparent;border-radius:4px}
 .mk-back a:hover{border-color:rgba(255,255,255,.6)}
 .mk-back svg{width:26px;height:26px;flex-shrink:0;display:block}
 .mk-back .mk-t{display:flex;flex-direction:column;gap:3px;line-height:1}
@@ -138,6 +138,7 @@
 
 <!--
 Version History
+- ver1.4 (2026-11-01): マーケットのロゴ帯を右寄せに（ゆうさん「やっぱり右側」）
 - ver1.3 (2026-11-01): マーケットへ戻る帯をマーケットのヘッダー左上と同じロゴ（M.＋Youパパツールマーケット＋SNS TOOLS · 9 ITEMS）にして左上へ。「← ツール一覧」は外した（ゆうさん指示）
 - ver1.2 (2026-11-01): ページ先頭にマーケットへ戻る帯（Youパパツールマーケット／← ツール一覧）を追加
 - ver1.1 (2026-09-20): Pro の「Pro を始める」が href="#" のデッドリンクだったのを theapps の購入URL（/paid/join/）へ修正。あわせて実product（29_XTP4）と乖離していた表記を是正: 未実装の AI自動リプライ をFV・FEATURE 02・STEP 03・料金表から撤去（あわせて見出しを「3つのAI」→「AI」）、AI自動投稿（無制限）→（1日最大10,000件・ご自身のX API契約の上限に依存）、最大100→50アカウント（料金表とFAQの両方）、Freeの上限を実plan-configへ、両カードにX API料金負担の注記を追加

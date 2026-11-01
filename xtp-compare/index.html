@@ -30,8 +30,8 @@ body{padding:0 max(4px,env(safe-area-inset-right,0px)) 0 max(4px,env(safe-area-i
 <!-- マーケットへ戻る帯（2026-11-01 v2・マーケットのヘッダー左上と同じロゴ） -->
 <style>
 .mk-back{background:#1F1B16;font-family:"Noto Sans JP","Hiragino Sans","Yu Gothic UI",Meiryo,sans-serif;position:relative;z-index:50}
-.mk-back .mk-in{height:48px;padding:0 12px;display:flex;align-items:center}
-.mk-back a{display:inline-flex;align-items:center;gap:8px;color:#fff;text-decoration:none;padding:4px 6px;margin-left:-6px;border:1px solid transparent;border-radius:4px}
+.mk-back .mk-in{height:48px;padding:0 12px;display:flex;align-items:center;justify-content:flex-end}
+.mk-back a{display:inline-flex;align-items:center;gap:8px;color:#fff;text-decoration:none;padding:4px 6px;margin-right:-6px;border:1px solid transparent;border-radius:4px}
 .mk-back a:hover{border-color:rgba(255,255,255,.6)}
 .mk-back svg{width:26px;height:26px;flex-shrink:0;display:block}
 .mk-back .mk-t{display:flex;flex-direction:column;gap:3px;line-height:1}
@@ -121,6 +121,7 @@ body{padding:0 max(4px,env(safe-area-inset-right,0px)) 0 max(4px,env(safe-area-i
 Version History
 - ver1.0 (2026-10-19): 新規。XTP3・XTP4・XTP6 の機能比較（スマホ幅向け）。元は ClaudeCompany .company/marketing/content-plan/xtp-compare-page.html。LINE の告知から短縮リンク x6-cmp-x3／x4／oc で流入
 - ver1.1 (2026-10-20): 下にスクロールしても見出し（機能・XTP3・XTP4・XTP6）が上に残るように（sticky）。そのため表の overflow:hidden をやめ、角丸は角のマスに付けた
+- ver1.4 (2026-11-01): マーケットのロゴ帯を右寄せに（ゆうさん「やっぱり右側」）
 - ver1.3 (2026-11-01): マーケットへ戻る帯をマーケットのヘッダー左上と同じロゴ（M.＋Youパパツールマーケット＋SNS TOOLS · 9 ITEMS）にして左上へ。「← ツール一覧」は外した（ゆうさん指示）
 - ver1.2 (2026-11-01): ページ先頭にマーケットへ戻る帯（Youパパツールマーケット／← ツール一覧）を追加
 - ver1.3 (2026-10-31): canonical／og:url を https://market.youpapatools.com/xtp-compare/ に（独自ドメイン）
