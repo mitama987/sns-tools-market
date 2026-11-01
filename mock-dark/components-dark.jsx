@@ -167,8 +167,8 @@ function Logo({ size = 22 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 22 22" aria-hidden="true">
       <rect x="1.5" y="1.5" width="19" height="19" rx="4" fill="#C9A96E"/>
-      <path d="M6 15V7l3 5 3-5v8" fill="none" stroke="#14110E" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-      <circle cx="15.5" cy="15" r="1.2" fill="#14110E"/>
+      <path d="M6 15V7l3 5 3-5v8" fill="none" stroke="#0B0F1A" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+      <circle cx="15.5" cy="15" r="1.2" fill="#0B0F1A"/>
     </svg>
   );
 }
@@ -183,7 +183,7 @@ function TopNav() {
     const hit = PRODUCTS.find((p) => (p.short + ' ' + p.sns + ' ' + p.name).toLowerCase().includes(s));
     if (hit) {
       const el = document.getElementById('p-' + hit.id);
-      if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' }); el.classList.add('ring-2', 'ring-[#C9A96E]'); setTimeout(() => el.classList.remove('ring-2', 'ring-[#C9A96E]'), 1800); return; }
+      if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' }); el.classList.add('ring-2', 'ring-[#7DD3FC]'); setTimeout(() => el.classList.remove('ring-2', 'ring-[#7DD3FC]'), 1800); return; }
     }
     document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
   };
@@ -197,14 +197,14 @@ function TopNav() {
   ];
   return (
     <header className="select-none">
-      <div className="bg-[#050403] text-[#C9A96E] text-[11px] tracking-[0.2em] text-center py-1 uppercase">Mock · ダーク版（本番には未反映）</div>
-      <div className="bg-[#0B0907] text-white text-[13px]">
+      <div className="bg-[#070A12] text-[#8E99AF] text-[11px] tracking-[0.2em] text-center py-1 uppercase font-mono">Mock · ダーク版（本番には未反映）</div>
+      <div className="bg-[#070A12] text-white text-[13px]">
         <div className="mx-auto max-w-[1500px] flex items-center gap-1 sm:gap-2 px-2 sm:px-3 h-[60px] overflow-hidden">
           <a href="#top" className="flex items-center gap-2 px-2 py-1.5 rounded border border-transparent hover:border-white/60 transition-colors flex-shrink-0">
             <Logo size={28} />
             <div className="flex flex-col leading-none gap-0.5">
               <span className="text-[13px] sm:text-[18px] font-bold tracking-tight whitespace-nowrap">Youパパツールマーケット</span>
-              <span className="hidden sm:block text-[9px] text-[#A89C8A] tracking-[0.18em] uppercase">SNS Tools · {ON_SALE.length} items</span>
+              <span className="hidden sm:block text-[9px] text-[#8E99AF] tracking-[0.18em] uppercase">SNS Tools · {ON_SALE.length} items</span>
             </div>
           </a>
 
@@ -213,19 +213,19 @@ function TopNav() {
               <path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/>
             </svg>
             <div className="leading-tight">
-              <div className="text-[11px] text-[#A89C8A]">法人の方は</div>
+              <div className="text-[11px] text-[#8E99AF]">法人の方は</div>
               <div className="text-[13px] font-bold">RAIJIN へ</div>
             </div>
           </a>
 
           <div className="flex-1 mx-2 min-w-0">
-            <form onSubmit={onSearch} className="flex h-10 rounded overflow-hidden ring-1 ring-[#C9A96E]/40 focus-within:ring-2 focus-within:ring-[#C9A96E]" role="search">
+            <form onSubmit={onSearch} className="flex h-10 rounded-full overflow-hidden ring-1 ring-white/15 focus-within:ring-2 focus-within:ring-[#7DD3FC]" role="search">
               <label htmlFor="q" className="sr-only">ツールを探す</label>
               <input id="q" type="search" value={q} onChange={(e) => setQ(e.target.value)}
                 placeholder="ツール名・SNS で探す（例: XTP6・アメブロ）"
-                className="flex-1 min-w-0 px-3 text-[14px] bg-[#1A1612] text-[#F2EDE3] placeholder:text-[#8F8473] focus:outline-none" />
-              <button type="submit" aria-label="検索" className="bg-[#C9A96E] hover:bg-[#B8955A] w-12 flex items-center justify-center flex-shrink-0">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#14110E" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                className="flex-1 min-w-0 px-4 text-[14px] bg-[#161F33] text-[#E6EAF2] placeholder:text-[#7B869C] focus:outline-none" />
+              <button type="submit" aria-label="検索" className="bg-[#E6EAF2] hover:bg-[#0F1626] w-12 flex items-center justify-center flex-shrink-0">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0B0F1A" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                   <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
                 </svg>
               </button>
@@ -233,7 +233,7 @@ function TopNav() {
           </div>
 
           <a href={DOCS} target="_blank" rel="noopener" className="hidden md:block px-2 py-1.5 rounded border border-transparent hover:border-white/60 transition-colors flex-shrink-0">
-            <div className="text-[11px] leading-tight text-[#A89C8A]">購入後の</div>
+            <div className="text-[11px] leading-tight text-[#8E99AF]">購入後の</div>
             <div className="text-[13px] font-bold leading-tight">手順書</div>
           </a>
           <a href={CONTACT} target="_blank" rel="noopener" aria-label="お問い合わせ" title="お問い合わせ" className="flex items-end gap-1 px-2 py-1.5 rounded border border-transparent hover:border-white/60 transition-colors flex-shrink-0">
@@ -245,7 +245,7 @@ function TopNav() {
         </div>
       </div>
 
-      <div className="bg-[#14110E] text-white text-[13px] border-b border-[#C9A96E]/30">
+      <div className="bg-[#0B0F1A] text-white text-[13px] border-b border-white/10">
         <div className="mx-auto max-w-[1500px] flex items-center gap-1 px-2 h-10 overflow-x-auto whitespace-nowrap nav-scroll">
           <a href="#tools" className="flex items-center gap-1 px-3 py-1.5 rounded border border-transparent hover:border-white/60 transition-colors font-bold">
             <svg width="16" height="14" viewBox="0 0 24 18" fill="currentColor"><rect y="0" width="24" height="2"/><rect y="8" width="24" height="2"/><rect y="16" width="24" height="2"/></svg>
@@ -266,17 +266,17 @@ function TopNav() {
 
 function HeroBanner() {
   return (
-    <div className="bg-gradient-to-b from-[#14110E] to-transparent">
+    <div className="bg-gradient-to-b from-[#0B0F1A] to-transparent">
       <div className="mx-auto max-w-[1500px] px-3 pt-3">
-        <div className="rounded-sm overflow-hidden bg-gradient-to-br from-[#0B0907] via-[#1E1913] to-[#0B0907] text-white border border-[#C9A96E]/30">
+        <div className="relative rounded-[16px] overflow-hidden bg-gradient-to-br from-[#0B0F1A] via-[#141C30] to-[#0B0F1A] text-white border border-white/10 hero-glow">
           <div className="flex flex-wrap items-end justify-between gap-4 px-6 py-6 md:px-10 md:py-8">
             <div>
               <div className="inline-flex items-center gap-2 mb-2 text-[#E3C68A] text-[11px] font-bold tracking-[0.24em] uppercase">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#E3C68A]"></span>
                 作った本人が販売・サポート
               </div>
-              <h1 className="text-[24px] md:text-[34px] font-bold leading-[1.2]">SNS運用を、<span className="text-[#E3C68A]">仕組み</span>に任せる。</h1>
-              <p className="text-[13px] md:text-[14px] text-[#CFC6B6] mt-2">X・Threads・Bluesky・Yay!・Facebook・アメブロ・note の運用ツール <span className="font-bold text-white tabular-nums">{ON_SALE.length}</span> 種。</p>
+              <h1 className="text-[24px] md:text-[34px] font-bold leading-[1.2]">SNS運用を、<span className="text-[#7DD3FC]">仕組み</span>に任せる。</h1>
+              <p className="text-[13px] md:text-[14px] text-[#C7CFDD] mt-2">X・Threads・Bluesky・Yay!・Facebook・アメブロ・note の運用ツール <span className="font-bold text-white tabular-nums">{ON_SALE.length}</span> 種。</p>
             </div>
           </div>
         </div>
@@ -298,21 +298,21 @@ function ToolIndex() {
     : p.kind === 'free' ? '無料〜'
     : p.kind === 'monthly' ? '月¥' + p.price.toLocaleString('ja-JP')
     : '¥' + p.price.toLocaleString('ja-JP') + (p.id === 'xtp3' ? '〜' : '');
-  const color = (p) => p.comingSoon ? 'text-[#6E6557]' : p.kind === 'free' ? 'text-[#D8C08A]' : 'text-[#F2EDE3]';
+  const color = (p) => p.comingSoon ? 'text-[#5C6780]' : p.kind === 'free' ? 'text-[#7DD3FC]' : 'text-[#E6EAF2]';
   return (
     <section id="tools" className="mx-auto max-w-[1500px] px-3 mt-3 scroll-mt-4">
-      <div className="bg-[#17140F] rounded-sm border border-[#C9A96E]/20 p-4 md:p-6">
+      <div className="bg-[#0F1626] rounded-[16px] border border-white/[0.08] p-4 md:p-6">
         <div className="flex items-baseline justify-between gap-2 mb-3 md:mb-4">
-          <h2 className="text-[18px] md:text-[22px] font-bold text-[#F2EDE3]"><span className="eyebrow">The Collection</span>ツール一覧<span className="ml-2 text-[15px] text-[#8F8473] font-normal">{ON_SALE.length} 種＋準備中 1</span></h2>
+          <h2 className="text-[18px] md:text-[22px] font-bold text-[#E6EAF2]"><span className="eyebrow">The Collection</span>ツール一覧<span className="ml-2 text-[15px] text-[#7B869C] font-normal">{ON_SALE.length} 種＋準備中 1</span></h2>
         </div>
         {/* スマホ＝アイコン＋名前＋価格の 2 列リスト、sm〜＝タイル（lg は 1 行 10 個） */}
         <ul className="grid grid-cols-2 sm:grid-cols-5 lg:grid-cols-10 gap-2">
           {PRODUCTS.map((p) => (
             <li key={p.id}>
-              <a href={p.href || ('#p-' + p.id)} className="flex sm:block items-center gap-2 h-full rounded-sm bg-[#1C1813] hover:bg-[#2A231B] p-1.5 sm:text-center transition-colors">
+              <a href={p.href || ('#p-' + p.id)} className="flex sm:block items-center gap-2 h-full rounded-sm bg-[#161F33] hover:bg-[#1C2740] p-1.5 sm:text-center transition-colors">
                 <div className="w-11 h-11 sm:w-auto sm:h-auto sm:aspect-square flex-shrink-0 rounded-sm overflow-hidden sm:mb-1.5"><Thumb p={p} small /></div>
                 <div className="min-w-0">
-                  <div className="text-[14px] font-bold text-[#F2EDE3] leading-tight sm:min-h-[2.5em]"><ShortName s={p.short} /></div>
+                  <div className="text-[14px] font-bold text-[#E6EAF2] leading-tight sm:min-h-[2.5em]"><ShortName s={p.short} /></div>
                   <div className={"text-[15px] font-bold tabular-nums leading-tight mt-0.5 " + color(p)}>{label(p)}</div>
                 </div>
               </a>
@@ -343,24 +343,24 @@ function Thumb({ p, small }) {
 function PriceTag({ p }) {
   if (p.comingSoon) {
     return (
-      <div className="rounded-sm border border-dashed border-[#3A3128] bg-[#1C1813] px-3 py-2.5">
-        <span className="inline-block text-[13px] font-bold tracking-[0.06em] text-[#A89C8A] bg-[#2A231B] px-2 py-0.5 rounded-sm">準備中</span>
-        <div className="mt-1.5 text-[28px] font-medium text-[#6E6557] leading-none">—</div>
+      <div className="rounded-sm border border-dashed border-[#1F2A44] bg-[#161F33] px-3 py-2.5">
+        <span className="inline-block text-[13px] font-bold tracking-[0.06em] text-[#8E99AF] bg-[#1C2740] px-2 py-0.5 rounded-sm">準備中</span>
+        <div className="mt-1.5 text-[28px] font-medium text-[#5C6780] leading-none">—</div>
       </div>
     );
   }
   const kindLabel = { free: '無料から', buy: '買い切り', monthly: '月額' }[p.kind];
-  const kindColor = { free: '#2B7F72', buy: '#A8503A', monthly: '#3A6FC0' }[p.kind];
+  const kindColor = { free: '#2B8F6E', buy: '#B7791F', monthly: '#5B8A1E' }[p.kind];
   return (
-    <div className="rounded-sm border border-[#3A3128] bg-[#120F0B] pl-3 pr-2 py-2.5 border-l-4" style={{ borderLeftColor: kindColor }}>
+    <div className="rounded-sm border border-[#1F2A44] bg-[#0B0F1A] pl-3 pr-2 py-2.5 border-l-4" style={{ borderLeftColor: kindColor }}>
       <span className="inline-block text-[13px] font-bold tracking-[0.06em] text-white px-2 py-0.5 rounded-sm" style={{ background: kindColor }}>{kindLabel}</span>
       <div className="mt-1.5 leading-none">
         {p.price === 0 ? (
-          <span className="text-[28px] font-medium text-[#F2EDE3] tabular-nums">¥0<span className="text-[15px] ml-0.5">〜</span></span>
+          <span className="text-[28px] font-medium text-[#E6EAF2] tabular-nums">¥0<span className="text-[15px] ml-0.5">〜</span></span>
         ) : (
-          <span className="text-[28px] font-medium text-[#F2EDE3] tabular-nums">
+          <span className="text-[28px] font-medium text-[#E6EAF2] tabular-nums">
             <span className="text-[16px] align-top mr-0.5">¥</span>{p.price.toLocaleString('ja-JP')}
-            {p.kind === 'monthly' && <span className="text-[14px] text-[#A89C8A] ml-0.5 font-normal">/月</span>}
+            {p.kind === 'monthly' && <span className="text-[14px] text-[#8E99AF] ml-0.5 font-normal">/月</span>}
             {p.id === 'xtp3' && <span className="text-[15px] ml-0.5">〜</span>}
           </span>
         )}
@@ -373,16 +373,60 @@ function PriceTag({ p }) {
 function InfoBtn({ onClick, label, open, dark }) {
   const base = "flex-shrink-0 w-7 h-7 rounded-full border-2 inline-flex items-center justify-center text-[14px] font-bold leading-none transition-colors ";
   const look = dark
-    ? (open ? 'bg-[#C9A96E] text-[#14110E] border-[#C9A96E]' : 'border-white/80 text-white hover:bg-[#17140F]/10')
-    : (open ? 'bg-[#C9A96E] border-[#C9A96E] text-[#14110E]' : 'border-[#D8C08A] text-[#D8C08A] hover:bg-[#2A231B]');
+    ? (open ? 'bg-[#E6EAF2] text-[#0B0F1A] border-[#E6EAF2]' : 'border-white/80 text-white hover:bg-[#0F1626]/10')
+    : (open ? 'bg-[#7DD3FC] border-[#7DD3FC] text-[#0B0F1A]' : 'border-[#7DD3FC] text-[#7DD3FC] hover:bg-[#0F1626]/10');
   return (
     <button type="button" onClick={onClick} aria-label={label} aria-expanded={!!open} title={label}
       className={base + look} style={{ fontFamily: 'Georgia, serif' }}>i</button>
   );
 }
 
+// ─── 棚のカード（ダーク版モック専用・build_mock_dark.py が本番の ShelfCard と差し替える） ───
+// 参考: chatgpt.site のモックのカード（紺〜黒・円弧と淡い光・等幅ラベル・枠だけの札・セリフの製品名・STARTING AT）
+// ボタン 2 つ（無料で始める／有料版を購入する・単機能は製品ページを見る）とリンク先は本番と同じ。
+// 「詳細を見る →」は足さない（有料版を購入する・製品ページを見ると同じ LP へのリンクが並ぶだけのため）。補足は (i) のまま。
+
+const CARD_META = {
+  xtp6:   { label: 'X / Mobile Web',        glow: '#2DD4BF', chips: ['予約投稿', '分析', 'AI投稿案'] },
+  xtp4:   { label: 'X / Web App',           glow: '#A78BFA', chips: ['公式API', 'AI下書き', '予約投稿'] },
+  xtp3:   { label: 'X / Windows',           glow: '#C9A96E', chips: ['Windows', '買い切り', '複数アカウント'] },
+  ttp2:   { label: 'Threads / Web',         glow: '#A5A0C8', chips: ['公式API', '定期投稿', '複数アカウント'] },
+  bsky:   { label: 'Bluesky / Spreadsheet', glow: '#3B82F6', chips: ['スプシ', 'PC不要', '買い切り'] },
+  yay:    { label: 'Yay! / Chrome',         glow: '#D946A8', chips: ['Chrome拡張', 'フォロー', 'リプライ'] },
+  fb:     { label: 'Facebook / Windows',    glow: '#3B6FD6', chips: ['Windows', 'いいね', '買い切り'] },
+  ig:     { label: 'Instagram / Soon',      glow: '#E1306C', chips: ['準備中'] },
+  ameblo: { label: 'Ameblo / Windows',      glow: '#3DBE7A', chips: ['Windows', 'いいね', '買い切り'] },
+  note:   { label: 'note / Windows',        glow: '#41C9B4', chips: ['Windows', 'スキ', '買い切り'] },
+};
+
+const KIND_PILL = {
+  free:    { text: 'Free to start', color: '#34D399' },
+  buy:     { text: 'One time',      color: '#F59E0B' },
+  monthly: { text: 'Monthly',       color: '#A3E635' },
+  soon:    { text: 'Coming soon',   color: '#94A3B8' },
+};
+
+const startingAt = (p) => p.comingSoon ? '—'
+  : p.kind === 'free' ? '無料〜'
+  : p.kind === 'monthly' ? '月¥' + p.price.toLocaleString('ja-JP')
+  : '¥' + p.price.toLocaleString('ja-JP') + (p.id === 'xtp3' ? '〜' : '');
+
+function DarkTile({ p, glow }) {
+  return (
+    <div className="relative aspect-[16/10] rounded-[12px] overflow-hidden bg-[#0C1220] border border-white/[0.06]">
+      <div aria-hidden="true" className="absolute left-1/2 -translate-x-1/2 -top-[45%] w-[80%] aspect-square rounded-full blur-3xl" style={{ background: glow, opacity: p.comingSoon ? 0.15 : 0.35 }} />
+      <div aria-hidden="true" className="absolute left-1/2 -translate-x-1/2 top-[14%] w-[66%] aspect-square rounded-full border border-white/10" />
+      <div className={"absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-[54%] w-[34%] aspect-square rounded-[20%] overflow-hidden ring-[3px] ring-white/80 shadow-[0_18px_40px_-10px_rgba(0,0,0,.85)] -rotate-[4deg] " + (p.comingSoon ? 'grayscale opacity-60' : '')}>
+        <img src={B(`thumbs/${p.id}.webp`)} alt="" loading="lazy" className="w-full h-full object-cover block" />
+      </div>
+    </div>
+  );
+}
+
 function ShelfCard({ p }) {
   const [info, setInfo] = React.useState(false);
+  const m = CARD_META[p.id] || { label: p.sns, glow: '#64748B', chips: [] };
+  const pill = KIND_PILL[p.comingSoon ? 'soon' : p.kind];
   const tagline = p.name.split(' — ')[1] || '';
   React.useEffect(() => {
     if (!info) return;
@@ -396,49 +440,61 @@ function ShelfCard({ p }) {
     p.free && ['無料版', p.free.replace(/^無料版[:：]\s*/, '')],
   ].filter(Boolean);
   return (
-    <article id={'p-' + p.id} className="relative bg-[#17140F] rounded-sm p-3 sm:p-4 border border-[#2E271F] hover:border-[#C9A96E]/50 transition-colors flex flex-col h-full scroll-mt-24">
-      <a href={p.href || undefined} {...ext(p)} className={"relative block mb-3 " + (p.comingSoon ? 'pointer-events-none' : '')} aria-label={p.name}>
-        <div className="rounded-sm overflow-hidden aspect-[4/3] bg-[#1C1813] ring-1 ring-[#C9A96E]/25"><Thumb p={p} /></div>
+    <article id={'p-' + p.id} className="relative flex flex-col h-full rounded-[16px] bg-[#0F1626] border border-white/[0.09] hover:border-white/25 transition-colors p-3 sm:p-4 scroll-mt-24" style={{ containerType: 'inline-size' }}>
+      <a href={p.href || undefined} {...ext(p)} className={"relative block " + (p.comingSoon ? 'pointer-events-none' : '')} aria-label={p.name}>
+        <DarkTile p={p} glow={m.glow} />
         {p.badges.length > 0 && (
           <span className="absolute top-2 left-2 flex flex-col items-start gap-1">
-            {p.badges.map((b, i) => <span key={b} className={(i === 0 ? 'bg-[#C9A96E] text-[#14110E]' : 'bg-[#14110E]/85 text-[#E3C68A] ring-1 ring-[#C9A96E]/50') + ' text-[12px] font-bold px-2 py-0.5 rounded-sm'}>{b}</span>)}
+            {p.badges.map((b, i) => <span key={b} className={(i === 0 ? 'bg-[#C9A96E] text-[#0B0F1A]' : 'bg-[#0B0F1A]/70 text-[#E3C68A] ring-1 ring-[#C9A96E]/50') + ' text-[11px] font-bold px-2 py-0.5 rounded-sm'}>{b}</span>)}
           </span>
         )}
-        {p.comingSoon && <span className="absolute inset-0 flex items-center justify-center"><span className="bg-[#0B0907]/80 text-white text-[14px] font-bold px-3 py-1 rounded-sm">準備中</span></span>}
       </a>
-      {/* 名前＋何をするかの 1 行。高さを固定 → 値札がどのカードでも同じ高さに来る */}
-      <div className="flex items-start gap-2 mb-2.5">
-        <div className="min-w-0 flex-1">
-          <div className="text-[18px] font-bold text-[#F2EDE3] leading-tight"><ShortName s={p.short} /></div>
-          <div className="text-[14px] text-[#D6CCBB] leading-[1.5] mt-1 line-clamp-2 h-[3em]">{tagline}</div>
-        </div>
-        <InfoBtn onClick={() => setInfo(true)} label={p.short + ' の補足を見る'} open={info} />
+      {/* 1 行目: 等幅ラベル ＋ 枠だけの札 */}
+      <div className="flex items-center justify-between gap-2 mt-3.5">
+        <span className="font-mono text-[10px] sm:text-[11px] tracking-[0.16em] uppercase text-[#8E99AF] truncate">{m.label}</span>
+        <span className="font-mono text-[10px] sm:text-[11px] font-medium tracking-[0.12em] uppercase px-2.5 py-0.5 rounded-full border whitespace-nowrap flex-shrink-0" style={{ color: pill.color, borderColor: pill.color + '66' }}>{pill.text}</span>
       </div>
-      <PriceTag p={p} />
-      <div className="mt-auto pt-3 flex flex-col gap-2">
+      {/* 製品名（セリフ・1 行。長い名前ほど小さく＝カード幅と文字数から 18〜32px） */}
+      <div className="mt-3 font-bold text-[#F1F4FA] leading-[1.15] whitespace-nowrap text-[24px]" style={{ fontFamily: '"Fraunces", "Noto Serif JP", serif', fontSize: `clamp(18px, ${(135 / p.short.length).toFixed(2)}cqw, 32px)`, letterSpacing: '-0.01em' }}>{p.short}</div>
+      <p className="jp-phrase mt-2 text-[14px] text-[#A9B3C6] leading-[1.5] line-clamp-2 h-[3em]">{tagline}</p>
+      <div className="mt-3 flex gap-1.5 overflow-hidden h-[26px]">
+        {m.chips.map((c) => <span key={c} className="flex-shrink-0 whitespace-nowrap text-[12px] leading-[24px] px-2 rounded-md bg-white/[0.06] border border-white/10 text-[#C7CFDD]">{c}</span>)}
+      </div>
+      {/* 区切り線 → STARTING AT ＋ 価格 ／ 補足 (i) */}
+      <div className="mt-3.5 pt-3 border-t border-white/10 flex items-end justify-between gap-2">
+        <div>
+          <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-[#7B869C]">Starting at</div>
+          <div className="text-[22px] font-bold text-[#F1F4FA] tabular-nums leading-none mt-1.5">{startingAt(p)}</div>
+        </div>
+        <button type="button" onClick={() => setInfo(true)} aria-expanded={info} aria-label={p.short + ' の補足を見る'} className="inline-flex items-center gap-1.5 text-[13px] font-bold text-[#7DD3FC] hover:text-[#BAE6FD]">
+          補足を見る<span className="w-5 h-5 rounded-full border-[1.5px] border-current inline-flex items-center justify-center text-[11px] leading-none" style={{ fontFamily: 'Georgia, serif' }}>i</span>
+        </button>
+      </div>
+      {/* ボタン 2 つ（リンク先・文言は本番と同じ） */}
+      <div className="mt-auto pt-3.5 flex flex-col gap-2">
         {p.comingSoon ? (
-          <span className="h-11 inline-flex items-center justify-center rounded-full bg-[#1F1A14] border border-[#2E271F] text-[#8F8473] text-[15px]">近日公開</span>
+          <span className="h-11 inline-flex items-center justify-center rounded-full bg-white/[0.04] border border-white/10 text-[#7B869C] text-[15px]">近日公開</span>
         ) : (
-          <a href={p.ctaHref || p.href} {...ext(p)} className="h-11 inline-flex items-center justify-center rounded-full bg-[#C9A96E] hover:bg-[#B8955A] border border-[#B8955A] text-[#14110E] text-[15px] font-bold transition-colors">{p.cta}</a>
+          <a href={p.ctaHref || p.href} {...ext(p)} className="h-11 inline-flex items-center justify-center rounded-full bg-[#E6EAF2] hover:bg-white text-[#0B0F1A] text-[15px] font-bold transition-colors">{p.cta}</a>
         )}
         {p.secondary && (
-          <a href={p.secondary.href} className="h-11 inline-flex items-center justify-center rounded-full bg-transparent hover:bg-[#C9A96E]/10 border border-[#C9A96E]/60 text-[#E3C68A] text-[15px] font-medium transition-colors">{p.secondary.label}</a>
+          <a href={p.secondary.href} className="h-11 inline-flex items-center justify-center rounded-full border border-white/25 hover:bg-white/[0.06] text-[#E6EAF2] text-[15px] font-medium transition-colors">{p.secondary.label}</a>
         )}
       </div>
-      {/* 補足（カードの内側に重ねる＝スマホの横スクロール棚でも切れない） */}
+      {/* 補足（カードの内側に重ねる） */}
       {info && (
-        <div role="dialog" aria-label={p.short + ' の補足'} className="absolute inset-0 z-10 bg-[#17140F] rounded-sm border-2 border-[#D8C08A] p-4 flex flex-col overflow-y-auto">
+        <div role="dialog" aria-label={p.short + ' の補足'} className="absolute inset-0 z-10 bg-[#0F1626] rounded-[16px] border border-[#7DD3FC]/60 p-4 flex flex-col overflow-y-auto">
           <div className="flex items-start justify-between gap-2 mb-3">
-            <div className="text-[17px] font-bold text-[#F2EDE3] leading-tight">{p.short}</div>
-            <button type="button" onClick={() => setInfo(false)} aria-label="閉じる" className="flex-shrink-0 w-8 h-8 -mt-1 -mr-1 rounded-full hover:bg-[#1F1A14] text-[22px] leading-none text-[#A89C8A]">×</button>
+            <div className="text-[20px] font-bold text-[#F1F4FA] leading-tight" style={{ fontFamily: '"Fraunces", "Noto Serif JP", serif' }}>{p.short}</div>
+            <button type="button" onClick={() => setInfo(false)} aria-label="閉じる" className="flex-shrink-0 w-8 h-8 -mt-1 -mr-1 rounded-full hover:bg-white/10 text-[22px] leading-none text-[#A9B3C6]">×</button>
           </div>
           <dl className="text-[14px] leading-[1.6] space-y-2">
             {rows.map(([k, v]) => (
-              <div key={k}><dt className="text-[12px] font-bold text-[#D8C08A]">{k}</dt><dd className="text-[#EDE6D8]">{v}</dd></div>
+              <div key={k}><dt className="font-mono text-[11px] tracking-[0.12em] text-[#7DD3FC]">{k}</dt><dd className="text-[#E6EAF2]">{v}</dd></div>
             ))}
             <div>
-              <dt className="text-[12px] font-bold text-[#D8C08A]">{p.comingSoon ? 'いまの状況' : 'できること'}</dt>
-              <dd><ul className="text-[#EDE6D8] space-y-0.5">{p.bullets.map((b) => <li key={b} className="flex gap-1.5"><span className="text-[#6E6557]">•</span><span>{b}</span></li>)}</ul></dd>
+              <dt className="font-mono text-[11px] tracking-[0.12em] text-[#7DD3FC]">{p.comingSoon ? 'いまの状況' : 'できること'}</dt>
+              <dd><ul className="text-[#E6EAF2] space-y-0.5">{p.bullets.map((b) => <li key={b} className="flex gap-1.5"><span className="text-[#5C6780]">•</span><span>{b}</span></li>)}</ul></dd>
             </div>
           </dl>
         </div>
@@ -453,13 +509,13 @@ function Shelf({ shelf, items }) {
   return (
     <section id={'shelf-' + shelf.id} className={"scroll-mt-4 min-w-0 " + (wide ? 'xl:col-span-2' : '')}>
       {/* 棚の札（説明は (i) で開く） */}
-      <div className="flex items-center justify-between gap-3 bg-[#14110E] text-white rounded-t-sm px-4 py-2.5 border border-b-0 border-[#C9A96E]/30">
+      <div className="flex items-center justify-between gap-3 bg-[#0F1626] text-white rounded-t-[16px] px-4 py-3 border border-b-0 border-white/10">
         <h3 className="text-[17px] font-bold">{shelf.title}</h3>
         <InfoBtn dark onClick={() => setPop(!pop)} open={pop} label={shelf.title + ' の説明'} />
       </div>
-      {pop && <p className="bg-[#1F1A14] text-[14px] text-[#D8CDB8] px-4 py-2 border-x border-[#3A3128]">{shelf.pop}</p>}
+      {pop && <p className="bg-[#161F33] text-[14px] text-[#C7CFDD] px-4 py-2 border-x border-white/10">{shelf.pop}</p>}
       {/* 棚板 */}
-      <div className="bg-[#100D0A] px-3 pt-3 pb-3 border border-t-0 border-[#C9A96E]/20 border-b-[3px] border-b-[#C9A96E]/70 rounded-b-sm">
+      <div className="bg-[#0B0F1A] px-3 pt-3 pb-3 border border-t-0 border-white/10 border-b-2 border-b-white/15 rounded-b-[16px]">
         <div className={
           "shelf-scroll flex overflow-x-auto snap-x snap-mandatory gap-3 -mx-3 px-3 pb-1 " +
           "sm:mx-0 sm:px-0 sm:pb-0 sm:grid sm:overflow-visible sm:grid-cols-2 " +
@@ -500,18 +556,18 @@ function ProductsSection({ active, toggle }) {
           <FilterGroup title="対応SNS" items={FILTERS.sns} active={active} toggle={toggle} />
           <FilterGroup title="料金の形" items={FILTERS.license} active={active} toggle={toggle} />
           <FilterGroup title="使う場所" items={FILTERS.env} active={active} toggle={toggle} />
-          <div className="mt-6 rounded-sm bg-[#17140F] p-3 text-[14px] text-[#D6CCBB] leading-[1.6]">
-            <div className="font-bold text-[#F2EDE3] mb-1">X のツールで迷ったら</div>
-            <a href="#compare" className="text-[#D8C08A] hover:underline">3 ツールの違い</a> を見てください。
+          <div className="mt-6 rounded-sm bg-[#0F1626] p-3 text-[14px] text-[#C7CFDD] leading-[1.6]">
+            <div className="font-bold text-[#E6EAF2] mb-1">X のツールで迷ったら</div>
+            <a href="#compare" className="text-[#7DD3FC] hover:underline">3 ツールの違い</a> を見てください。
           </div>
         </aside>
 
         <div className="min-w-0">
-          <div className="bg-[#17140F] rounded-sm px-4 py-3 mb-3 flex flex-wrap items-center justify-between gap-3">
-            <div className="text-[15px] text-[#BDB2A0]">
-              <span className="text-[18px] text-[#F2EDE3] font-bold">SNS 運用ツール</span>
-              <span className="ml-2 text-[#8F8473]"><span className="tabular-nums">{shown}</span> / <span className="tabular-nums">{ON_SALE.length}</span> 件</span>
-              {active.length > 0 && <button type="button" onClick={() => toggle(null)} className="ml-3 text-[#D8C08A] hover:underline">絞り込みを解除</button>}
+          <div className="bg-[#0F1626] rounded-sm px-4 py-3 mb-3 flex flex-wrap items-center justify-between gap-3">
+            <div className="text-[15px] text-[#A9B3C6]">
+              <span className="text-[18px] text-[#E6EAF2] font-bold">SNS 運用ツール</span>
+              <span className="ml-2 text-[#7B869C]"><span className="tabular-nums">{shown}</span> / <span className="tabular-nums">{ON_SALE.length}</span> 件</span>
+              {active.length > 0 && <button type="button" onClick={() => toggle(null)} className="ml-3 text-[#7DD3FC] hover:underline">絞り込みを解除</button>}
             </div>
           </div>
 
@@ -522,7 +578,7 @@ function ProductsSection({ active, toggle }) {
             })}
           </div>
           {shown === 0 && (
-            <div className="bg-[#17140F] rounded-sm p-6 text-[15px] text-[#BDB2A0]">この条件に合うツールはありません。<button type="button" onClick={() => toggle(null)} className="ml-2 text-[#D8C08A] hover:underline">絞り込みを解除</button></div>
+            <div className="bg-[#0F1626] rounded-sm p-6 text-[15px] text-[#A9B3C6]">この条件に合うツールはありません。<button type="button" onClick={() => toggle(null)} className="ml-2 text-[#7DD3FC] hover:underline">絞り込みを解除</button></div>
           )}
         </div>
       </div>
@@ -533,7 +589,7 @@ function ProductsSection({ active, toggle }) {
 function FilterGroup({ title, items, active, toggle }) {
   return (
     <div className="mb-5">
-      <h3 className="font-bold text-[#F2EDE3] text-[16px] mb-1.5">{title}</h3>
+      <h3 className="font-bold text-[#E6EAF2] text-[16px] mb-1.5">{title}</h3>
       <ul className="space-y-1">
         {items.map((it) => {
           const on = active.includes(it);
@@ -541,9 +597,9 @@ function FilterGroup({ title, items, active, toggle }) {
           return (
             <li key={it.l}>
               <label className="flex items-center gap-2 cursor-pointer py-0.5">
-                <input type="checkbox" checked={on} onChange={() => toggle(it)} className="accent-[#C9A96E] w-4 h-4"/>
-                <span className={"flex-1 " + (on ? "font-bold text-[#F2EDE3]" : "text-[#D8C08A] hover:text-[#F2DCA6]")}>
-                  {it.l} <span className="text-[#8F8473] font-normal">({n})</span>
+                <input type="checkbox" checked={on} onChange={() => toggle(it)} className="accent-[#7DD3FC] w-4 h-4"/>
+                <span className={"flex-1 " + (on ? "font-bold text-[#E6EAF2]" : "text-[#7DD3FC] hover:text-[#BAE6FD]")}>
+                  {it.l} <span className="text-[#7B869C] font-normal">({n})</span>
                 </span>
               </label>
             </li>
@@ -559,7 +615,7 @@ function FilterGroup({ title, items, active, toggle }) {
 function ComparisonTable() {
   const cols = [
     { id: 'xtp6', name: 'XToolsPro6', price: '無料〜', sub: 'ベース 月¥3,000（年払いは月¥1,000）', color: '#E8463A', tag: 'まず試す', href: XTP6_URL, cta: '無料で始める', ctaShort: '始める' },
-    { id: 'xtp3', name: 'XToolsPro3', price: '¥9,800〜', sub: '買い切り・月額なし', color: '#8C97AA', tag: '強化版', recommended: true, href: B('xtp3/'), cta: '製品ページへ', ctaShort: '詳しく' },
+    { id: 'xtp3', name: 'XToolsPro3', price: '¥9,800〜', sub: '買い切り・月額なし', color: '#94A3B8', tag: '強化版', recommended: true, href: B('xtp3/'), cta: '製品ページへ', ctaShort: '詳しく' },
     { id: 'xtp4', name: 'XToolsPro4', price: '無料〜', sub: '有料 月¥1,000', color: '#2F6FD6', href: B('xtp4/'), cta: '製品ページへ', ctaShort: '詳しく' },
   ];
   // ○＝できる・△＝条件つき・×＝できない（同じ記号は同じ色）。記号の下に小さく補足
@@ -572,9 +628,9 @@ function ComparisonTable() {
     ['AI の投稿案', [['○'], ['○', '1,000pt つき'], ['○']]],
   ];
   const MARK = {
-    '○': { color: '#7FC8B8', sr: 'できる' },
-    '△': { color: '#E0B860', sr: '条件つき' },
-    '×': { color: '#E08070', sr: 'できない' },
+    '○': { color: '#34D399', sr: 'できる' },
+    '△': { color: '#F59E0B', sr: '条件つき' },
+    '×': { color: '#F87171', sr: 'できない' },
   };
   // 記号は SVG で描いて ○△× の線の太さをそろえる（文字の ○△ は × より細く見えるため・2026-11-01 ゆうさん）
   const SHAPE = {
@@ -586,29 +642,29 @@ function ComparisonTable() {
     <svg viewBox="0 0 24 24" width={size} height={size} className="inline-block align-middle" fill="none" stroke={MARK[m].color}
       strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" role="img" aria-label={MARK[m].sr}>{SHAPE[m]}</svg>
   );
-  const cell = 'border border-[#3A3128] py-2.5 px-1 sm:py-3 sm:px-4'; // スマホでも 3 列が 1 画面に収まるよう余白を詰める
-  const head = 'bg-[#1F1A14]';
+  const cell = 'border border-[#1F2A44] py-2.5 px-1 sm:py-3 sm:px-4'; // スマホでも 3 列が 1 画面に収まるよう余白を詰める
+  const head = 'bg-[#161F33]';
   const stick = '';
   const Pill = ({ c }) => (
-    <span className="inline-flex items-center gap-1.5 font-bold text-[#F2EDE3]">
+    <span className="inline-flex items-center gap-1.5 font-bold text-[#E6EAF2]">
       <span className="inline-block w-2.5 h-2.5 rounded-sm" style={{ background: c.color }}></span>{c.name}
     </span>
   );
   return (
     <section id="compare" className="mx-auto max-w-[1500px] px-3 mt-10 scroll-mt-4">
-      <div className="bg-[#17140F] rounded-sm p-5 md:p-6">
+      <div className="bg-[#0F1626] rounded-sm p-5 md:p-6">
         <div className="flex flex-wrap items-baseline justify-between gap-2 mb-3">
-          <h2 className="text-[24px] font-bold text-[#F2EDE3]"><span className="eyebrow">Compare</span>X の 3 ツールの違い</h2>
-          <a href={B('xtp-compare/')} className="text-[15px] text-[#D8C08A] hover:text-[#F2DCA6] hover:underline">スマホ向けの詳しい比較表 ›</a>
+          <h2 className="text-[24px] font-bold text-[#E6EAF2]"><span className="eyebrow">Compare</span>X の 3 ツールの違い</h2>
+          <a href={B('xtp-compare/')} className="text-[15px] text-[#7DD3FC] hover:text-[#BAE6FD] hover:underline">スマホ向けの詳しい比較表 ›</a>
         </div>
         {/* 選び方の流れ（旧「X は、無料で試してから強化版へ」カードの代わり） */}
-        <div className="mb-6 rounded-sm bg-[#1C1813] border border-[#3A3128] px-4 py-3.5 text-[16px] text-[#F2EDE3] leading-[1.8]">
+        <div className="mb-6 rounded-sm bg-[#161F33] border border-[#1F2A44] px-4 py-3.5 text-[16px] text-[#E6EAF2] leading-[1.8]">
           <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
             <span>まずは<b>スマホで無料・ライトに</b>始めて</span><Pill c={cols[0]} />
-            <span className="text-[#C9A96E] font-bold" aria-hidden="true">→</span>
+            <span className="text-[#7DD3FC] font-bold" aria-hidden="true">→</span>
             <span>物足りなくなったら<b>PC でがっつり複数アカウント運用</b></span><Pill c={cols[1]} />
           </div>
-          <div className="mt-1 text-[15px] text-[#BDB2A0]">X の公式 API で動かしたい人は <Pill c={cols[2]} /></div>
+          <div className="mt-1 text-[15px] text-[#A9B3C6]">X の公式 API で動かしたい人は <Pill c={cols[2]} /></div>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full table-fixed text-[14px] sm:text-[16px] border-collapse" style={{ wordBreak: "auto-phrase" }}>
@@ -618,11 +674,11 @@ function ComparisonTable() {
                 {cols.map((c) => (
                   <th key={c.id} className={cell + ' ' + head + ' text-center align-top'}>
                     <div className="flex flex-wrap items-center justify-center gap-2 mb-1.5">
-                      <span className="inline-flex items-center gap-1.5 font-bold text-[#F2EDE3] text-[12px] sm:text-[16px]"><span className="hidden sm:inline-block w-2.5 h-2.5 rounded-sm" style={{ background: c.color }}></span>{c.name}</span>
-                      {c.tag && <span className={"text-[11px] sm:text-[12px] font-bold px-1.5 py-0.5 rounded " + (c.recommended ? 'bg-[#C9A96E] text-[#14110E]' : 'ring-1 ring-[#C9A96E]/50 text-[#E3C68A]')}>{c.tag}</span>}
+                      <span className="inline-flex items-center gap-1.5 font-bold text-[#E6EAF2] text-[12px] sm:text-[16px]"><span className="hidden sm:inline-block w-2.5 h-2.5 rounded-sm" style={{ background: c.color }}></span>{c.name}</span>
+                      {c.tag && <span className={"text-[11px] sm:text-[12px] font-bold px-1.5 py-0.5 rounded " + (c.recommended ? 'bg-[#C9A96E] text-[#0B0F1A]' : 'ring-1 ring-white/25 text-[#C7CFDD]')}>{c.tag}</span>}
                     </div>
-                    <div className="text-[17px] sm:text-[24px] font-medium text-[#F2EDE3] tabular-nums leading-none">{c.price}</div>
-                    <div className="text-[11px] sm:text-[14px] text-[#BDB2A0] font-normal mt-1.5 leading-snug">{c.sub}</div>
+                    <div className="text-[17px] sm:text-[24px] font-medium text-[#E6EAF2] tabular-nums leading-none">{c.price}</div>
+                    <div className="text-[11px] sm:text-[14px] text-[#A9B3C6] font-normal mt-1.5 leading-snug">{c.sub}</div>
                   </th>
                 ))}
               </tr>
@@ -630,11 +686,11 @@ function ComparisonTable() {
             <tbody>
               {rows.map(([label, vals]) => (
                 <tr key={label}>
-                  <th scope="row" className={cell + ' ' + head + stick + ' text-right font-bold text-[#F2EDE3] text-[12px] sm:text-[16px] leading-snug'}>{label}</th>
+                  <th scope="row" className={cell + ' ' + head + stick + ' text-right font-bold text-[#E6EAF2] text-[12px] sm:text-[16px] leading-snug'}>{label}</th>
                   {vals.map(([m, note], i) => (
                     <td key={i} className={cell + ' text-center align-middle'}>
                       <div className="leading-none"><Mark m={m} size={26} /></div>
-                      {note && <div className="text-[11px] sm:text-[13px] text-[#BDB2A0] mt-1.5 leading-snug">{note}</div>}
+                      {note && <div className="text-[11px] sm:text-[13px] text-[#A9B3C6] mt-1.5 leading-snug">{note}</div>}
                     </td>
                   ))}
                 </tr>
@@ -644,16 +700,16 @@ function ComparisonTable() {
                 {cols.map((c) => (
                   <td key={c.id} className={cell + " text-center"}>
                     <a href={c.href} className={"inline-flex items-center justify-center min-h-10 px-2 sm:px-4 py-1 rounded-full text-[12px] sm:text-[15px] leading-tight font-bold border " +
-                      (c.recommended ? "bg-[#C9A96E] hover:bg-[#B8955A] border-[#B8955A] text-[#14110E]" : "bg-[#17140F] hover:bg-[#1F1A14] border-[#3A3128] text-[#F2EDE3]")}><span className="sm:hidden">{c.ctaShort}</span><span className="hidden sm:inline">{c.cta}</span></a>
+                      (c.recommended ? "bg-[#C9A96E] hover:bg-[#B8955A] border-[#B8955A] text-[#0B0F1A]" : "bg-[#0F1626] hover:bg-[#161F33] border-[#1F2A44] text-[#E6EAF2]")}><span className="sm:hidden">{c.ctaShort}</span><span className="hidden sm:inline">{c.cta}</span></a>
                   </td>
                 ))}
               </tr>
             </tbody>
           </table>
         </div>
-        <p className="text-[14px] text-[#A89C8A] mt-2 flex flex-wrap gap-x-4 gap-y-1">
+        <p className="text-[14px] text-[#8E99AF] mt-2 flex flex-wrap gap-x-4 gap-y-1">
           {Object.entries(MARK).map(([m, v]) => <span key={m} className="inline-flex items-center gap-1"><Mark m={m} size={16} />{v.sr}</span>)}
-          <span className="text-[#8F8473]">2026 年 10 月時点</span>
+          <span className="text-[#7B869C]">2026 年 10 月時点</span>
         </p>
       </div>
     </section>
@@ -669,23 +725,23 @@ function Steps() {
     { n: '03', title: '困ったらお問い合わせ', body: '開発者本人が返信します' },
   ];
   const Arrow = () => (
-    <div className="flex items-center justify-center text-[#C9A96E]" aria-hidden="true">
+    <div className="flex items-center justify-center text-[#7DD3FC]" aria-hidden="true">
       <svg className="rotate-90 md:rotate-0" width="22" height="26" viewBox="0 0 22 26"><path d="M3 2 L20 13 L3 24 Z" fill="currentColor"/></svg>
     </div>
   );
   return (
     <section className="mx-auto max-w-[1500px] px-3 mt-10">
-      <div className="bg-[#17140F] rounded-sm p-5 md:p-6">
-        <h2 className="text-[24px] font-bold text-[#F2EDE3] mb-5"><span className="eyebrow">How it works</span>購入してからの流れ</h2>
+      <div className="bg-[#0F1626] rounded-sm p-5 md:p-6">
+        <h2 className="text-[24px] font-bold text-[#E6EAF2] mb-5"><span className="eyebrow">How it works</span>購入してからの流れ</h2>
         <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr_auto_1fr] gap-3 md:gap-4 items-stretch">
           {steps.map((s, i) => (
             <React.Fragment key={s.n}>
               {i > 0 && <Arrow />}
-              <div className="flex gap-4 items-center rounded-sm bg-[#1C1813] border border-[#3A3128] px-4 py-4">
-                <div className="text-[40px] font-light text-[#C9A96E] leading-none tabular-nums" style={{fontFamily: 'Fraunces, Georgia, serif'}}>{s.n}</div>
+              <div className="flex gap-4 items-center rounded-sm bg-[#161F33] border border-[#1F2A44] px-4 py-4">
+                <div className="text-[40px] font-light text-[#7DD3FC] leading-none tabular-nums" style={{fontFamily: 'Fraunces, Georgia, serif'}}>{s.n}</div>
                 <div>
-                  <h3 className="text-[17px] font-bold text-[#F2EDE3] leading-snug">{s.title}</h3>
-                  <p className="text-[15px] text-[#BDB2A0] mt-0.5">{s.body}</p>
+                  <h3 className="text-[17px] font-bold text-[#E6EAF2] leading-snug">{s.title}</h3>
+                  <p className="text-[15px] text-[#A9B3C6] mt-0.5">{s.body}</p>
                 </div>
               </div>
             </React.Fragment>
@@ -717,28 +773,28 @@ function FAQ() {
   }, []);
   return (
     <section id="faq" className="mx-auto max-w-[1500px] px-3 mt-10 scroll-mt-4">
-      <div className="bg-[#17140F] rounded-sm p-5 md:p-6">
+      <div className="bg-[#0F1626] rounded-sm p-5 md:p-6">
         <div className="max-w-[960px] flex flex-wrap items-baseline justify-between gap-2 mb-4">
-          <h2 className="text-[24px] font-bold text-[#F2EDE3]"><span className="eyebrow">Need to know</span>よくある質問</h2>
-          <a href={CONTACT} target="_blank" rel="noopener" className="text-[15px] text-[#D8C08A] hover:text-[#F2DCA6] hover:underline">ほかの質問はこちら ›</a>
+          <h2 className="text-[24px] font-bold text-[#E6EAF2]"><span className="eyebrow">Need to know</span>よくある質問</h2>
+          <a href={CONTACT} target="_blank" rel="noopener" className="text-[15px] text-[#7DD3FC] hover:text-[#BAE6FD] hover:underline">ほかの質問はこちら ›</a>
         </div>
         <ul className="max-w-[960px] space-y-2.5">
           {FAQS.map((item, i) => {
             const open = openIdx === i;
             return (
-              <li key={item.q} id={'faq-' + i} className={"rounded-sm border scroll-mt-4 " + (open ? 'border-[#C9A96E]' : 'border-[#3A3128]')}>
+              <li key={item.q} id={'faq-' + i} className={"rounded-sm border scroll-mt-4 " + (open ? 'border-[#7DD3FC]' : 'border-[#1F2A44]')}>
                 <button type="button" onClick={() => setOpenIdx(open ? -1 : i)} aria-expanded={open}
-                  className={"w-full flex items-center justify-between gap-3 text-left px-4 py-3.5 hover:bg-[#1C1813] " + (open ? 'bg-[#1C1813]' : '')}>
+                  className={"w-full flex items-center justify-between gap-3 text-left px-4 py-3.5 hover:bg-[#161F33] " + (open ? 'bg-[#161F33]' : '')}>
                   <span className="flex gap-2.5 items-start">
-                    <span className="text-[#C9A96E] font-bold text-[17px] leading-snug select-none">Q</span>
-                    <span className="text-[16px] text-[#F2EDE3] font-bold leading-snug">{item.q}</span>
+                    <span className="text-[#7DD3FC] font-bold text-[17px] leading-snug select-none">Q</span>
+                    <span className="text-[16px] text-[#E6EAF2] font-bold leading-snug">{item.q}</span>
                   </span>
-                  <svg className={"flex-shrink-0 text-[#8F8473] transition-transform " + (open ? 'rotate-180' : '')} width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+                  <svg className={"flex-shrink-0 text-[#7B869C] transition-transform " + (open ? 'rotate-180' : '')} width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
                 </button>
                 {open && (
-                  <div className="flex gap-2.5 items-start px-4 py-3.5 border-t border-[#3A3128] bg-[#120F0B]">
-                    <span className="text-[#D8C08A] font-bold text-[17px] leading-snug select-none">A</span>
-                    <p className="flex-1 text-[15px] text-[#EDE6D8] leading-[1.8]">{item.a}</p>
+                  <div className="flex gap-2.5 items-start px-4 py-3.5 border-t border-[#1F2A44] bg-[#0B0F1A]">
+                    <span className="text-[#7DD3FC] font-bold text-[17px] leading-snug select-none">A</span>
+                    <p className="flex-1 text-[15px] text-[#E6EAF2] leading-[1.8]">{item.a}</p>
                   </div>
                 )}
               </li>
@@ -756,7 +812,7 @@ function Footer() {
   // 中身は assets/js/market-footer.js（全 LP 共通・1 か所で直す）
   return (
     <div>
-      <a href="#top" className="block bg-[#100D0A] hover:bg-[#1A1612] text-[#E3C68A] border-t border-[#C9A96E]/30 tracking-[0.12em] text-center py-3.5 text-[13px] mt-10 transition-colors">ページの先頭へ戻る</a>
+      <a href="#top" className="block bg-[#0F1626] hover:bg-[#161F33] text-[#C7CFDD] border-t border-white/10 tracking-[0.12em] text-center py-3.5 text-[13px] mt-10 transition-colors">ページの先頭へ戻る</a>
       <div dangerouslySetInnerHTML={{ __html: window.MarketFooter ? window.MarketFooter.html() : '' }} />
     </div>
   );
@@ -785,5 +841,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(<App />);
 
 /*
 Version History
+- ver1.1 (2026-11-01): 紺〜黒＋淡い光に。棚のカードを scripts/mock_dark/shelf_card.jsx（円弧と光・等幅ラベル・枠の札・セリフの名前・チップ・STARTING AT）に差し替え。ボタン 2 つとリンク先は本番と同じ
 - ver1.0 (2026-11-01): ダーク版モック（黒×シャンパンゴールド×罫線・見出しは明朝）。本番 ver3.10 から生成
 */
