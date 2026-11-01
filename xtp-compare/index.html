@@ -27,16 +27,18 @@ body{padding:0 max(4px,env(safe-area-inset-right,0px)) 0 max(4px,env(safe-area-i
 </style>
 </head>
 <body>
-<!-- マーケットへ戻る帯（2026-11-01・新 LP 5 枚のヘッダーと同じ見た目） -->
+<!-- マーケットへ戻る帯（2026-11-01 v2・マーケットのヘッダー左上と同じロゴ） -->
 <style>
-.mk-back{background:#1F1B16;color:#fff;font-family:"Noto Sans JP","Hiragino Sans","Yu Gothic UI",Meiryo,sans-serif;position:relative;z-index:50}
-.mk-back .mk-in{max-width:960px;margin:0 auto;padding:0 16px;height:44px;display:flex;align-items:center;justify-content:space-between;gap:12px}
-.mk-back a{color:#fff;text-decoration:none;font-size:14px;line-height:1}
-.mk-back .mk-brand{font-weight:700}
-.mk-back .mk-to{opacity:.9;white-space:nowrap}
-.mk-back a:hover{text-decoration:underline}
+.mk-back{background:#1F1B16;font-family:"Noto Sans JP","Hiragino Sans","Yu Gothic UI",Meiryo,sans-serif;position:relative;z-index:50}
+.mk-back .mk-in{height:48px;padding:0 12px;display:flex;align-items:center}
+.mk-back a{display:inline-flex;align-items:center;gap:8px;color:#fff;text-decoration:none;padding:4px 6px;margin-left:-6px;border:1px solid transparent;border-radius:4px}
+.mk-back a:hover{border-color:rgba(255,255,255,.6)}
+.mk-back svg{width:26px;height:26px;flex-shrink:0;display:block}
+.mk-back .mk-t{display:flex;flex-direction:column;gap:3px;line-height:1}
+.mk-back .mk-name{font-size:16px;font-weight:700;letter-spacing:-.01em;white-space:nowrap}
+.mk-back .mk-sub{font-size:9px;color:#D1D5DB;letter-spacing:.18em;text-transform:uppercase;white-space:nowrap}
 </style>
-<div class="mk-back"><div class="mk-in"><a class="mk-brand" href="../">Youパパツールマーケット</a><a class="mk-to" href="../#tools">← ツール一覧</a></div></div>
+<div class="mk-back"><div class="mk-in"><a href="../" title="Youパパツールマーケット（ほかのツール）"><svg viewBox="0 0 22 22" aria-hidden="true"><rect x="1.5" y="1.5" width="19" height="19" rx="4" fill="#C2533C"/><path d="M6 15V7l3 5 3-5v8" fill="none" stroke="#FBEDD9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="15.5" cy="15" r="1.2" fill="#FBEDD9"/></svg><span class="mk-t"><span class="mk-name">Youパパツールマーケット</span><span class="mk-sub">SNS Tools · 9 items</span></span></a></div></div>
 <style>
 .xtpcmp{--page:#F4F6FA;--card:#FFFFFF;--ink:#111318;--sub:#4A5265;--rule:#E2E6EE;--side:#2B3445;--group:#3D4A63;--x3:#5A6578;--x4:#2F6FD6;--x6:#E8463A;--ok:#15A34A;--none:#9AA3B2;--ng:#D92D20;--badge:#FFC21A;--on:#FFFFFF;--head:#1B2230;
   font-family:"Yu Gothic UI","Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Meiryo",sans-serif;
@@ -119,6 +121,7 @@ body{padding:0 max(4px,env(safe-area-inset-right,0px)) 0 max(4px,env(safe-area-i
 Version History
 - ver1.0 (2026-10-19): 新規。XTP3・XTP4・XTP6 の機能比較（スマホ幅向け）。元は ClaudeCompany .company/marketing/content-plan/xtp-compare-page.html。LINE の告知から短縮リンク x6-cmp-x3／x4／oc で流入
 - ver1.1 (2026-10-20): 下にスクロールしても見出し（機能・XTP3・XTP4・XTP6）が上に残るように（sticky）。そのため表の overflow:hidden をやめ、角丸は角のマスに付けた
+- ver1.3 (2026-11-01): マーケットへ戻る帯をマーケットのヘッダー左上と同じロゴ（M.＋Youパパツールマーケット＋SNS TOOLS · 9 ITEMS）にして左上へ。「← ツール一覧」は外した（ゆうさん指示）
 - ver1.2 (2026-11-01): ページ先頭にマーケットへ戻る帯（Youパパツールマーケット／← ツール一覧）を追加
 - ver1.3 (2026-10-31): canonical／og:url を https://market.youpapatools.com/xtp-compare/ に（独自ドメイン）
 - ver1.2 (2026-10-24): XTP6 のアカウント数を「10まで」→「20まで（プレミアム 100）」（XTP6 ver0.59）。料金も「有料 月¥1,000・14日お試し」→「有料 月¥3,000・年払いは月¥1,000」（10/18 の料金改定が未反映だった）
