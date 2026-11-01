@@ -75,10 +75,26 @@
     injectCss();
     var slots = document.querySelectorAll('[data-mk-footer]');
     if (slots.length) {
-      for (var i = 0; i < slots.length; i++) if (!slots[i].querySelector('[data-mkf]')) slots[i].innerHTML = html();
+      for (var i = 0; i < slots.length; i++) fill(slots[i]);
     } else if (!document.querySelector('[data-mkf]') && !window.MarketFooterManual) {
       var d = document.createElement('div'); d.innerHTML = html(); document.body.appendChild(d.firstChild);
     }
+  }
+  // data-mk-footer-wait="#root" を付けた枠は、その要素に中身が入る（React などの本体が描き終わる）まで待ってから出す。
+  // 先に出すと、読み込み中に「フッターだけのページ」が一瞬見えて、本体が上に入ってくる（2026-11-01 XTP4 で発生）
+  function fill(slot) {
+    if (slot.querySelector('[data-mkf]')) return;
+    var sel = slot.getAttribute('data-mk-footer-wait');
+    var target = sel && document.querySelector(sel);
+    if (target && !target.firstElementChild) {
+      var done = false;
+      var go = function () { if (done) return; done = true; ob.disconnect(); slot.innerHTML = html(); };
+      var ob = new MutationObserver(function () { if (target.firstElementChild) go(); });
+      ob.observe(target, { childList: true });
+      setTimeout(go, 8000); // 本体が描けなかったときもフッターは出す
+      return;
+    }
+    slot.innerHTML = html();
   }
   window.MarketFooter = { html: html, injectCss: injectCss };
   if (window.MarketFooterManual) { injectCss(); return; }  // React のトップは自分で描く
@@ -87,6 +103,7 @@
 
 /*
 Version History
+- ver1.2 (2026-11-01): data-mk-footer-wait（本体が描き終わるまで待つ）。XTP4 の LP で読み込み中にフッターだけが一瞬見えて上に戻るように見えた（ゆうさん）
 - ver1.1 (2026-11-01): TTP2 のリンクを新住所 ttp2.youpapatools.com に
 - ver1.0 (2026-11-01): 新規。マーケットのトップのフッター（4 列のリンク＋ロゴ＋一言＋©）を共通部品に。TTP2 は LP（threadtoolspro2.vercel.app/）へ
 */
