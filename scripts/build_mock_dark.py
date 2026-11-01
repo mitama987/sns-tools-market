@@ -166,6 +166,7 @@ def build_html(src: str) -> str:
     for f in ("favicon.ico", "favicon-32x32.png", "favicon-16x16.png", "apple-touch-icon.png"):
         out = out.replace(f'href="{f}"', f'href="../{f}"')
     out = out.replace('src="assets/js/market-footer.js', 'src="../assets/js/market-footer.js')
+    out = re.sub(r'<script src="assets/js/market-track\.js[^"]*"[^>]*></script>\n', "", out)  # モックは計測しない
     out = re.sub(r'src="components-amazon\.jsx\?v=[^"]*"', 'src="components-dark.jsx?v=dark3"', out)
     for d in ("xtp4/", "xtp3/", "bluesky/", "yay/", "fb-like/", "ameblo-like/", "note-bot/", "xtp-compare/"):
         out = out.replace(f'href="{d}"', f'href="../{d}"')
@@ -217,6 +218,7 @@ if __name__ == "__main__":
     main()
 
 # Version History
+# - ver1.3 (2026-11-01): モックから計測スクリプト（market-track.js）の読み込みを外す
 # - ver1.2 (2026-11-01): ツール一覧のマスを IndexTile に差し替える置換を追加
 # - ver1.1 (2026-11-01): 紺〜黒の配色トークン・ShelfCard のブロック差し替え（CARD_META と PRODUCTS の id 照合）
 # - ver1.0 (2026-11-01): 初版（黒×金）

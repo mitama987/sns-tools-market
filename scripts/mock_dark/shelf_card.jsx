@@ -58,7 +58,7 @@ function ShelfCard({ p }) {
   ].filter(Boolean);
   return (
     <article id={'p-' + p.id} className="relative flex flex-col h-full rounded-[16px] bg-[#0F1626] border border-white/[0.09] hover:border-white/25 transition-colors p-3 sm:p-4 scroll-mt-24" style={{ containerType: 'inline-size' }}>
-      <a href={p.href || undefined} {...ext(p)} className={"relative block " + (p.comingSoon ? 'pointer-events-none' : '')} aria-label={p.name}>
+      <a href={p.href || undefined} {...ext(p)} data-pid={p.id} data-cta="card_image" className={"relative block " + (p.comingSoon ? 'pointer-events-none' : '')} aria-label={p.name}>
         <DarkTile p={p} glow={m.glow} />
         {p.badges.length > 0 && (
           <span className="absolute top-2 left-2 flex flex-col items-start gap-1">
@@ -92,10 +92,10 @@ function ShelfCard({ p }) {
         {p.comingSoon ? (
           <span className="h-11 inline-flex items-center justify-center rounded-full bg-white/[0.04] border border-white/10 text-[#7B869C] text-[15px]">近日公開</span>
         ) : (
-          <a href={p.ctaHref || p.href} {...ext(p)} className="h-11 inline-flex items-center justify-center rounded-full bg-[#E6EAF2] hover:bg-white text-[#0B0F1A] text-[15px] font-bold transition-colors">{p.cta}</a>
+          <a href={p.ctaHref || p.href} {...ext(p)} data-pid={p.id} data-cta={p.ctaHref ? 'free' : 'product_page'} className="h-11 inline-flex items-center justify-center rounded-full bg-[#E6EAF2] hover:bg-white text-[#0B0F1A] text-[15px] font-bold transition-colors">{p.cta}</a>
         )}
         {p.secondary && (
-          <a href={p.secondary.href} className="h-11 inline-flex items-center justify-center rounded-full border border-white/25 hover:bg-white/[0.06] text-[#E6EAF2] text-[15px] font-medium transition-colors">{p.secondary.label}</a>
+          <a href={p.secondary.href} data-pid={p.id} data-cta="paid" className="h-11 inline-flex items-center justify-center rounded-full border border-white/25 hover:bg-white/[0.06] text-[#E6EAF2] text-[15px] font-medium transition-colors">{p.secondary.label}</a>
         )}
       </div>
       {/* 補足（カードの内側に重ねる） */}

@@ -31,6 +31,7 @@
       ['X @Yu_PaPa_Life', 'https://x.com/Yu_PaPa_Life'],
       ['法人の方（RAIJIN）', 'https://raijin.youpapatools.com/'],
       ['特定商取引法に基づく表記', 'https://xtools-docs-auth.web.app/tokushoho.html'],
+      ['プライバシーポリシー', M + 'privacy/'],
     ] },
   ];
   var LOGO = '<svg viewBox="0 0 22 22" aria-hidden="true"><rect x="1.5" y="1.5" width="19" height="19" rx="4" fill="#C2533C"/>' +
@@ -103,6 +104,7 @@
 
 /*
 Version History
+- ver1.3 (2026-11-01): 「開発者・表記」にプライバシーポリシー（/privacy/）を追加（計測の告知）
 - ver1.2 (2026-11-01): data-mk-footer-wait（本体が描き終わるまで待つ）。XTP4 の LP で読み込み中にフッターだけが一瞬見えて上に戻るように見えた（ゆうさん）
 - ver1.1 (2026-11-01): TTP2 のリンクを新住所 ttp2.youpapatools.com に
 - ver1.0 (2026-11-01): 新規。マーケットのトップのフッター（4 列のリンク＋ロゴ＋一言＋©）を共通部品に。TTP2 は LP（threadtoolspro2.vercel.app/）へ
