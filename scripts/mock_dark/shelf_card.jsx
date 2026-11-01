@@ -119,3 +119,23 @@ function ShelfCard({ p }) {
     </article>
   );
 }
+
+// ─── ツール一覧のマス（暗いマス＋アイコンだけ＋淡い色の光） ───
+// サムネ（640px・淡い地＋アイコン＋製品名）からアイコン部分だけを見せる。
+// 既定の切り抜き: x 165〜475・y 135〜445（10 枚の実測でアイコンはほぼ x 160〜480・y 135〜452）。ずれる製品は CARD_META に crop を足す
+const ICON_CROP = { x: 165, y: 135, size: 310 };
+
+function IndexTile({ p }) {
+  const m = CARD_META[p.id] || { glow: '#64748B' };
+  const c = m.crop || ICON_CROP;
+  const k = 640 / c.size;
+  return (
+    <div className="relative w-full h-full bg-[#0C1220] border border-white/[0.06] rounded-[inherit] overflow-hidden">
+      <div aria-hidden="true" className="absolute left-1/2 -translate-x-1/2 -top-[55%] w-[110%] aspect-square rounded-full blur-2xl" style={{ background: m.glow, opacity: p.comingSoon ? 0.12 : 0.32 }} />
+      <div className={"absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] sm:w-[64%] aspect-square rounded-[22%] overflow-hidden shadow-[0_10px_24px_-8px_rgba(0,0,0,.8)] " + (p.comingSoon ? 'grayscale opacity-50' : '')}>
+        <img src={B(`thumbs/${p.id}.webp`)} alt="" loading="lazy" className="absolute max-w-none block"
+          style={{ width: (k * 100) + '%', left: (-c.x / c.size * 100) + '%', top: (-c.y / c.size * 100) + '%' }} />
+      </div>
+    </div>
+  );
+}
