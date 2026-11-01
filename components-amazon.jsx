@@ -14,7 +14,7 @@ const CONTACT = 'https://forms.gle/sDG46hdxTo9E4p4CA';
 const NOTE = 'https://note.com/youpapalife';
 const RAIJIN = 'https://raijin.youpapatools.com/';
 const XTP6_URL = 'https://xtp6.youpapatools.com/?utm_source=market&utm_medium=hub';
-const TTP2_DOCS = 'https://threadtoolspro2.vercel.app/docs';
+const TTP2_DOCS = B('ttp2/'); // 2026-11-01 手順書を threadtoolspro2.vercel.app/docs → マーケットの /ttp2/ へ
 const TTP2_BUY = 'https://page.theapps.jp/paid/join/H8hv3G40M25l77c8';
 
 // 価格の一次情報: XTP3＝xtp3/index.html（¥9,800〜・フル ¥29,800）、XTP6＝27_XTP6 limits.ts（無料 1 垢・1 日 10 件／ベース 月¥3,000・年¥12,000・20 垢／プレミアム 100 垢）、
@@ -823,6 +823,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(<App />);
 Version History
 - ver3.0-mock2 (2026-10-31): 第 2 版。ゆうさん「情報量多い・最初にツールを並べる・XTP6→XTP3 は劣後」→ ヒーロー直下にツール一覧（10 マスの早見表）、4 枚タイル・棚のポップ・下部固定バー・浮きカードを削除、ヒーローを 1 文に、ステップアップ帯は棚の下で小さく、カードの箇条書きは 2 行・サムネは 4:3
 - ver3.0-mock (2026-10-31): v3 のモック。ver2.1 の Amazon 風の骨格と配色はそのまま、①ステップアップ帯（無料の XTP6 → 強化版 XTP3）②SNS 別の棚（9 製品＋Instagram 準備中・値札の高さをそろえる・スマホは棚ごとに横スクロール）③スマホの下部固定バー ④XTP6 の料金・上限を 27_XTP6 limits.ts に合わせる（無料 1 垢・1 日 10 件／ベース 月¥3,000・年払い月¥1,000・20 垢／プレミアム 100）。FAQ に「XTP6 から XTP3 に乗り換えられる？」
+- ver3.4 (2026-11-01): TTP2 の手順書をマーケットの /ttp2/ に移したのでリンク先を変更（旧 threadtoolspro2.vercel.app/docs は転送）
 - ver3.3 (2026-11-01): 比較表の ○△× を SVG で描いて線の太さをそろえた（文字の ○△ は × より細い・ゆうさん）
 - ver3.2 (2026-11-01): ツール一覧のマスを押すと各ツールの製品ページ（LP・XTP6 はアプリ・TTP2 は使い方）へ（準備中の Instagram だけ棚のカードへ）。ヒーローの「ツール一覧を見る」ボタンを削除（ゆうさん）
 - ver3.1 (2026-11-01): 協業相手のフィードバック 6 点を反映（モック mock-v4 で確認・ゆうさん OK）。ツール一覧の SNS 名を削除・文字を大きく（名前は ToolsPro の前で折り返す）／値札の札を 13px に／ロゴを大きく／棚のカードは補足（使う場所・料金の注記・無料版・箇条書き）を (i) に移し、名前 18px・ボタン 15px／棚の説明・パンくず・凡例を削除／「X は、無料で試してから強化版へ」カードを削除し、比較表の上に選び方の 2 行／比較表は ○△×＋記号の下に補足・16px・縦横の罫線・ヘッダーと左端列に薄い色・左端は右揃え・スマホでも 3 列が 1 画面／購入後の流れは 1 行ずつ＋▶／FAQ は最初全部閉じる・1 問ずつ枠・1 列／XTP6・TTP2 のリンクも同じタブで開く（戻るが効く）

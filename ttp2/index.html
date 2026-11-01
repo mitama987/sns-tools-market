@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThreadsToolsPro2 ユーザーガイド</title>
+    <meta name="description" content="ThreadsToolsPro2 - Threads自動投稿Webアプリケーションのユーザーガイド。ユーザー登録（Googleフォーム）・Googleログインから定期投稿の設定までを画像付きで解説します。">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css?v=20261101m">
+    <link rel="canonical" href="https://market.youpapatools.com/ttp2/">
+    <!-- マーケットへ戻る帯（2026-11-01・XTP3／XTP4 と同じロゴ）。手順書はサイドバーが fixed なので帯も fixed にして全体を 48px 下げる -->
+    <style>
+    .mk-back{position:fixed;top:0;left:0;right:0;height:48px;background:#1F1B16;z-index:300;font-family:"Noto Sans JP","Hiragino Sans","Yu Gothic UI",Meiryo,sans-serif}
+    .mk-back .mk-in{height:48px;padding:0 12px;display:flex;align-items:center}
+    .mk-back a{display:inline-flex;align-items:center;gap:8px;color:#fff;text-decoration:none;padding:4px 6px;margin-left:-6px;border:1px solid transparent;border-radius:4px}
+    .mk-back a:hover{border-color:rgba(255,255,255,.6)}
+    .mk-back svg{width:26px;height:26px;flex-shrink:0;display:block}
+    .mk-back .mk-t{display:flex;flex-direction:column;gap:3px;line-height:1}
+    .mk-back .mk-name{font-size:16px;font-weight:700;letter-spacing:-.01em;white-space:nowrap}
+    .mk-back .mk-sub{font-size:9px;color:#D1D5DB;letter-spacing:.18em;text-transform:uppercase;white-space:nowrap}
+    html{scroll-padding-top:calc(2rem + 48px)}
+    .sidebar{top:48px !important;height:calc(100vh - 48px) !important}
+    .mobile-menu-btn{top:calc(48px + 1rem) !important}
+    .main-content{padding-top:48px}
+    </style>
+</head>
+<body>
+    <div class="mk-back"><div class="mk-in"><a href="../" title="Youパパツールマーケット（ほかのツール）"><svg viewBox="0 0 22 22" aria-hidden="true"><rect x="1.5" y="1.5" width="19" height="19" rx="4" fill="#C2533C"/><path d="M6 15V7l3 5 3-5v8" fill="none" stroke="#FBEDD9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="15.5" cy="15" r="1.2" fill="#FBEDD9"/></svg><span class="mk-t"><span class="mk-name">Youパパツールマーケット</span><span class="mk-sub">SNS Tools · 9 items</span></span></a></div></div>
+
+    <!-- Mobile Menu Button -->
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="メニュー">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+    </button>
+
+    <!-- Sidebar -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <span class="logo-icon">@</span>
+                <span class="logo-text">ThreadsToolsPro2</span>
+            </div>
+            <span class="version-badge">v1.3</span>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-title">はじめに</div>
+            <a href="#overview" class="nav-link active">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                概要
+            </a>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-title">利用開始</div>
+            <a href="#registration" class="nav-link">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><line x1="19" y1="8" x2="19" y2="14"></line><line x1="22" y1="11" x2="16" y2="11"></line></svg>
+                ユーザー登録
+            </a>
+            <a href="#login" class="nav-link">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path><polyline points="10 17 15 12 10 7"></polyline><line x1="15" y1="12" x2="3" y2="12"></line></svg>
+                ログイン
+            </a>
+            <a href="#billing" class="nav-link">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                お支払い・解約
+            </a>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-title">機能ガイド</div>
+            <a href="#dashboard" class="nav-link">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                ダッシュボード
+            </a>
+            <a href="#accounts" class="nav-link">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                アカウント連携
+            </a>
+            <a href="#regular-posts" class="nav-link">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                定期投稿
+            </a>
+            <a href="#thread-posts" class="nav-link">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12h-8"></path><path d="M21 6H8"></path><path d="M21 18h-8"></path><path d="M3 6v4c0 1.1.9 2 2 2h3"></path><path d="M3 10v6c0 1.1.9 2 2 2h3"></path></svg>
+                ツリー投稿
+            </a>
+            <a href="#bulk-import" class="nav-link">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                一括取り込み
+            </a>
+            <a href="#proxy" class="nav-link">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+                プロキシ設定
+            </a>
+            <a href="#settings" class="nav-link">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                設定
+            </a>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-section-title">サポート</div>
+            <a href="#troubleshooting" class="nav-link">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                トラブルシューティング
+            </a>
+            <a href="#support" class="nav-link">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                お問い合わせ
+            </a>
+        </div>
+
+        <div class="sidebar-footer">
+            <a href="#support" class="support-link">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                問い合わせを見る
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Hero -->
+        <section class="hero" id="overview">
+            <div class="hero-bg"></div>
+            <div class="hero-content">
+                <div class="hero-badge">ユーザーガイド ・ Version 1.3（2026年11月更新）</div>
+                <h1 class="hero-title"><span class="gradient">ThreadsToolsPro2</span></h1>
+                <p class="hero-subtitle">Threads 自動投稿 Web アプリケーション</p>
+                <p class="hero-description">
+                    Meta社のSNS「Threads」への投稿を自動化するWebアプリ。<br>
+                    <strong>Googleアカウントでログイン</strong>し、定期投稿のスケジューリングや投稿キュー管理が行えます。
+                </p>
+                <div class="hero-actions">
+                    <a href="https://threadtoolspro2.vercel.app/login" class="btn btn-primary" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                        アプリを開く
+                    </a>
+                    <a href="#registration" class="btn btn-secondary">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M12 5l7 7-7 7"></path></svg>
+                        はじめての方はこちら
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 概要 -->
+        <section class="section section--wide">
+            <h2 class="section-title">概要</h2>
+            <div class="callout callout--highlight" style="margin-bottom:1.75rem;">
+                <p><strong>ThreadsToolsPro2</strong> は、Meta社のSNS「Threads」への投稿を自動化するためのWebアプリケーションです。定期投稿のスケジューリングや、投稿キューの管理が可能です。</p>
+            </div>
+
+            <h3 class="section-lead" style="font-family:var(--font-display);font-size:1.2rem;color:var(--text-primary);">主な機能</h3>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
+                    <h3>Threads OAuth連携</h3>
+                    <p>公式APIを使用した安全なアカウント連携。アクセストークンは暗号化して保存されます。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg></div>
+                    <h3>投稿管理</h3>
+                    <p>テキスト投稿の作成・編集・削除に対応。投稿内容を一元的に管理できます。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
+                    <h3>定期投稿</h3>
+                    <p>指定した時間帯に自動投稿をスケジュール。間隔と時間帯を細かく設定できます。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12h-8"></path><path d="M21 6H8"></path><path d="M21 18h-8"></path><path d="M3 6v4c0 1.1.9 2 2 2h3"></path><path d="M3 10v6c0 1.1.9 2 2 2h3"></path></svg></div>
+                    <h3>ツリー投稿</h3>
+                    <p>1件目に返信をつなげて、最大10件の連投スレッドを自動投稿。定期・ランダム・予約投稿で使えます（有料プラン）。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg></div>
+                    <h3>投稿キュー</h3>
+                    <p>投稿を順番に管理し、自動的に処理。完了後にループ実行も可能です。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg></div>
+                    <h3>クラウド対応</h3>
+                    <p>Vercelでホスティングし24時間稼働。PCを起動していなくても投稿が実行されます。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ユーザー登録 -->
+        <section class="section" id="registration">
+            <h2 class="section-title">ユーザー登録</h2>
+
+            <article class="step-card">
+                <div class="step-card-head"><span class="step-number">●</span><h3>はじめに（Googleログインで利用）</h3></div>
+                <div class="step-body step-body--text-only">
+                    <div class="step-text">
+                        <p>ThreadsToolsPro2 は <strong>Googleアカウント（Gmail）でログイン</strong> します。初めて利用する方は、先に「ユーザー登録フォーム」から、ログインに使う Gmail を登録してください（Stripe で有料プランにお申し込みの方は登録フォームは不要です）。</p>
+                        <div class="callout callout--warning">
+                            <div class="callout-title">重要（有料版）</div>
+                            <p>有料版は決済済みのお客様のみご利用いただけます。</p>
+                            <ul>
+                                <li><strong>Stripe でお申し込みの方（2026年10月31日以降）</strong>: 登録フォームは不要です。<strong>決済に使ったメールアドレスの Google アカウント</strong>でログインすると、そのまま有料プランになります。</li>
+                                <li><strong>theapps でお申し込みの方</strong>: 登録フォームのURLは<strong>決済完了時にメール等でご案内</strong>します（本ページには掲載していません）。案内が見当たらない場合は最下部の窓口へご連絡ください。</li>
+                            </ul>
+                        </div>
+                        <div class="callout callout--info">
+                            <div class="callout-title">無料版について</div>
+                            <p>無料版もご用意しています（<strong>連携1アカウント・月500投稿まで</strong>）。無料版の登録は、ログインページに表示される <strong>「無料版 登録フォームを開く」</strong> から行えます。フォーム送信後、数分で登録した Gmail でログインできるようになります。有料版へアップグレードした場合は、反映のため<strong>一度ログアウトして再ログイン</strong>してください。</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="step-card">
+                <div class="step-card-head"><span class="step-number">→</span><h3>登録の手順</h3></div>
+                <div class="step-body step-body--text-only">
+                    <div class="step-text">
+                        <p><strong>【有料版・Stripe でお申し込みの方】</strong></p>
+                        <ol>
+                            <li>決済画面で <strong>Threadsのユーザー名</strong> を入力して申し込む（30日無料クーポンは初回のお申し込みだけ使えます）</li>
+                            <li><a href="https://threadtoolspro2.vercel.app/login" target="_blank" rel="noopener">ログインページ</a>から、<strong>決済に使ったメールアドレスの Google アカウント</strong>でログイン（別のメールアドレスでは有料プランになりません）</li>
+                            <li>運営から届く <a href="#tester-approval">Threadsテスター招待を承認</a> して、Threadsアカウントを連携</li>
+                        </ol>
+                        <p><strong>【有料版・theapps でお申し込みの方】</strong></p>
+                        <ol>
+                            <li>決済完了時にご案内する <strong>専用の登録フォーム</strong> を開く</li>
+                            <li><strong>メールアドレス</strong>（ログインに使う Gmail）・<strong>氏名</strong>・<strong>知ったきっかけ</strong> を入力して送信</li>
+                            <li>登録完了の確認メールが届きます（送信元: ThreadsToolsPro2）</li>
+                            <li>登録した Google アカウントで、そのままログインできるようになります</li>
+                        </ol>
+                        <p><strong>【無料版】</strong></p>
+                        <ol>
+                            <li><a href="https://threadtoolspro2.vercel.app/login" target="_blank" rel="noopener">ログインページ</a>の <strong>「無料版 登録フォームを開く」</strong> ボタンから登録フォームを開く</li>
+                            <li><strong>メールアドレス</strong>（ログインに使う Gmail）とアンケートに回答して送信</li>
+                            <li>登録完了の確認メールが届き、登録した Google アカウントでログインできるようになります</li>
+                        </ol>
+                        <div class="callout callout--info">
+                            <div class="callout-title">ポイント</div>
+                            <p>ログインは Google ログインのため、必ず <strong>Gmail（Googleアカウント）</strong> のアドレスをご登録ください。反映まで数分かかる場合があります。</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- ログイン -->
+        <section class="section" id="login">
+            <h2 class="section-title">ログイン</h2>
+
+            <article class="step-card">
+                <div class="step-card-head"><span class="step-number">→</span><h3>Googleアカウントでログイン</h3></div>
+                <div class="step-body">
+                    <div class="step-text">
+                        <p>登録した Google アカウントでログインします。</p>
+                        <h4>ログイン手順</h4>
+                        <ol>
+                            <li>ログインページを開く → <a href="https://threadtoolspro2.vercel.app/login" target="_blank" rel="noopener">threadtoolspro2.vercel.app/login</a></li>
+                            <li><strong>「Googleでログイン」</strong> ボタンをクリック</li>
+                            <li>登録した Google アカウント（Gmail）を選択して許可</li>
+                            <li>ログイン成功後、<strong>ダッシュボード</strong>に移動します</li>
+                        </ol>
+                    </div>
+                    <figure class="screenshot-container">
+                        <img class="screenshot" src="screenshots/01-login-page.png" alt="ログイン画面">
+                        <figcaption class="screenshot-caption">ログイン画面 -「Googleでログイン」</figcaption>
+                    </figure>
+                </div>
+            </article>
+
+            <article class="step-card">
+                <div class="step-card-head"><span class="step-number">!</span><h3>ログインできない場合</h3></div>
+                <div class="step-body step-body--text-only">
+                    <div class="step-text">
+                        <div class="callout callout--warning">
+                            <div class="callout-title">「登録されていません」と表示されるとき</div>
+                            <p>登録フォームでの登録が未完了か、決済が確認できていない可能性があります。登録直後は反映に数分かかることがあるため、少し時間をおいて再度お試しください。改善しない場合は最下部の窓口へご連絡ください。</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- お支払い・解約 -->
+        <section class="section" id="billing">
+            <h2 class="section-title">お支払い・解約<span class="info info--start"><button type="button" class="info-btn" aria-label="どちらで申し込んだか分からないとき" aria-expanded="false" aria-controls="info-billing-which"><span aria-hidden="true">i</span></button><span class="info-pop" id="info-billing-which" role="note"><span class="info-line">どちらで申し込んだか分からないとき</span><span class="info-line">2026年10月31日以降のお申し込みは Stripe、それより前は theapps です。</span><span class="info-line">アプリの「契約・お支払い」に「契約の管理」ボタンがあれば Stripe です。</span></span></span></h2>
+
+            <article class="step-card">
+                <div class="step-card-head"><span class="step-number">→</span><h3>Stripe で申し込んだ方</h3><span class="info info--start"><button type="button" class="info-btn" aria-label="料金とクーポン" aria-expanded="false" aria-controls="info-billing-stripe"><span aria-hidden="true">i</span></button><span class="info-pop" id="info-billing-stripe" role="note"><span class="info-line">料金とクーポン</span><span class="info-line">月1,000円（税込）・毎月自動更新のクレジットカード決済です。</span><span class="info-line">期間が終わると無料版（1アカウント・月500投稿）に戻ります。日割りの返金はありません。</span><span class="info-line">30日無料クーポン「DRMOf」は初回のお申し込みだけです。</span></span></span></div>
+                <div class="step-body step-body--text-only">
+                    <div class="step-text">
+                        <h4>解約のしかた</h4>
+                        <ol>
+                            <li>アプリの左メニューの <strong>「契約・お支払い」</strong> を開く</li>
+                            <li><strong>「契約の管理」</strong> を押す</li>
+                            <li><strong>「サブスクをキャンセル」</strong> を押す</li>
+                        </ol>
+                        <p>解約しても、<strong>お支払い済みの期間の終わりまで</strong>使えます。<br>カードの変更・領収書も同じ画面からできます。</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="step-card">
+                <div class="step-card-head"><span class="step-number">→</span><h3>theapps で申し込んだ方</h3></div>
+                <div class="step-body step-body--text-only">
+                    <div class="step-text">
+                        <ol>
+                            <li>お申し込み時のメール（送信元 <strong>noreply@theapps.jp</strong>）を開く</li>
+                            <li><strong>一番下の解約リンク</strong>から手続き</li>
+                        </ol>
+                        <p>メールが見当たらないときは、アプリの「契約・お支払い」の窓口へ。</p>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- ダッシュボード -->
+        <section class="section" id="dashboard">
+            <h2 class="section-title">ダッシュボード</h2>
+
+            <article class="step-card">
+                <div class="step-card-head"><span class="step-number">●</span><h3>ダッシュボード概要</h3></div>
+                <div class="step-body">
+                    <div class="step-text">
+                        <h4>メイン画面</h4>
+                        <p>ログイン後に表示されるメイン画面です。主要な機能にアクセスできます。</p>
+                        <ul>
+                            <li><strong>投稿を作成</strong>: 新しい投稿を作成</li>
+                            <li><strong>投稿一覧</strong>: 投稿を表示・管理</li>
+                            <li><strong>アカウント</strong>: 連携を管理</li>
+                        </ul>
+                    </div>
+                    <figure class="screenshot-container">
+                        <img class="screenshot" src="screenshots/07-dashboard.png" alt="ダッシュボード - メイン画面">
+                        <figcaption class="screenshot-caption">ダッシュボード - メイン画面</figcaption>
+                    </figure>
+                </div>
+            </article>
+        </section>
+
+        <!-- アカウント連携 -->
+        <section class="section" id="accounts">
+            <h2 class="section-title">アカウント連携</h2>
+
+            <article class="step-card">
+                <div class="step-card-head"><span class="step-number">●</span><h3>Threadsアカウントを連携</h3></div>
+                <div class="step-body">
+                    <div class="step-text">
+                        <h4>連携手順</h4>
+                        <ol>
+                            <li>サイドバーから <strong>「アカウント管理」</strong> をクリック</li>
+                            <li><strong>「アカウントを連携」</strong> をクリック</li>
+                            <li>Threadsの認証画面で <strong>許可</strong></li>
+                            <li>連携完了</li>
+                        </ol>
+                        <div class="callout callout--info">
+                            <div class="callout-title">初回連携の前に</div>
+                            <p>初めて連携するアカウントは、事前に運営からの<strong>「Threadsテスター招待」の承認</strong>が必要です。手順は次の「テスター招待の承認」をご覧ください。</p>
+                        </div>
+                    </div>
+                    <figure class="screenshot-container">
+                        <img class="screenshot" src="screenshots/08-accounts.png" alt="「アカウントを連携」をクリック">
+                        <figcaption class="screenshot-caption">「アカウントを連携」をクリック</figcaption>
+                    </figure>
+                </div>
+            </article>
+
+            <article class="step-card" id="tester-approval">
+                <div class="step-card-head"><span class="step-number">●</span><h3>テスター招待の承認（初回連携の前に必要）</h3></div>
+                <div class="step-body">
+                    <div class="step-text">
+                        <p>Meta（Threads API）の仕様により、連携するThreadsアカウントは事前に<strong>「Threadsテスター」として招待→承認</strong>が必要です。ご利用登録後、運営からご利用のThreadsアカウント宛に招待をお送りします。</p>
+                        <h4>承認手順（スマホのThreadsアプリ）</h4>
+                        <ol>
+                            <li><strong>Threadsアプリ</strong>を開き、プロフィールアイコンをタップ</li>
+                            <li>右上の <strong>設定（⚙）</strong> → <strong>「アカウント」</strong> をタップ</li>
+                            <li><strong>「ウェブサイトのアクセス許可」</strong> をタップ</li>
+                            <li><strong>「招待」</strong> タブに表示される <strong>TheadsToolsPro2</strong> の <strong>「同意する」</strong> をタップ</li>
+                        </ol>
+                        <p>PCの場合は <a href="https://www.threads.com/settings/account" target="_blank" rel="noopener">threads.com の設定</a> →「アカウント」→「ウェブサイトのアクセス許可」から同じ操作ができます。</p>
+                        <div class="callout callout--highlight">
+                            <div class="callout-title">承認しないとどうなる？</div>
+                            <ul>
+                                <li>連携時に「<strong>テスター招待の承認が必要です</strong>」というエラーが表示され、連携できません</li>
+                                <li>招待が表示されない場合は、Threadsアプリを<strong>最新版に更新</strong>してから開き直してください</li>
+                                <li>招待が届いていない場合は、<strong>お問い合わせ</strong>よりご連絡ください</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <figure class="screenshot-container">
+                        <img class="screenshot" src="screenshots/13-tester-approval.png" alt="ウェブサイトのアクセス許可 - 「招待」タブで「同意する」をタップ">
+                        <figcaption class="screenshot-caption">「ウェブサイトのアクセス許可」→「招待」タブ →「同意する」</figcaption>
+                    </figure>
+                </div>
+            </article>
+
+            <article class="step-card" id="reconnect">
+                <div class="step-card-head"><span class="step-number">●</span><h3>ツリー投稿のための再連携</h3></div>
+                <div class="step-body step-body--text-only">
+                    <div class="step-text">
+                        <p><a href="#thread-posts">ツリー投稿</a>を使うには、Threadsの<strong>「返信の管理」</strong>の権限（許可画面では <strong>Manage replies and quotes on Threads posts</strong> と表示）が必要です。この機能の追加（2026年9月）より前に連携したアカウントにはこの権限がないため、アカウント管理のカードに <strong>「ツリー未対応」</strong> と表示されます（画面上部にも「ツリー投稿を使うには、◯件のアカウントの再連携が必要です。」と表示されます）。表示されたアカウントは、次の手順で<strong>一度だけ再連携</strong>してください。</p>
+                        <h4>再連携の手順</h4>
+                        <ol>
+                            <li>先に<strong>同じブラウザ</strong>で <a href="https://www.threads.com" target="_blank" rel="noopener">threads.com</a> を開き、<strong>再連携するのと同じThreadsアカウント</strong>でログインしておく</li>
+                            <li>サイドバーの <strong>「アカウント管理」</strong> を開き、「ツリー未対応」と表示されたアカウントの <strong>「再連携」</strong> をクリック</li>
+                            <li>「<strong>〜が次へのアクセスをリクエストしています</strong>」という許可画面で、返信の管理（Manage replies and quotes on Threads posts）をオフにせず <strong>「◯◯として続行」</strong> をクリック</li>
+                            <li>アカウント管理に戻り、<strong>「ツリー未対応」の表示が消えていれば完了</strong>です</li>
+                        </ol>
+                        <div class="callout callout--warning">
+                            <div class="callout-title">再連携のときの注意</div>
+                            <ul>
+                                <li>許可画面の <strong>「アクセス許可を編集」</strong> で、<strong>Manage replies and quotes on Threads posts</strong>（返信の管理）を<strong>オフにしないでください</strong>。オフのまま連携するとツリー投稿は使えず、「ツリー未対応」のままになります（その場合は、もう一度「再連携」からやり直してください）</li>
+                                <li>ブラウザで<strong>別のThreadsアカウント</strong>にログインしていると、そのアカウントが新しく連携されてしまいます。必ず同じアカウントでログインしてから再連携してください</li>
+                            </ul>
+                        </div>
+                        <div class="callout callout--info">
+                            <div class="callout-title">補足</div>
+                            <ul>
+                                <li>再連携しても、登録済みの投稿キュー・予約投稿・設定はそのまま使えます</li>
+                                <li>再連携するとアクセストークン（有効期限）も新しくなるため、トークンの期限切れも再連携で解消できます</li>
+                                <li>「ツリー未対応」の表示と「再連携」ボタンは、<strong>有料プラン</strong>のときだけ表示されます</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="step-card">
+                <div class="step-card-head"><span class="step-number">+</span><h3>複数アカウント対応</h3></div>
+                <div class="step-body step-body--text-only">
+                    <div class="step-text">
+                        <div class="callout callout--highlight">
+                            <div class="callout-title">アカウント管理について</div>
+                            <ul>
+                                <li><strong>有料版</strong>は<strong>複数のThreadsアカウント</strong>を登録できます（<strong>無料版は1アカウントまで</strong>）</li>
+                                <li>投稿作成時に、どのアカウントから投稿するか選択できます</li>
+                                <li>同じThreadsアカウントを複数回連携することはできません</li>
+                                <li>アクセストークンは<strong>暗号化</strong>されて安全に保存されます</li>
+                            </ul>
+                        </div>
+                        <div class="callout callout--info">
+                            <div class="callout-title">無料版の制限</div>
+                            <ul>
+                                <li>連携できるThreadsアカウントは <strong>1つまで</strong></li>
+                                <li>投稿は <strong>月500件まで</strong>（予約・定期・ランダム・即時投稿の合計）。上限に達した月は投稿がスキップされ、翌月に自動で再開します</li>
+                                <li>現在の投稿数は <strong>設定ページ</strong> の「今月の投稿数」で確認できます</li>
+                                <li>制限なく利用するには有料版へのアップグレードが必要です（アップグレード後は再ログインで反映）</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- 定期投稿 -->
+        <section class="section" id="regular-posts">
+            <h2 class="section-title">定期投稿</h2>
+
+            <div class="callout callout--info" style="margin-bottom:1.75rem;">
+                <div class="callout-title">画面構成（5つのタブ）</div>
+                <p>定期投稿の画面は <strong>投稿キュー</strong> / <strong>定期実行設定</strong> / <strong>画像プール</strong> / <strong>一括取り込み</strong> / <strong>プロキシ</strong> の5タブで構成されています。下記の「<a href="#bulk-import">一括取り込み</a>」「<a href="#proxy">プロキシ設定</a>」もこの画面内のタブです。いずれの操作も、先に対象の <strong>アカウントを選択</strong> してください。</p>
+            </div>
+
+            <article class="step-card">
+                <div class="step-card-head"><span class="step-number">●</span><h3>定期投稿機能</h3></div>
+                <div class="step-body">
+                    <div class="step-text">
+                        <h4>投稿キューを管理</h4>
+                        <p>投稿キューを管理し、指定した間隔・時間帯で自動投稿します。</p>
+                        <ul>
+                            <li><strong>投稿キュー</strong>: 順番に管理</li>
+                            <li><strong>定期実行</strong>: 間隔と時間帯を設定</li>
+                            <li><strong>自動ループ</strong>: 完了後に繰り返し</li>
+                        </ul>
+                    </div>
+                    <figure class="screenshot-container">
+                        <img class="screenshot" src="screenshots/09-regular-posts.png" alt="定期投稿管理画面">
+                        <figcaption class="screenshot-caption">定期投稿管理画面</figcaption>
+                    </figure>
+                </div>
+            </article>
+
+            <article class="step-card">
+                <div class="step-card-head"><span class="step-number">▶</span><h3>基本的な流れ</h3></div>
+                <div class="step-body step-body--text-only">
+                    <div class="step-text">
+                        <div class="callout callout--highlight">
+                            <ol>
+                                <li><strong>アカウントを選択</strong> — 投稿するThreadsアカウントを選択</li>
+                                <li><strong>キューに追加</strong> — 投稿内容を追加（順番に実行されます）</li>
+                                <li><strong>定期実行設定</strong> — 投稿間隔と時間帯を設定</li>
+                                <li><strong>定期実行を開始</strong> — 自動投稿スタート（完了後に繰り返すループ運用も可能）</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="step-card">
+                <div class="step-card-head"><span class="step-number">✎</span><h3>投稿の作成・管理</h3></div>
+                <div class="step-body">
+                    <div class="step-text">
+                        <p>投稿一覧から内容の作成・編集・削除ができます。投稿作成画面では、投稿するアカウントと本文を指定します。</p>
+                    </div>
+                    <figure class="screenshot-container">
+                        <img class="screenshot" src="screenshots/10-posts.png" alt="投稿一覧">
+                        <figcaption class="screenshot-caption">投稿一覧</figcaption>
+                    </figure>
+                </div>
+                <div class="step-body" style="margin-top:1.5rem;">
+                    <div class="step-text">
+                        <p>新規投稿の作成画面です。本文を入力し、投稿するアカウントを選択して保存します。</p>
+                    </div>
+                    <figure class="screenshot-container">
+                        <img class="screenshot" src="screenshots/11-posts-new.png" alt="投稿作成画面">
+                        <figcaption class="screenshot-caption">投稿作成画面</figcaption>
+                    </figure>
+                </div>
+            </article>
+        </section>
+
+        <!-- ツリー投稿 -->
+        <section class="section" id="thread-posts">
+            <h2 class="section-title">ツリー投稿</h2>
+
+            <div class="callout callout--info" style="margin-bottom:1.75rem;">
+                <div class="callout-title">ご利用の前に</div>
+                <ul>
+                    <li>ツリー投稿は<strong>有料プラン限定</strong>です。無料プランでは「ツリー投稿は有料プラン限定です。」と案内が表示されるだけで、2件目以降は追加できません</li>
+                    <li>Threadsの<strong>「返信の管理」</strong>の権限が必要です。この機能の追加（2026年9月）より前に連携したアカウントは「ツリー未対応」と表示されるので、先に<a href="#reconnect">ツリー投稿のための再連携</a>を行ってください</li>
+                </ul>
+            </div>
+
+            <article class="step-card">
+                <div class="step-card-head"><span class="step-number">●</span><h3>ツリー投稿とは</h3></div>
+                <div class="step-body step-body--text-only">
+                    <div class="step-text">
+                        <p>1件目の投稿のあとに、2件目以降を<strong>「1つ前の投稿への返信」</strong>としてつなげて投稿する機能です。Threadsでよく見る<strong>連投スレッド</strong>（例: 1件目で結論 → 2件目以降でくわしく → 最後にリンク）を、そのまま自動で投稿できます。</p>
+                        <ul>
+                            <li><strong>使える画面</strong>: 定期投稿・ランダム投稿・予約投稿</li>
+                            <li><strong>件数</strong>: 1つのツリーで最大10件（1件目＋返信9件）、各500文字まで</li>
+                            <li><strong>画像</strong>: 2件目以降にも、1件ごとに最大10枚（JPEG・PNG・GIF・WebP、1枚5MBまで）</li>
+                            <li><strong>画像プール</strong>: 画像プールの画像（ランダム画像）が付くのは<strong>1件目だけ</strong>です。2件目以降の画像は、各件の「画像を追加」から直接アップロードします</li>
+                            <li><strong>くり返し投稿</strong>: 定期投稿・ランダム投稿では、同じ投稿が周回して投稿されるたびに、ツリー全体を<strong>1件目から</strong>投稿します</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <article class="step-card">
+                <div class="step-card-head"><span class="step-number">✎</span><h3>ツリーの作り方</h3></div>
+                <div class="step-body step-body--text-only">
+                    <div class="step-text">
+                        <ol>
+                            <li>定期投稿・ランダム投稿は <strong>「キューに追加」</strong>、予約投稿は <strong>「新規予約投稿」</strong> をクリックして作成画面を開く（予約投稿は、先に投稿アカウントと予約日時を選びます）</li>
+                            <li><strong>1件目</strong>の本文（必要なら画像も）を入力する</li>
+                            <li>1件目の画像欄の下にある「ツリー投稿（2件目以降）」の <strong>「ツリーに投稿を追加」</strong> をクリック → 2件目の入力欄が追加されます（クリックするたびに1件ずつ増え、10件目まで追加できます）</li>
+                            <li>各件の本文を入力し、画像を付けるときは <strong>「画像を追加」</strong> をクリック</li>
+                            <li>順番は <strong>↑ / ↓</strong> ボタンで入れ替え、不要な件は <strong>ゴミ箱</strong> ボタンで削除する</li>
+                            <li>ボタンが <strong>「追加（3件）」</strong>（予約投稿は <strong>「予約する（3件）」</strong>）のように件数付きの表示になっていることを確認してクリック</li>
+                        </ol>
+                        <div class="callout callout--highlight">
+                            <div class="callout-title">入力のポイント</div>
+                            <ul>
+                                <li>「ツリー投稿（2件目以降）」の右側に、1件目を含めた件数が <strong>「ツリー 3/10件」</strong> のように表示されます</li>
+                                <li>本文が空の件があると保存できません（「2件目の投稿内容を入力してください」のように表示されます）。使わない件はゴミ箱で削除してください</li>
+                                <li>あとから2件目以降を追加・修正するときは、定期投稿・ランダム投稿は投稿の <strong>「…」メニュー →「編集」</strong>、予約投稿は一覧の <strong>「ツリー」</strong> ボタンから行えます</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="step-card">
+                <div class="step-card-head"><span class="step-number">▶</span><h3>一覧での表示と、途中で失敗したときの再開</h3></div>
+                <div class="step-body step-body--text-only">
+                    <div class="step-text">
+                        <h4>一覧での表示</h4>
+                        <ul>
+                            <li>ツリーの投稿には <strong>「🧵 ツリー 3件」</strong> が表示されます。クリックすると2件目以降の内容を開いて確認できます</li>
+                            <li>ツリーは1件ずつ順番に投稿されます。投稿中はステータスが <strong>「投稿中 2/5」</strong>（5件中2件まで投稿済み）のように表示され、その間は <strong>編集・削除・今すぐ投稿</strong> ができません</li>
+                            <li>1件目が投稿されると、<strong>「1件目をThreadsで開く」</strong> からThreads上の実際の投稿を確認できます</li>
+                            <li>「今すぐ投稿」でも、ツリー全体を1件目から投稿します。件数が多いと「投稿を開始しました。続きはバックグラウンドで投稿されます。」と表示され、残りは自動で投稿されます（一覧の表示が変わらないときは、ページを再読み込みしてください）</li>
+                        </ul>
+
+                        <h4 style="margin-top:1.25rem;">途中で失敗したとき</h4>
+                        <p>ツリーの途中で失敗すると、ステータスが <strong>「失敗 2/5」</strong> になり、ツリーの欄に、どの件で失敗したかと理由が次のように表示されます。</p>
+                        <div class="callout callout--warning">
+                            <p>ツリーの3件目で失敗しました（2件目まで投稿済み）: 〈失敗の理由〉</p>
+                        </div>
+                        <p style="margin-top:1rem;">理由を確認して原因を解消したら、<strong>「再開（3件目から）」</strong> をクリックします（ツリーの欄のボタン。定期投稿・ランダム投稿は「…」メニューにもあります）。<strong>投稿済みの分は出し直さず</strong>、続きの件から返信をつなげて投稿します。「今すぐ投稿」は1件目から投稿し直すので、続きを投稿したいときは「再開」を使ってください。理由ごとの対処は<a href="#faq-thread-failed">トラブルシューティング</a>をご覧ください。</p>
+
+                        <h4 style="margin-top:1.25rem;">途中で失敗したツリーを直すとき</h4>
+                        <ul>
+                            <li><strong>投稿済みの件は編集できません</strong>（「投稿済み」と表示され、変更できない状態になります）</li>
+                            <li><strong>定期投稿・ランダム投稿</strong>: 「編集」画面で <strong>「途中経過を破棄して編集する」</strong> を選ぶと、全件を編集できます。この場合、次回は<strong>1件目から投稿し直します</strong>（すでに投稿された分はThreadsに残るので、必要に応じてThreads上で削除してください）</li>
+                            <li><strong>予約投稿</strong>（1回きりの投稿）: 途中経過は破棄できません。「ツリー」ボタンから<strong>未投稿の件を直してから「再開」</strong>してください</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- 一括取り込み（CSV／スプレッドシート） -->
+        <section class="section" id="bulk-import">
+            <h2 class="section-title">一括取り込み（CSV／スプレッドシート）</h2>
+
+            <article class="step-card">
+                <div class="step-card-head"><span class="step-number">●</span><h3>スプレッドシートから投稿をまとめて追加</h3></div>
+                <div class="step-body step-body--text-only">
+                    <div class="step-text">
+                        <p>定期投稿・ランダム投稿画面の <strong>「一括取り込み」タブ</strong> から、Google スプレッドシート / Excel / CSV の投稿文と画像をまとめて投稿キューに追加できます。<strong>ファイルのアップロードではなく、セルをコピーして貼り付ける</strong>方式です。</p>
+                        <h4>シートの作り方</h4>
+                        <ul>
+                            <li><strong>A列:</strong> 投稿文（必須、500文字まで。ツリーの場合は1件目）</li>
+                            <li><strong>B列:</strong> 選択中アカウントの画像プールにあるファイル名（任意。1件目に付きます。例: <code>1.jpg</code>）</li>
+                            <li><strong>C〜K列:</strong> <a href="#thread-posts">ツリー投稿</a>の2〜10件目（任意・有料プラン限定。各500文字以内、テキストのみ）</li>
+                        </ul>
+                        <p>1行が1投稿です。<code>投稿文［Tab］画像ファイル名</code> の2列を1行ずつ用意し、ツリーにしたい行だけ、C列から右へ2件目・3件目…と続けて入力します。<strong>C列が空の行は、これまでどおり1件だけの投稿</strong>として登録されます。先頭の「文章 / 画像ファイル名」ヘッダー（C列以降は「2件目」「3件目」など）はあってもなくても構いません。B列を空欄にすると本文のみで登録されます。</p>
+                        <div class="callout callout--highlight">
+                            <div class="callout-title">入力例（4投稿分）</div>
+                            <ol>
+                                <li>A列 <code>あいうえお</code> ／ B列 <code>1.jpg</code></li>
+                                <li>A列 <code>かきくけこ</code> ／ B列 <strong>空欄（画像なし）</strong></li>
+                                <li>A列 <code>さしすせそ</code> ／ B列 <code>2.jpg</code></li>
+                                <li>A列 <code>Threadsで伸びる3つのコツ🧵</code> ／ B列 <code>3.jpg</code> ／ C列 <code>① 1行目で言い切る</code> ／ D列 <code>② 数字を入れる</code> → <strong>3件のツリー</strong>として登録（有料プラン）</li>
+                            </ol>
+                            <p>本文と画像ファイル名を同じセルに書かず、A列とB列の<strong>別々のセル</strong>に入力してください。アプリの「解析」ボタンの下にも、入力形式と3行の例（C列＝ツリーの2件目の例つき）を常時表示しています。</p>
+                        </div>
+                        <h4>取り込み手順</h4>
+                        <ol>
+                            <li>使用する画像を、対象アカウントの <strong>「画像プール」</strong> に先に登録する</li>
+                            <li>定期投稿またはランダム投稿画面で <strong>アカウントを選択</strong> し、<strong>「一括取り込み」</strong> タブを開く</li>
+                            <li>スプレッドシート / Excel / CSV でA列とB列（ツリーを含む場合は、使っている列まで。最大K列）のセルを選択して<strong>コピー</strong></li>
+                            <li><strong>「スプレッドシートの内容を貼り付け」</strong> 欄に貼り付ける</li>
+                            <li><strong>「解析」</strong> をクリック → 投稿、画像サムネイル、照合結果が1行ずつ表示されます（ツリーの行には <strong>「🧵 ツリー 3件」</strong> と2件目以降の本文も表示されます）</li>
+                            <li>取り込む投稿の<strong>チェック</strong>を確認（不要なものはチェックを外す。<strong>「全選択／全解除」</strong>も可）</li>
+                            <li><strong>「選択した○件を取り込む」</strong> をクリック → 画像付きで投稿キューに追加され、キューにもサムネイルが表示されます</li>
+                        </ol>
+                        <figure class="screenshot-container">
+                            <div class="video-embed">
+                                <iframe src="https://www.youtube.com/embed/fIvWQANpby8" title="一括取り込みの操作デモ" loading="lazy" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                            </div>
+                            <figcaption class="screenshot-caption">一括取り込みの操作デモ（約1分）</figcaption>
+                        </figure>
+                        <div class="callout callout--info">
+                            <div class="callout-title">画像ファイル名の照合</div>
+                            <p>ファイル名は、選択中アカウントの画像プール内で<strong>大文字・小文字を区別して完全一致</strong>する必要があります。画像が見つからない場合や同名画像が複数ある場合は、その行が赤字で表示され、取り込み対象にできません。サムネイルと<strong>「紐付けOK」</strong>を確認してから登録してください。</p>
+                        </div>
+                        <div class="callout callout--info">
+                            <div class="callout-title">ツリー（C〜K列）を取り込むとき</div>
+                            <ul>
+                                <li>2件目以降（C列以降）を含む行は<strong>有料プラン限定</strong>です。無料プランや「ツリー未対応」のアカウントでは、その行は赤字で表示され、取り込めません（C列が空の行はこれまでどおり取り込めます）。</li>
+                                <li>C〜K列は<strong>各500文字以内・テキストのみ</strong>です。2件目以降の画像は、取り込んだあとに投稿キューの「…」メニュー →<strong>「編集」</strong>から追加してください。</li>
+                                <li><strong>途中に空欄があるとエラー</strong>になります（例: C列が空で、D列に値がある行）。C〜K列は左から詰めて入力してください（右側が空欄なのは問題ありません）。</li>
+                                <li><strong>L列以降に値がある行もエラー</strong>になります（ツリーは10件目＝K列まで）。</li>
+                            </ul>
+                        </div>
+                        <div class="callout callout--warning">
+                            <div class="callout-title">注意</div>
+                            <ul>
+                                <li><strong>1投稿は500文字まで</strong>。500文字以内の投稿は最初から選択済みになります。</li>
+                                <li><strong>500文字を超える投稿は取り込めません</strong>（赤字表示され、対象外になります）。一度に登録できるのは最大200件（200行）で、ツリーの行も1行で1件と数えます。</li>
+                                <li>画像を指定した投稿は、その投稿に紐付けた画像が優先されます。画像プールからランダムな別画像へ置き換わることはありません。</li>
+                                <li>従来どおり投稿文だけを1列で貼り付けることもできます。文章の自動分割を使う場合は、投稿ごとにセルを分けるか間に空行を入れてください。</li>
+                                <li>取り込み後は <strong>「投稿キュー」タブ</strong> に追加されるので、必要に応じて並び順や内容を調整してください。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- プロキシ設定 -->
+        <section class="section" id="proxy">
+            <h2 class="section-title">プロキシ設定</h2>
+
+            <article class="step-card">
+                <div class="step-card-head"><span class="step-number">●</span><h3>アカウントごとにプロキシ経由で投稿</h3></div>
+                <div class="step-body step-body--text-only">
+                    <div class="step-text">
+                        <p>定期投稿画面の <strong>「プロキシ」タブ</strong> から、<strong>Threadsアカウントごと</strong>にプロキシを設定できます。設定すると、そのアカウントの投稿がプロキシ経由で送信されます（未設定の場合は直接接続）。</p>
+                        <h4>設定手順</h4>
+                        <ol>
+                            <li>定期投稿画面で対象の <strong>アカウントを選択</strong> し、<strong>「プロキシ」</strong> タブを開く</li>
+                            <li><strong>「プロキシURL」</strong> を入力する（例: <code>http://user:pass@host:8080</code>）</li>
+                            <li><strong>「接続テスト」</strong> でプロキシ経由の疎通を確認（成功すると「接続成功」と表示）</li>
+                            <li>問題なければ <strong>「保存」</strong> をクリック（保存時に<strong>暗号化</strong>され、以降はパスワードがマスク表示されます）</li>
+                            <li>不要になったら <strong>「設定を削除」</strong> で直接接続に戻せます</li>
+                        </ol>
+                        <div class="callout callout--info">
+                            <div class="callout-title">URLの形式</div>
+                            <ul>
+                                <li><strong><code>http://</code> または <code>https://</code> で始まる形式</strong>のみ対応（SOCKS形式は非対応）。</li>
+                                <li>認証が必要なプロキシは、ユーザー名・パスワードを <code>http://ユーザー名:パスワード@ホスト:ポート</code> の形で含めてください。</li>
+                                <li>保存済みのプロキシは <strong>「現在の設定」</strong> 欄でパスワードを伏せた状態（<code>****</code>）で確認できます。</li>
+                            </ul>
+                        </div>
+                        <div class="callout callout--warning">
+                            <div class="callout-title">うまくつながらないとき</div>
+                            <p>「接続失敗」と表示される場合は、URLの形式（<code>http(s)://</code>・ホスト・ポート・認証情報）に誤りがないか、プロキシ自体が稼働しているかをご確認のうえ、再度 <strong>「接続テスト」</strong> を実行してください。</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- 設定 -->
+        <section class="section" id="settings">
+            <h2 class="section-title">設定</h2>
+
+            <article class="step-card">
+                <div class="step-card-head"><span class="step-number">●</span><h3>設定画面</h3></div>
+                <div class="step-body">
+                    <div class="step-text">
+                        <h4>設定で確認できる情報</h4>
+                        <ul>
+                            <li><strong>ユーザー情報</strong>: 表示名・メールアドレス</li>
+                            <li><strong>Threadsアカウント連携</strong>: 連携状態の確認・管理</li>
+                            <li><strong>ログアウト</strong>: アプリからログアウト</li>
+                        </ul>
+                    </div>
+                    <figure class="screenshot-container">
+                        <img class="screenshot" src="screenshots/12-settings.png" alt="設定画面">
+                        <figcaption class="screenshot-caption">設定画面</figcaption>
+                    </figure>
+                </div>
+            </article>
+
+            <article class="step-card">
+                <div class="step-card-head"><span class="step-number">🔒</span><h3>セキュリティについて</h3></div>
+                <div class="step-body step-body--text-only">
+                    <div class="step-text">
+                        <div class="callout callout--success">
+                            <div class="callout-title">安全な設計</div>
+                            <ul>
+                                <li><strong>OAuth 2.0</strong>: 安全な認証方式でThreadsと連携</li>
+                                <li><strong>トークン暗号化</strong>: アクセストークンはAES-256で暗号化して保存</li>
+                                <li><strong>自動更新</strong>: トークンの有効期限は約60日間です。期限まで30日を切ると自動で延長します（1日2回確認）。期限が切れてしまった場合は、アカウント管理から再連携してください</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- トラブルシューティング -->
+        <section class="section" id="troubleshooting">
+            <h2 class="section-title">トラブルシューティング</h2>
+
+            <div class="faq-item">
+                <div class="faq-question"><span class="faq-q-mark">Q</span>ログインできません</div>
+                <div class="faq-answer">
+                    <p><strong>A.</strong> 以下をご確認ください。</p>
+                    <ol>
+                        <li><strong>登録フォームでの登録</strong>が完了しているか（確認メールが届いているか）</li>
+                        <li>ログインに使う <strong>Googleアカウント（Gmail）</strong> が登録したアドレスと一致しているか</li>
+                        <li>登録直後は反映に数分かかることがあります。少し時間をおいて再度お試しください</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question"><span class="faq-q-mark">Q</span>確認メールが届きません</div>
+                <div class="faq-answer">
+                    <p><strong>A.</strong> 以下をご確認ください。</p>
+                    <ol>
+                        <li><strong>迷惑メールフォルダ</strong>を確認</li>
+                        <li>登録フォームに入力したメールアドレスに<strong>タイプミス</strong>がないか確認</li>
+                        <li>改善しない場合は下記の窓口へご連絡ください</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question"><span class="faq-q-mark">Q</span>Threadsアカウントが連携できません</div>
+                <div class="faq-answer">
+                    <p><strong>A.</strong> 以下をご確認ください。</p>
+                    <ol>
+                        <li>運営からの<strong>「Threadsテスター招待」を承認済み</strong>か確認（<a href="#tester-approval">承認手順はこちら</a>）</li>
+                        <li>Threadsの認証画面で<strong>許可</strong>したか確認</li>
+                        <li>同じThreadsアカウントを<strong>重複連携</strong>していないか確認</li>
+                        <li>一度ログアウトして再度連携をお試しください</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question"><span class="faq-q-mark">Q</span>連携時に「テスター招待の承認が必要です」または「トークンの取得に失敗しました」と表示されます</div>
+                <div class="faq-answer">
+                    <p><strong>A.</strong> 連携するThreadsアカウントが、運営からの<strong>「Threadsテスター招待」を未承認</strong>のときに表示されます。Threadsアプリの <strong>設定（⚙）→「アカウント」→「ウェブサイトのアクセス許可」→「招待」タブ</strong> で <strong>TheadsToolsPro2</strong> の <strong>「同意する」</strong> をタップしてから、もう一度連携をお試しください（<a href="#tester-approval">画像つきの承認手順はこちら</a>）。</p>
+                    <ol>
+                        <li>招待が表示されない場合は、Threadsアプリを<strong>最新版に更新</strong>して開き直してください</li>
+                        <li>それでも招待が見当たらない場合は、招待が未送信の可能性があります。<strong>お問い合わせ</strong>より、ご利用のThreadsユーザーネームを添えてご連絡ください</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question"><span class="faq-q-mark">Q</span>「アカウントを連携」を押すと、許可画面ではなくInstagramのページに飛ばされます</div>
+                <div class="faq-answer">
+                    <p><strong>A.</strong> お使いのブラウザで <strong>Threads にログインしていない</strong>ときに起こる Meta 側の挙動です（アプリの不具合ではありません）。未ログインのまま連携ボタンを押すと Threads のログインページへ転送され、そこから Instagram のログインに進む途中で通常の Instagram 画面に着地してしまいます。以下の手順でお試しください。</p>
+                    <ol>
+                        <li>先に<strong>同じブラウザ</strong>で <a href="https://www.threads.com" target="_blank" rel="noopener">threads.com</a> を開き、連携したいアカウントで<strong>ログイン</strong>しておく</li>
+                        <li>Instagram アカウントに <strong>Threads プロフィールを未作成の場合</strong>は、先に Threads でプロフィールを作成する（プロフィールがないと連携できません）</li>
+                        <li>本アプリに戻り、再度 <strong>「アカウントを連携」</strong> をクリック</li>
+                        <li>「<strong>ThreadsToolsPro2 が次へのアクセスをリクエストしています</strong>」という許可画面が表示されたら、<strong>「◯◯として続行」</strong> ボタンをクリック → これだけで連携完了です</li>
+                    </ol>
+                    <div class="callout callout--info">
+                        <div class="callout-title">補足</div>
+                        <ul>
+                            <li>連携ボタンを押すと<strong>新しいタブは開かず、同じタブ</strong>のまま Threads の認証ページへ移動します（正常な動作です）。</li>
+                            <li>スマホでは Instagram / Threads アプリが自動で開いてしまい、うまく連携できないことがあります。<strong>PC のブラウザ</strong>からの連携をおすすめします。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item" id="faq-thread-permission">
+                <div class="faq-question"><span class="faq-q-mark">Q</span>「このアカウントはツリー投稿の権限がありません」と表示されます</div>
+                <div class="faq-answer">
+                    <p><strong>A.</strong> そのThreadsアカウントに、ツリー投稿に必要な<strong>「返信の管理」の権限がない</strong>ときに表示されます。この機能の追加（2026年9月）より前に連携したアカウントや、連携時に「アクセス許可を編集」で返信の管理をオフにしたアカウントが対象で、<strong>再連携</strong>すると使えるようになります（<a href="#reconnect">再連携の手順はこちら</a>）。</p>
+                    <ol>
+                        <li>先に<strong>同じブラウザ</strong>で <a href="https://www.threads.com" target="_blank" rel="noopener">threads.com</a> を開き、そのThreadsアカウントで<strong>ログイン</strong>しておく</li>
+                        <li><strong>「アカウント管理」</strong> で、「ツリー未対応」と表示されたアカウントの <strong>「再連携」</strong> をクリックし、返信の管理をオフにせずに許可する</li>
+                        <li>「ツリー未対応」の表示が消えたら完了です。一覧で「失敗」になっているツリーは、<strong>「再開」</strong> で投稿できます</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="faq-item" id="faq-thread-failed">
+                <div class="faq-question"><span class="faq-q-mark">Q</span>ツリーが途中で失敗しました（「失敗 2/5」と表示されます）</div>
+                <div class="faq-answer">
+                    <p><strong>A.</strong> 一覧のツリーの欄に、<strong>「ツリーの3件目で失敗しました（2件目まで投稿済み）: 〈理由〉」</strong> のように、失敗した件と理由が表示されます。理由を確認して原因を解消してから、<strong>「再開（3件目から）」</strong> をクリックしてください。投稿済みの分は出し直さず、続きの件から投稿します。</p>
+                    <ol>
+                        <li>理由が <strong>「Threadsの投稿上限に達しました」</strong> や <strong>「返信の上限（24時間で1,000件）に達しています」</strong> のとき：Threadsの上限（<strong>24時間で投稿250件・返信1,000件</strong>）に達しています。時間をおいてから再開してください</li>
+                        <li>理由が <strong>「アクセストークンが無効です」</strong> や <strong>「返信の権限がありません」</strong> のとき：トークンの期限切れや権限不足です。<a href="#reconnect">再連携</a>してから再開してください</li>
+                        <li>それ以外の理由（Threadsからのエラー内容）のとき：本文や画像を見直し、未投稿の件を直してから再開してください（投稿済みの件は変更できません）</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- お問い合わせ -->
+        <section class="section" id="support">
+            <h2 class="section-title">お問い合わせ</h2>
+            <article class="step-card">
+                <div class="step-body step-body--text-only">
+                    <div class="step-text">
+                        <h4>STEP 1：マニュアルを確認</h4>
+                        <p>まずは、このマニュアルの操作手順とトラブルシューティングをご確認ください。</p>
+                        <h4>STEP 2：窓口で質問</h4>
+                        <p><strong>有料プランの方</strong></p>
+                        <p>
+                            <a href="https://youyou-community.slack.com/archives/C08MPEJNMDL" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Slack の #03_質問 を開く</a>
+                        </p>
+                        <p><strong>無料版の方</strong><br>（スマホの LINE で開いてください）</p>
+                        <p>
+                            <a href="https://line.me/ti/g2/LKMEMv5nis1lbWSHYu6bzuqQfUp5lWZ6XbtPUw?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default" class="btn btn-primary" target="_blank" rel="noopener noreferrer">オープンチャットに参加する</a>
+                        </p>
+                        <p>アプリの「問い合わせ」ページにも、プランに合った窓口が出ます。</p>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- Footer -->
+        <footer class="main-footer">
+            <div class="footer-content">
+                <div class="footer-slack">
+                    <div class="footer-brand"><span class="logo-icon" style="width:28px;height:28px;border-radius:7px;">@</span> ThreadsToolsPro2</div>
+                    <p class="footer-copyright">Threads 自動投稿 Web アプリケーション ／ まずマニュアルをご確認ください。解決しないときは、有料プランの方は Slack の #03_質問、無料版の方は LINE オープンチャットへ。</p>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <script src="script.js?v=20261101m"></script>
+    <!--
+      Version History:
+      ver1.16 (2026-11-01) - 置き場所を threadtoolspro2.vercel.app/docs → market.youpapatools.com/ttp2/ に移した（ゆうさん「youpapatools ドメインへ」）。
+                            左上にマーケットのロゴ帯（XTP3／XTP4 と同じ・fixed 48px）。サイドバー・メニューボタン・本文・アンカー位置を 48px 下げた。
+                            読み込みパスを /docs/… から相対に。canonical を追加。正本は今後こちら（81_Market/ttp2/）
+      ver1.15 (2026-11-01) - お問い合わせの STEP 2 をプラン別に（有料＝Slack #03_質問、無料＝LINE オープンチャット・スマホの LINE で）。
+                            アプリの問い合わせページ（2026-10-31 にプラン別化）とそろえた。フッターの文言も同じに。
+      ver1.14 (2026-11-01) - 「お支払い・解約」を見やすく（frontend-design ①）。補足の段落と枠2つ（解約したあと・クーポンは初回だけ）を
+                            ⓘ 2個（どちらで申し込んだか／料金とクーポン）と1行の文に整理。見出しの日付を ⓘ へ（見出しは「〜で申し込んだ方」に短縮・375px で1文字落ちを防ぐ）。手順3を実際のボタン
+                            「サブスクをキャンセル」に修正。theapps の解約を番号つきの手順に。ⓘ の部品 .info（script.js・styles.css）を追加。
+      ver1.13 (2026-11-01) - ユーザー登録の「はじめに」に「Stripe でお申し込みの方は登録フォーム不要」を追記。
+      ver1.12 (2026-11-01) - 「お支払い・解約」(#billing) を追加（Stripe の解約・カード変更・領収書はアプリの「契約・お支払い」→「契約の管理」、
+                            解約後は期間の終わりまで有料、DRMOf は初回のみ、theapps の方の解約リンク）。サイドバーの「利用開始」に追加。
+                            ユーザー登録の有料版を「Stripe でお申し込みの方（登録フォーム不要・決済メールの Google でログイン）」と
+                            「theapps でお申し込みの方」の2本に分けた。表記バージョンを v1.2 → v1.3（2026年11月更新）へ更新。
+      ver1.11 (2026-09-29) - セキュリティの「自動更新」を実装に合わせて修正（期限の30日前から自動で延長、期限切れは再連携）。
+      ver1.10 (2026-09-28) - お問い合わせの「オープンチャットは準備中です」を、LINEオープンチャット
+                            「ThreadsToolsPro_free」への参加ボタンに差し替え（フッターの文言も更新）。
+      ver1.9 (2026-09-27) - ツリー投稿（2件目以降を1つ前の投稿への返信としてつなげる連投）を追加。
+                            サイドバーと「主な機能」に「ツリー投稿」を追加し、定期投稿の後に #thread-posts
+                            （ご利用の前に／ツリー投稿とは／作り方／一覧での表示と途中失敗からの再開・破棄）を新設。
+                            アカウント連携に「ツリー投稿のための再連携」(#reconnect) を追加（返信の管理権限、
+                            ツリー未対応の表示、threads.comへ事前ログイン、アクセス許可を編集でオフにしない）。
+                            一括取り込みにC〜K列（ツリーの2〜10件目）の列説明・入力例（C/D列）・注意を追記。
+                            トラブルシューティングに「ツリー投稿の権限がありません」「ツリーが途中で失敗した」Q&Aを追加。
+                            表記バージョンを v1.1 → v1.2（2026年9月更新）へ更新。
+      ver1.8 (2026-08-14) - 一括取り込みに3投稿分のA列/B列入力例を追加。
+                            お問い合わせをマニュアル確認→オープンチャット（準備中）の案内へ更新。
+      ver1.7 (2026-08-14) - 一括取り込みにA列投稿文/B列画像ファイル名の照合、プレビュー、
+                            キューの画像サムネイル、本文のみ行、未一致・重複時の注意を追記。
+      ver1.6 (2026-08-12) - 有料版登録フォームのURL掲載を廃止（決済照合の無いフォームのため決済完了時案内に一本化）。
+                            登録手順を有料版/無料版の2本立てに再構成。
+      ver1.6 (2026-08-23) - アカウント連携に「テスター招待の承認」セクションを追加（画像つき: 13-tester-approval.png）。
+                            初回連携前にThreadsテスター招待の承認が必要な旨と、Threadsアプリでの承認手順
+                            （設定→アカウント→ウェブサイトのアクセス許可→招待→同意する）を記載。
+                            トラブルシューティングに「テスター招待の承認が必要です/トークンの取得に失敗しました」Q&Aを追加。
+                            （2026-08-23: Standard Accessではテスター以外連携不可とMetaエラーcode:100/subcode:10で実証）
+      ver1.5 (2026-08-11) - 無料版の案内を追加（登録方法・1アカウント/月500投稿の制限・アップグレード時の再ログイン）。
+                            「複数アカウント対応」を有料版限定の表記に修正。
+      ver1.4 (2026-07-04) - 一括取り込みセクションに操作デモ動画（YouTube: fIvWQANpby8）を埋め込み。
+                            本文・手順の対応形式表記を「Google スプレッドシート / Excel / CSV」横並びに統一
+                            （アプリ側プレースホルダーの表記と一致）。styles.css に .video-embed を追加。
+      ver1.3 (2026-07-04) - トラブルシューティングに「連携時にInstagramのページに飛ばされる」Q&Aを追加。
+                            原因（ブラウザでThreads未ログイン時のMeta側リダイレクト）と対処手順
+                            （threads.comへ先にログイン→再連携→許可画面で「◯◯として続行」）、
+                            同一タブ遷移が正常仕様である旨・PCブラウザ推奨を記載。
+                            （2026-07-03 本番E2E検証で正常フローとバウンス原因を確認済み）
+      ver1.2 (2026-06-13) - 定期投稿の「一括取り込み(CSV/スプレッドシート貼り付け)」「プロキシ設定」セクションを追加。
+                            /manual を廃止し本サイトへ一本化（ログインの「使い方ガイド」リンクを /docs へ、/manual→/docs リダイレクト）。
+      ver1.1 (2026-06-13) - 内容を現行のGoogle OAuth仕様へ修正。メール/パスワード新規登録＋メール認証
+                            セクションを削除し「ユーザー登録（Googleフォーム）」「Googleでログイン」へ。
+                            スクショ02-06(旧UI)撤去、10/11(投稿一覧/作成)追加、お問い合わせ節を追加。
+                            内容は /manual (src/app/manual) と一致させた。
+      ver1.0 (2026-06-13) - 初版作成（※旧Marpガイド由来でメール/パスワード認証を記載していた）。
+    -->
+</body>
+</html>
