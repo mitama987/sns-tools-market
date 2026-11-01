@@ -27,6 +27,16 @@ body{padding:0 max(4px,env(safe-area-inset-right,0px)) 0 max(4px,env(safe-area-i
 </style>
 </head>
 <body>
+<!-- マーケットへ戻る帯（2026-11-01・新 LP 5 枚のヘッダーと同じ見た目） -->
+<style>
+.mk-back{background:#1F1B16;color:#fff;font-family:"Noto Sans JP","Hiragino Sans","Yu Gothic UI",Meiryo,sans-serif;position:relative;z-index:50}
+.mk-back .mk-in{max-width:960px;margin:0 auto;padding:0 16px;height:44px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.mk-back a{color:#fff;text-decoration:none;font-size:14px;line-height:1}
+.mk-back .mk-brand{font-weight:700}
+.mk-back .mk-to{opacity:.9;white-space:nowrap}
+.mk-back a:hover{text-decoration:underline}
+</style>
+<div class="mk-back"><div class="mk-in"><a class="mk-brand" href="../">Youパパツールマーケット</a><a class="mk-to" href="../#tools">← ツール一覧</a></div></div>
 <style>
 .xtpcmp{--page:#F4F6FA;--card:#FFFFFF;--ink:#111318;--sub:#4A5265;--rule:#E2E6EE;--side:#2B3445;--group:#3D4A63;--x3:#5A6578;--x4:#2F6FD6;--x6:#E8463A;--ok:#15A34A;--none:#9AA3B2;--ng:#D92D20;--badge:#FFC21A;--on:#FFFFFF;--head:#1B2230;
   font-family:"Yu Gothic UI","Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Meiryo",sans-serif;
@@ -109,6 +119,7 @@ body{padding:0 max(4px,env(safe-area-inset-right,0px)) 0 max(4px,env(safe-area-i
 Version History
 - ver1.0 (2026-10-19): 新規。XTP3・XTP4・XTP6 の機能比較（スマホ幅向け）。元は ClaudeCompany .company/marketing/content-plan/xtp-compare-page.html。LINE の告知から短縮リンク x6-cmp-x3／x4／oc で流入
 - ver1.1 (2026-10-20): 下にスクロールしても見出し（機能・XTP3・XTP4・XTP6）が上に残るように（sticky）。そのため表の overflow:hidden をやめ、角丸は角のマスに付けた
+- ver1.2 (2026-11-01): ページ先頭にマーケットへ戻る帯（Youパパツールマーケット／← ツール一覧）を追加
 - ver1.3 (2026-10-31): canonical／og:url を https://market.youpapatools.com/xtp-compare/ に（独自ドメイン）
 - ver1.2 (2026-10-24): XTP6 のアカウント数を「10まで」→「20まで（プレミアム 100）」（XTP6 ver0.59）。料金も「有料 月¥1,000・14日お試し」→「有料 月¥3,000・年払いは月¥1,000」（10/18 の料金改定が未反映だった）
 -->
