@@ -16,8 +16,8 @@
     <!-- マーケットへ戻る帯（2026-11-01・XTP3／XTP4 と同じロゴ）。手順書はサイドバーが fixed なので帯も fixed にして全体を 48px 下げる -->
     <style>
     .mk-back{position:fixed;top:0;left:0;right:0;height:48px;background:#1F1B16;z-index:300;font-family:"Noto Sans JP","Hiragino Sans","Yu Gothic UI",Meiryo,sans-serif}
-    .mk-back .mk-in{height:48px;padding:0 12px;display:flex;align-items:center}
-    .mk-back a{display:inline-flex;align-items:center;gap:8px;color:#fff;text-decoration:none;padding:4px 6px;margin-left:-6px;border:1px solid transparent;border-radius:4px}
+    .mk-back .mk-in{height:48px;padding:0 12px;display:flex;align-items:center;justify-content:flex-end}
+    .mk-back a{display:inline-flex;align-items:center;gap:8px;color:#fff;text-decoration:none;padding:4px 6px;margin-right:-6px;border:1px solid transparent;border-radius:4px}
     .mk-back a:hover{border-color:rgba(255,255,255,.6)}
     .mk-back svg{width:26px;height:26px;flex-shrink:0;display:block}
     .mk-back .mk-t{display:flex;flex-direction:column;gap:3px;line-height:1}
@@ -888,6 +888,7 @@
     <script src="script.js?v=20261101m"></script>
     <!--
       Version History:
+      ver1.17 (2026-11-01) - マーケットのロゴ帯を右寄せに（ゆうさん「やっぱり右側」）
       ver1.16 (2026-11-01) - 置き場所を threadtoolspro2.vercel.app/docs → market.youpapatools.com/ttp2/ に移した（ゆうさん「youpapatools ドメインへ」）。
                             左上にマーケットのロゴ帯（XTP3／XTP4 と同じ・fixed 48px）。サイドバー・メニューボタン・本文・アンカー位置を 48px 下げた。
                             読み込みパスを /docs/… から相対に。canonical を追加。正本は今後こちら（81_Market/ttp2/）

@@ -141,3 +141,4 @@ Chrome実機での再現・APIバイセクトにより、公開時検証の仕�
 - 40_ThreadsToolsPro2 の public/docs（index.html・styles.css・script.js・screenshots）を ttp2/ にコピー。読み込みパスを相対に・canonical 追加・左上にマーケットのロゴ帯（fixed 48px・サイドバー／メニューボタン／本文／アンカー位置を 48px 下げ・script.js の headerOffset 32→80）。正本は今後こちら
 - 旧 https://threadtoolspro2.vercel.app/docs は TTP2 側の next.config で /ttp2/ へ転送（一時・307）
 - components-amazon.jsx ver3.4・index.html: TTP2 のリンク（棚・一覧・フッター・JSON-LD・noscript）を /ttp2/ に
+- 2026-11-01: ロゴ帯を右寄せに（xtp3 ver2.4・xtp4 ver1.4・xtp-compare ver1.4・ttp2 ver1.17）
