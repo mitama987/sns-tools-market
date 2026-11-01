@@ -90,6 +90,9 @@ SPECIFIC: list[tuple[str, str]] = [
     ("text-[#E8A87C] text-[11px] font-bold tracking-[0.12em] uppercase", f"text-[{GOLD_SOFT}] text-[11px] font-bold tracking-[0.24em] uppercase"),
     # ヒーローの「仕組み」は水色
     ('<span className="text-[#E8A87C]">仕組み</span>', f'<span className="text-[{LINK}]">仕組み</span>'),
+    # ツール一覧のマス: 淡いサムネ → 暗いマス＋アイコンだけ（IndexTile は shelf_card.jsx）
+    ('<div className="w-11 h-11 sm:w-auto sm:h-auto sm:aspect-square flex-shrink-0 rounded-sm overflow-hidden sm:mb-1.5"><Thumb p={p} small /></div>',
+     '<div className="w-11 h-11 sm:w-auto sm:h-auto sm:aspect-square flex-shrink-0 rounded-[10px] overflow-hidden sm:mb-1.5"><IndexTile p={p} /></div>'),
     # ロゴは金のまま
     ('<rect x="1.5" y="1.5" width="19" height="19" rx="4" fill="#C2533C"/>', f'<rect x="1.5" y="1.5" width="19" height="19" rx="4" fill="{GOLD}"/>'),
     # モックの印（BASE）
@@ -163,7 +166,7 @@ def build_html(src: str) -> str:
     for f in ("favicon.ico", "favicon-32x32.png", "favicon-16x16.png", "apple-touch-icon.png"):
         out = out.replace(f'href="{f}"', f'href="../{f}"')
     out = out.replace('src="assets/js/market-footer.js', 'src="../assets/js/market-footer.js')
-    out = re.sub(r'src="components-amazon\.jsx\?v=[^"]*"', 'src="components-dark.jsx?v=dark2"', out)
+    out = re.sub(r'src="components-amazon\.jsx\?v=[^"]*"', 'src="components-dark.jsx?v=dark3"', out)
     for d in ("xtp4/", "xtp3/", "bluesky/", "yay/", "fb-like/", "ameblo-like/", "note-bot/", "xtp-compare/"):
         out = out.replace(f'href="{d}"', f'href="../{d}"')
     # 書体: 見出しに明朝（Noto Serif JP）・Fraunces は 300〜700
@@ -190,6 +193,7 @@ def build_html(src: str) -> str:
     out = out.replace("#fallback a { color: #1B7670; }", f"#fallback a {{ color: {LINK}; }}")
     out = re.sub(r"<!--\nVersion History.*?-->\n?", "", out, flags=re.S)
     out += ("<!--\nVersion History\n"
+            "- ver1.2 (2026-11-01): ツール一覧のマスを暗いマス＋アイコンだけに（components-dark.jsx?v=dark3）\n"
             "- ver1.1 (2026-11-01): 紺〜黒＋淡い光に・棚のカードを参考デザインに（components-dark.jsx?v=dark2）\n"
             "- ver1.0 (2026-11-01): ダーク版モック（本番トップ ver3.10 から scripts/build_mock_dark.py で生成・noindex）\n-->\n")
     return out
@@ -200,6 +204,7 @@ def main() -> None:
     jsx = build_jsx((ROOT / "components-amazon.jsx").read_text(encoding="utf-8"))
     jsx = re.sub(r"/\*\nVersion History.*?\*/\n?", "", jsx, flags=re.S)
     jsx += ("/*\nVersion History\n"
+            "- ver1.2 (2026-11-01): ツール一覧のマスを IndexTile（暗いマス＋サムネのアイコン部分だけ＋淡い色の光）に\n"
             "- ver1.1 (2026-11-01): 紺〜黒＋淡い光に。棚のカードを scripts/mock_dark/shelf_card.jsx（円弧と光・等幅ラベル・枠の札・セリフの名前・チップ・STARTING AT）に差し替え。ボタン 2 つとリンク先は本番と同じ\n"
             "- ver1.0 (2026-11-01): ダーク版モック（黒×シャンパンゴールド×罫線・見出しは明朝）。本番 ver3.10 から生成\n*/\n")
     (OUT / "components-dark.jsx").write_text(jsx, encoding="utf-8", newline="\n")
@@ -212,5 +217,6 @@ if __name__ == "__main__":
     main()
 
 # Version History
+# - ver1.2 (2026-11-01): ツール一覧のマスを IndexTile に差し替える置換を追加
 # - ver1.1 (2026-11-01): 紺〜黒の配色トークン・ShelfCard のブロック差し替え（CARD_META と PRODUCTS の id 照合）
 # - ver1.0 (2026-11-01): 初版（黒×金）
