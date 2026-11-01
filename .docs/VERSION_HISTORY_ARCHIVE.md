@@ -131,3 +131,7 @@ Chrome実機での再現・APIバイセクトにより、公開時検証の仕�
   - FAQ: 最初は全部閉じる・1 列・1 問ずつ枠・開くと ⌄ が回転
   - XTP6・TTP2 のリンクも同じタブで開く（新しいタブだと「戻る」が効かない）
 - xtp3/index.html ver2.2・xtp4（index.html／app.jsx）ver1.2・xtp-compare/index.html ver1.2: 先頭にマーケットへ戻る帯（Youパパツールマーケット／← ツール一覧）。XTP4 はヘッダーが fixed なのでヘッダーの中に置いた
+
+## 2026-11-01 トップ v3.2・戻る帯をロゴに
+- components-amazon.jsx ver3.2: ツール一覧のマスの行き先を棚のカード（#p-…）→ 各ツールの製品ページ（p.href）に。準備中の Instagram だけ棚のカードへ。ヒーローの「ツール一覧を見る」ボタンを削除
+- xtp3 ver2.3・xtp4 ver1.3・xtp-compare ver1.3: 戻る帯をマーケットのヘッダー左上と同じロゴ（M.＋Youパパツールマーケット＋SNS TOOLS · 9 ITEMS）にして左上へ。「← ツール一覧」は外した
