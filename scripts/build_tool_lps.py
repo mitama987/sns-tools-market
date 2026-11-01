@@ -282,7 +282,7 @@ def page(t: dict) -> str:
 </main>
 
 <div data-mk-footer></div>
-<script src="../assets/js/market-footer.js?v=20261101"></script>
+<script src="../assets/js/market-footer.js?v=20261101b"></script>
 <script src="../assets/js/ref.js?v=20261031"></script>
 </body>
 </html>
