@@ -2,6 +2,13 @@
 
 ## index.html（トップ）
 
+### mock-dark ver1.0 (2026-11-01) — ダーク版モック（/mock-dark/・本番トップは未変更）
+- ゆうさん「明るい色ベースより暗い色ベースで高級感・風格のある版のモックを。今のは修正せず」。骨格・中身・リンクは本番 ver3.10 のまま、配色と見出しの書体だけ変更
+- 配色: 地 #0E0C0A／面 #17140F／罫線 #3A3128・金 20〜30%／アクセント シャンパンゴールド #C9A96E（ボタンは金地に黒字・2 つ目は金の細枠）／リンク #D8C08A／本文 cream #F2EDE3。影は使わず罫線で区切る。○△× は暗地用に明るく
+- 書体: h1〜h3 を Fraunces＋Noto Serif JP（明朝）。各セクション見出しの上に英字の小見出し（The Collection／Compare／How it works／Need to know）
+- 生成: scripts/build_mock_dark.py（本番の index.html・components-amazon.jsx を読んで mock-dark/ に書き出す。本番ファイルは書き換えない）。noindex・canonical/og/JSON-LD/gtag なし
+- 確認: 1280／390 でコンソールエラー 0・HTTP 4xx 0・壊れた画像 0・共通フッター表示
+
 ### thumbs（2026-10-31）— XTP3・XTP4・XTP6 のサムネを淡い背景に
 - ゆうさん「XTP 系の黒背景が統一感をなくしてる」→ scripts/gen_thumbs.py の 3 件を DARK_BG＋白文字から、他の製品と同じ淡いグラデーション＋濃い文字に（xtp6 コーラル／xtp4 ペールブルー／xtp3 ラベンダー）。gpt-image-2 で 3 枚再生成 → 640px WebP。旧版は thumbs/_old/
 - 本番トップ・og:image も同じファイルを使うが、ブランチ feature/market-v3-mock のため本番化まで反映されない
