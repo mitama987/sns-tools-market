@@ -567,6 +567,16 @@ function ComparisonTable() {
     '△': { color: '#B7791F', sr: '条件つき' },
     '×': { color: '#C0392B', sr: 'できない' },
   };
+  // 記号は SVG で描いて ○△× の線の太さをそろえる（文字の ○△ は × より細く見えるため・2026-11-01 ゆうさん）
+  const SHAPE = {
+    '○': <circle cx="12" cy="12" r="8.5" />,
+    '△': <path d="M12 3.5 L21 19.5 H3 Z" />,
+    '×': <path d="M5 5 L19 19 M19 5 L5 19" />,
+  };
+  const Mark = ({ m, size }) => (
+    <svg viewBox="0 0 24 24" width={size} height={size} className="inline-block align-middle" fill="none" stroke={MARK[m].color}
+      strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" role="img" aria-label={MARK[m].sr}>{SHAPE[m]}</svg>
+  );
   const cell = 'border border-[#D9CFBF] py-2.5 px-1 sm:py-3 sm:px-4'; // スマホでも 3 列が 1 画面に収まるよう余白を詰める
   const head = 'bg-[#F3EDE3]';
   const stick = '';
@@ -614,7 +624,7 @@ function ComparisonTable() {
                   <th scope="row" className={cell + ' ' + head + stick + ' text-right font-bold text-[#0F1111] text-[12px] sm:text-[16px] leading-snug'}>{label}</th>
                   {vals.map(([m, note], i) => (
                     <td key={i} className={cell + ' text-center align-middle'}>
-                      <div className="text-[22px] sm:text-[26px] font-bold leading-none" style={{ color: MARK[m].color }} aria-label={MARK[m].sr}>{m}</div>
+                      <div className="leading-none"><Mark m={m} size={26} /></div>
                       {note && <div className="text-[11px] sm:text-[13px] text-gray-700 mt-1.5 leading-snug">{note}</div>}
                     </td>
                   ))}
@@ -633,7 +643,7 @@ function ComparisonTable() {
           </table>
         </div>
         <p className="text-[14px] text-gray-600 mt-2 flex flex-wrap gap-x-4 gap-y-1">
-          {Object.entries(MARK).map(([m, v]) => <span key={m}><b className="text-[16px]" style={{ color: v.color }}>{m}</b> {v.sr}</span>)}
+          {Object.entries(MARK).map(([m, v]) => <span key={m} className="inline-flex items-center gap-1"><Mark m={m} size={16} />{v.sr}</span>)}
           <span className="text-gray-500">2026 年 10 月時点</span>
         </p>
       </div>
@@ -813,6 +823,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(<App />);
 Version History
 - ver3.0-mock2 (2026-10-31): 第 2 版。ゆうさん「情報量多い・最初にツールを並べる・XTP6→XTP3 は劣後」→ ヒーロー直下にツール一覧（10 マスの早見表）、4 枚タイル・棚のポップ・下部固定バー・浮きカードを削除、ヒーローを 1 文に、ステップアップ帯は棚の下で小さく、カードの箇条書きは 2 行・サムネは 4:3
 - ver3.0-mock (2026-10-31): v3 のモック。ver2.1 の Amazon 風の骨格と配色はそのまま、①ステップアップ帯（無料の XTP6 → 強化版 XTP3）②SNS 別の棚（9 製品＋Instagram 準備中・値札の高さをそろえる・スマホは棚ごとに横スクロール）③スマホの下部固定バー ④XTP6 の料金・上限を 27_XTP6 limits.ts に合わせる（無料 1 垢・1 日 10 件／ベース 月¥3,000・年払い月¥1,000・20 垢／プレミアム 100）。FAQ に「XTP6 から XTP3 に乗り換えられる？」
+- ver3.3 (2026-11-01): 比較表の ○△× を SVG で描いて線の太さをそろえた（文字の ○△ は × より細い・ゆうさん）
 - ver3.2 (2026-11-01): ツール一覧のマスを押すと各ツールの製品ページ（LP・XTP6 はアプリ・TTP2 は使い方）へ（準備中の Instagram だけ棚のカードへ）。ヒーローの「ツール一覧を見る」ボタンを削除（ゆうさん）
 - ver3.1 (2026-11-01): 協業相手のフィードバック 6 点を反映（モック mock-v4 で確認・ゆうさん OK）。ツール一覧の SNS 名を削除・文字を大きく（名前は ToolsPro の前で折り返す）／値札の札を 13px に／ロゴを大きく／棚のカードは補足（使う場所・料金の注記・無料版・箇条書き）を (i) に移し、名前 18px・ボタン 15px／棚の説明・パンくず・凡例を削除／「X は、無料で試してから強化版へ」カードを削除し、比較表の上に選び方の 2 行／比較表は ○△×＋記号の下に補足・16px・縦横の罫線・ヘッダーと左端列に薄い色・左端は右揃え・スマホでも 3 列が 1 画面／購入後の流れは 1 行ずつ＋▶／FAQ は最初全部閉じる・1 問ずつ枠・1 列／XTP6・TTP2 のリンクも同じタブで開く（戻るが効く）
 - ver3.0 (2026-10-31): 本番化。mock-v3 を components-amazon.jsx に（BASE を '' に・モックの目印を削除・アメブロのサムネを thumbs/ameblo.webp に）。新ツール 5 つは各 LP（fb-like/ ameblo-like/ note-bot/ yay/ bluesky/）へ
