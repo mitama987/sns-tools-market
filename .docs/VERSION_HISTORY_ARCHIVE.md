@@ -118,3 +118,16 @@ Chrome実機での再現・APIバイセクトにより、公開時検証の仕�
 - 簡易 LP 5 枚（fb-like/ ameblo-like/ note-bot/ yay/ bluesky/）を scripts/build_tool_lps.py で生成。共通 assets/css/lp.css・assets/js/ref.js（?ref= を /api/buy に引き継ぐ）。購入ボタンは /api/buy/<sku>（¥3,000 買い切り）。#howto は購入メールの手順と同じ文
 - thumbs/ameblo.webp を gpt-image-2 で追加（gen_thumbs.py に ameblo）
 - 確認: ローカルで 6 ページ × 1280／390 のエラー 0・はみ出し 0・href="#" 0・画像切れ 0・購入ボタンに ref が付く
+
+## 2026-11-01 トップ v3.1（協業相手のフィードバック 6 点）＋XTP ページに戻る帯
+- モック mock-v4（ブランチ feature/market-v31-mock）で before/after を見せて、ゆうさんの OK をもらってから本番化。mock-v4/ は削除
+- components-amazon.jsx ver3.1
+  - ツール一覧: SNS 名を削除・名前 14px／価格 15px（名前は ToolsPro の前で折り返す）
+  - 値札: 札（無料から・買い切り・月額）13px。補足（使う場所・料金の注記・無料版・箇条書き）は名前の横の (i) に移し、押すとカードの上に重ねて表示（× と Esc で閉じる）
+  - 棚: 説明は札の (i) へ。パンくず・値札の色の凡例を削除。名前 18px・ボタン 15px／高さ 44px。ロゴ（ヘッダー・フッター）を大きく
+  - 「X は、無料で試してから強化版へ」カード（StepUp）を削除。比較表の上に選び方の 2 行（スマホで無料・ライトに XTP6 → PC でがっつり複数アカウント XTP3／公式 API は XTP4）
+  - 比較表: ○△×（同じ記号は同じ色）＋記号の下に小さく補足。項目名は ○＝良い向きに（PC つけっぱなし不要・X の API キー不要・無料で試せる・複数アカウント）。縦横の罫線・ヘッダーと左端列に薄い色・左端は右揃え・スマホでも 3 列が 1 画面（スマホのボタンは「始める」「詳しく」）
+  - 購入後の流れ: 本文 1 行ずつ＋01▶02▶03（スマホは ▼）
+  - FAQ: 最初は全部閉じる・1 列・1 問ずつ枠・開くと ⌄ が回転
+  - XTP6・TTP2 のリンクも同じタブで開く（新しいタブだと「戻る」が効かない）
+- xtp3/index.html ver2.2・xtp4（index.html／app.jsx）ver1.2・xtp-compare/index.html ver1.2: 先頭にマーケットへ戻る帯（Youパパツールマーケット／← ツール一覧）。XTP4 はヘッダーが fixed なのでヘッダーの中に置いた
