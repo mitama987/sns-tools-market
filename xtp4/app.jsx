@@ -133,13 +133,16 @@ const APP_SIGN_UP_URL = "https://xtoolspro4.vercel.app/sign-up";
 // ---------- Nav ----------
 const Nav = () => {
   const [scrolled, setScrolled] = useState(false);
+  // ver1.5: マーケットの帯（48px）はスクロールした分だけ上に隠す（XTP3 のように帯はページと一緒に流れ、ナビだけ上に残る）
+  const [bandShift, setBandShift] = useState(0);
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
+    const onScroll = () => { setScrolled(window.scrollY > 8); setBandShift(Math.min(window.scrollY, 48)); };
+    onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
   return (
-    <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${scrolled ? "backdrop-blur-xl bg-[#0A0D1F]/70 border-b border-white/5" : ""}`}>
+    <header style={{ transform: `translateY(-${bandShift}px)` }} className={`fixed top-0 inset-x-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-300 ${scrolled ? "backdrop-blur-xl bg-[#0A0D1F]/70 border-b border-white/5" : ""}`}>
       {/* マーケットへ戻る帯（2026-11-01・見た目は index.html の .mk-back）。ヘッダーが fixed なのでヘッダーの中に置く */}
       <div className="mk-back"><div className="mk-in"><a href="../" title="Youパパツールマーケット（ほかのツール）">
         <svg viewBox="0 0 22 22" aria-hidden="true"><rect x="1.5" y="1.5" width="19" height="19" rx="4" fill="#C2533C"/><path d="M6 15V7l3 5 3-5v8" fill="none" stroke="#FBEDD9" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/><circle cx="15.5" cy="15" r="1.2" fill="#FBEDD9"/></svg>
@@ -635,12 +638,6 @@ const Footer = () => (
           <Logo />
           <p className="text-slate-500 text-xs">© 2026 XToolsPro4. All rights reserved.</p>
         </div>
-        <nav className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-400">
-          <a href="#" className="hover:text-white transition">特商法</a>
-          <a href="#" className="hover:text-white transition">利用規約</a>
-          <a href="#" className="hover:text-white transition">プライバシーポリシー</a>
-          <a href="#" className="hover:text-white transition">お問い合わせ</a>
-        </nav>
       </div>
     </div>
   </footer>
@@ -668,6 +665,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(<App />);
 
 /*
 Version History
+- ver1.5 (2026-11-01): マーケットの帯は下にスクロールした分だけ上に隠れる（XTP3 と同じ見え方・ゆうさん）。フッターの中身の無いリンク（href="#" の特商法・規約・プライバシー・問い合わせ）を削除＝下のマーケット共通フッターに特商法・問い合わせがある
 - ver1.3 (2026-11-01): マーケットへ戻る帯をマーケットのヘッダー左上と同じロゴ（M.＋Youパパツールマーケット＋SNS TOOLS · 9 ITEMS）にして左上へ。「← ツール一覧」は外した（ゆうさん指示）
 - ver1.2 (2026-11-01): ヘッダーの上にマーケットへ戻る帯（Youパパツールマーケット／← ツール一覧）を追加。ヘッダーが fixed なのでヘッダーの中に入れた
 */

@@ -142,3 +142,9 @@ Chrome実機での再現・APIバイセクトにより、公開時検証の仕�
 - 旧 https://threadtoolspro2.vercel.app/docs は TTP2 側の next.config で /ttp2/ へ転送（一時・307）
 - components-amazon.jsx ver3.4・index.html: TTP2 のリンク（棚・一覧・フッター・JSON-LD・noscript）を /ttp2/ に
 - 2026-11-01: ロゴ帯を右寄せに（xtp3 ver2.4・xtp4 ver1.4・xtp-compare ver1.4・ttp2 ver1.17）
+
+## 2026-11-01 共通フッター（assets/js/market-footer.js）
+- トップのフッター（4 列のリンク＋ロゴ＋一言＋©）を共通部品に。トップ（components ver3.5・React が window.MarketFooter.html() を描く）・xtp3 ver2.5・xtp4 ver1.5・xtp-compare ver1.5・ttp2 ver1.18・単機能 LP 5 枚（build_tool_lps.py ver1.1 で再生成）が読み込む
+- xtp3 の元フッターからかぶるリンク（お問い合わせ・手順書・特商法）を削除。xtp4 のフッターの中身の無いリンク（href="#" 4 つ）を削除。単機能 LP の元フッターは共通フッターに置き換え
+- TTP2 のカード・一覧・JSON-LD・noscript・フッターは LP（threadtoolspro2.vercel.app/）へ（手順書は /ttp2/）
+- xtp4: マーケットの帯はスクロールした分だけ上に隠れる（XTP3 と同じ見え方）

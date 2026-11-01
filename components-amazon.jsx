@@ -15,6 +15,7 @@ const NOTE = 'https://note.com/youpapalife';
 const RAIJIN = 'https://raijin.youpapatools.com/';
 const XTP6_URL = 'https://xtp6.youpapatools.com/?utm_source=market&utm_medium=hub';
 const TTP2_DOCS = B('ttp2/'); // 2026-11-01 手順書を threadtoolspro2.vercel.app/docs → マーケットの /ttp2/ へ
+const TTP2_LP = 'https://threadtoolspro2.vercel.app/'; // LP（アプリのトップ・未ログインで LP）
 const TTP2_BUY = 'https://page.theapps.jp/paid/join/H8hv3G40M25l77c8';
 
 // 価格の一次情報: XTP3＝xtp3/index.html（¥9,800〜・フル ¥29,800）、XTP6＝27_XTP6 limits.ts（無料 1 垢・1 日 10 件／ベース 月¥3,000・年¥12,000・20 垢／プレミアム 100 垢）、
@@ -67,7 +68,7 @@ const PRODUCTS = [
     kind: 'monthly', price: 1000, priceNote: '月額（税込）',
     free: null,
     badges: [],
-    href: TTP2_DOCS, cta: '使い方と登録を見る',
+    href: TTP2_LP, cta: '製品ページを見る',
     secondary: { label: '購入登録へ進む', href: TTP2_BUY },
     mobile: true, noPc: true,
   },
@@ -744,57 +745,12 @@ function FAQ() {
 // ─── Footer ───────────────────────────────────────────────────────────────
 
 function Footer() {
-  const cols = [
-    { title: 'X のツール', items: [
-      { l: 'XToolsPro6（無料〜）', href: XTP6_URL, ext: true },
-      { l: 'XToolsPro3（強化版・買い切り）', href: B('xtp3/') },
-      { l: 'XToolsPro4（公式 API）', href: B('xtp4/') },
-      { l: 'XTP3・4・6 比較表', href: B('xtp-compare/') },
-    ] },
-    { title: 'ほかの SNS', items: [
-      { l: 'ThreadsToolsPro2（Threads）', href: TTP2_DOCS, ext: true },
-      { l: 'BskyToolsPro2（Bluesky）', href: B('bluesky/') },
-      { l: 'YayToolsPro（Yay!）', href: B('yay/') },
-      { l: 'FacebookToolsPro', href: B('fb-like/') },
-      { l: 'AmebloToolsPro（アメブロ）', href: B('ameblo-like/') },
-      { l: 'noteToolsPro（note）', href: B('note-bot/') },
-    ] },
-    { title: '購入後', items: [
-      { l: '手順書サイト', href: DOCS, ext: true },
-      { l: 'お問い合わせフォーム', href: CONTACT, ext: true },
-      { l: 'よくある質問', href: '#faq' },
-    ] },
-    { title: '開発者・表記', items: [
-      { l: 'note（Youパパ）', href: NOTE, ext: true },
-      { l: 'X @Yu_PaPa_Life', href: 'https://x.com/Yu_PaPa_Life', ext: true },
-      { l: '法人の方（RAIJIN）', href: RAIJIN, ext: true },
-      { l: '特定商取引法に基づく表記', href: TOKUSHOHO, ext: true },
-    ] },
-  ];
+  // 中身は assets/js/market-footer.js（全 LP 共通・1 か所で直す）
   return (
-    <footer className="text-white">
+    <div>
       <a href="#top" className="block bg-[#3A3128] hover:bg-[#4A4035] text-white text-center py-3.5 text-[13px] mt-10 transition-colors">ページの先頭へ戻る</a>
-      <div className="bg-[#2D2620]">
-        <div className="mx-auto max-w-[1500px] px-6 py-10 grid grid-cols-2 md:grid-cols-4 gap-8">
-          {cols.map((c) => (
-            <div key={c.title}>
-              <h3 className="font-bold text-[15px] mb-3">{c.title}</h3>
-              <ul className="space-y-2 text-[13px] text-gray-300">
-                {c.items.map((it) => <li key={it.l}><a href={it.href} {...(it.ext ? { target: '_blank', rel: 'noopener' } : {})} className="hover:underline">{it.l}</a></li>)}
-              </ul>
-            </div>
-          ))}
-        </div>
-        <hr className="border-gray-700/60"/>
-        <div className="mx-auto max-w-[1500px] px-6 py-6 flex flex-wrap items-center justify-between gap-4">
-          <a href="#top" className="flex items-center gap-3"><Logo size={36} /><span className="text-[22px] font-bold leading-none">Youパパツールマーケット</span></a>
-          <div className="text-[12px] text-gray-300">個人開発の SNS 運用ツールを、作った本人が販売・サポートしています。</div>
-        </div>
-      </div>
-      <div className="bg-[#1F1B16]">
-        <div className="mx-auto max-w-[1500px] px-6 py-8 text-center text-[11px] text-gray-400">© 2026 Youパパツールマーケット</div>
-      </div>
-    </footer>
+      <div dangerouslySetInnerHTML={{ __html: window.MarketFooter ? window.MarketFooter.html() : '' }} />
+    </div>
   );
 }
 
@@ -823,6 +779,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(<App />);
 Version History
 - ver3.0-mock2 (2026-10-31): 第 2 版。ゆうさん「情報量多い・最初にツールを並べる・XTP6→XTP3 は劣後」→ ヒーロー直下にツール一覧（10 マスの早見表）、4 枚タイル・棚のポップ・下部固定バー・浮きカードを削除、ヒーローを 1 文に、ステップアップ帯は棚の下で小さく、カードの箇条書きは 2 行・サムネは 4:3
 - ver3.0-mock (2026-10-31): v3 のモック。ver2.1 の Amazon 風の骨格と配色はそのまま、①ステップアップ帯（無料の XTP6 → 強化版 XTP3）②SNS 別の棚（9 製品＋Instagram 準備中・値札の高さをそろえる・スマホは棚ごとに横スクロール）③スマホの下部固定バー ④XTP6 の料金・上限を 27_XTP6 limits.ts に合わせる（無料 1 垢・1 日 10 件／ベース 月¥3,000・年払い月¥1,000・20 垢／プレミアム 100）。FAQ に「XTP6 から XTP3 に乗り換えられる？」
+- ver3.5 (2026-11-01): フッターを共通部品 assets/js/market-footer.js に（全 LP 共通）。TTP2 のカード・一覧のマスは LP（threadtoolspro2.vercel.app/）へ
 - ver3.4 (2026-11-01): TTP2 の手順書をマーケットの /ttp2/ に移したのでリンク先を変更（旧 threadtoolspro2.vercel.app/docs は転送）
 - ver3.3 (2026-11-01): 比較表の ○△× を SVG で描いて線の太さをそろえた（文字の ○△ は × より細い・ゆうさん）
 - ver3.2 (2026-11-01): ツール一覧のマスを押すと各ツールの製品ページ（LP・XTP6 はアプリ・TTP2 は使い方）へ（準備中の Instagram だけ棚のカードへ）。ヒーローの「ツール一覧を見る」ボタンを削除（ゆうさん）

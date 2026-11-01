@@ -281,15 +281,14 @@ def page(t: dict) -> str:
   </div></section>
 </main>
 
-<footer><div class="wrap">
-  <span>© 2026 Youパパツールマーケット</span>
-  <span><a href="{TOKUSHOHO}" target="_blank" rel="noopener">特定商取引法に基づく表記</a>　<a href="{CONTACT}" target="_blank" rel="noopener">お問い合わせ</a>　<a href="../">ツール一覧</a></span>
-</div></footer>
+<div data-mk-footer></div>
+<script src="../assets/js/market-footer.js?v=20261101"></script>
 <script src="../assets/js/ref.js?v=20261031"></script>
 </body>
 </html>
 <!--
 Version History
+- ver1.1 (2026-11-01): フッターをマーケット共通フッター（assets/js/market-footer.js）に
 - ver1.0 (2026-10-31): 新規。scripts/build_tool_lps.py で生成（{t['sku']}・¥3,000 買い切り・購入は /api/buy）
 -->
 """
@@ -308,3 +307,4 @@ if __name__ == "__main__":
 
 # Version History
 # ver1.0 (2026-10-31): 新規。FB・アメブロ・note・Yay!・Bluesky の簡易 LP を同じ型で生成
+# ver1.1 (2026-11-01): フッターをマーケット共通フッター（market-footer.js）に
