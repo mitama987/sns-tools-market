@@ -152,3 +152,4 @@ Chrome実機での再現・APIバイセクトにより、公開時検証の仕�
 - 2026-11-01 components ver3.6: XTP6・XTP4・TTP2 のカードを「無料で始める」と「有料版を購入する」に分けた（XTP6＝/login と /plan/checkout?period=month・XTP4＝sign-up と theapps・TTP2＝登録フォームと Stripe）
 - 2026-11-01 components ver3.7・market-footer ver1.1: TTP2 の LP を新住所 https://ttp2.youpapatools.com/ に（LP だけ・アプリとログインは threadtoolspro2.vercel.app のまま。旧住所の未ログインのトップは新住所へ 307）
 - 2026-11-01 components ver3.8: XTP3 も「無料で始める」（登録フォーム forms.gle/hyrb2QmFnnoU96VR6）と「有料版を購入する」（/xtp3/）に。TTP2 の有料は Stripe 直行 → LP（ttp2.youpapatools.com）へ
+- 2026-11-01 components ver3.9: XTP6・XTP4 の「有料版を購入する」も LP の最初へ（XTP6＝xtp6.youpapatools.com・XTP4＝/xtp4/）。4 つとも「無料＝登録／有料＝LP の最初」
