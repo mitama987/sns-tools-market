@@ -628,20 +628,7 @@ const FinalCTA = () => (
 );
 
 // ---------- Footer ----------
-const Footer = () => (
-  <footer className="relative py-14 border-t border-white/5">
-    <div className="max-w-6xl mx-auto px-5 md:px-6">
-      <div className="hairline mb-10" />
-      <p className="text-center text-[11px] tracking-[0.3em] uppercase text-slate-500 mb-10">Made for X.</p>
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-        <div className="space-y-2">
-          <Logo />
-          <p className="text-slate-500 text-xs">© 2026 XToolsPro4. All rights reserved.</p>
-        </div>
-      </div>
-    </div>
-  </footer>
-);
+// 2026-11-01 から XTP4 自身のフッターは無し。index.html のマーケット共通フッター（market-footer.js）だけ
 
 // ---------- App ----------
 const App = () => (
@@ -657,7 +644,6 @@ const App = () => (
       <FAQ />
       <FinalCTA />
     </main>
-    <Footer />
   </div>
 );
 
@@ -665,6 +651,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(<App />);
 
 /*
 Version History
+- ver1.6 (2026-11-01): XTP4 自身のフッター（Made for X.・ロゴ・©）を削除し、マーケット共通フッターだけに（ゆうさん）
 - ver1.5 (2026-11-01): マーケットの帯は下にスクロールした分だけ上に隠れる（XTP3 と同じ見え方・ゆうさん）。フッターの中身の無いリンク（href="#" の特商法・規約・プライバシー・問い合わせ）を削除＝下のマーケット共通フッターに特商法・問い合わせがある
 - ver1.3 (2026-11-01): マーケットへ戻る帯をマーケットのヘッダー左上と同じロゴ（M.＋Youパパツールマーケット＋SNS TOOLS · 9 ITEMS）にして左上へ。「← ツール一覧」は外した（ゆうさん指示）
 - ver1.2 (2026-11-01): ヘッダーの上にマーケットへ戻る帯（Youパパツールマーケット／← ツール一覧）を追加。ヘッダーが fixed なのでヘッダーの中に入れた
