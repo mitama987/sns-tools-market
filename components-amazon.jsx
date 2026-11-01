@@ -15,7 +15,7 @@ const NOTE = 'https://note.com/youpapalife';
 const RAIJIN = 'https://raijin.youpapatools.com/';
 const XTP6_URL = 'https://xtp6.youpapatools.com/?utm_source=market&utm_medium=hub';
 const TTP2_DOCS = B('ttp2/'); // 2026-11-01 手順書を threadtoolspro2.vercel.app/docs → マーケットの /ttp2/ へ
-const TTP2_LP = 'https://threadtoolspro2.vercel.app/'; // LP（アプリのトップ・未ログインで LP）
+const TTP2_LP = 'https://ttp2.youpapatools.com/'; // LP（2026-11-01 から新住所・アプリは threadtoolspro2.vercel.app のまま）
 const TTP2_BUY = 'https://buy.stripe.com/aFa3cu4R1d2Z5xE5aq1kA0h'; // 2026-11-01 theapps → Stripe（TTP2 の LP と同じ）
 const TTP2_FREE = 'https://docs.google.com/forms/d/e/1FAIpQLSc-kOUGYYU_PncqI7ncs_2FnGgj0pLuXrYtFnxnG-NScJSDKg/viewform'; // 無料版の登録フォーム（TTP2 の LP と同じ）
 // 2026-11-01 ゆうさん: XTP6・XTP4・TTP2 は「無料で始める」と「有料版を購入する」に分ける。製品ページ（LP）へはサムネ・名前・一覧のマスから
@@ -787,6 +787,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(<App />);
 Version History
 - ver3.0-mock2 (2026-10-31): 第 2 版。ゆうさん「情報量多い・最初にツールを並べる・XTP6→XTP3 は劣後」→ ヒーロー直下にツール一覧（10 マスの早見表）、4 枚タイル・棚のポップ・下部固定バー・浮きカードを削除、ヒーローを 1 文に、ステップアップ帯は棚の下で小さく、カードの箇条書きは 2 行・サムネは 4:3
 - ver3.0-mock (2026-10-31): v3 のモック。ver2.1 の Amazon 風の骨格と配色はそのまま、①ステップアップ帯（無料の XTP6 → 強化版 XTP3）②SNS 別の棚（9 製品＋Instagram 準備中・値札の高さをそろえる・スマホは棚ごとに横スクロール）③スマホの下部固定バー ④XTP6 の料金・上限を 27_XTP6 limits.ts に合わせる（無料 1 垢・1 日 10 件／ベース 月¥3,000・年払い月¥1,000・20 垢／プレミアム 100）。FAQ に「XTP6 から XTP3 に乗り換えられる？」
+- ver3.7 (2026-11-01): TTP2 の LP を新住所 https://ttp2.youpapatools.com/ に（アプリは vercel.app のまま）
 - ver3.6 (2026-11-01): XTP6・XTP4・TTP2 のカードのボタンを「無料で始める」（登録）と「有料版を購入する」（XTP6＝/plan/checkout・XTP4＝theapps・TTP2＝Stripe）に分けた。製品ページへはサムネ・名前・一覧のマスから（ゆうさん）
 - ver3.5 (2026-11-01): フッターを共通部品 assets/js/market-footer.js に（全 LP 共通）。TTP2 のカード・一覧のマスは LP（threadtoolspro2.vercel.app/）へ
 - ver3.4 (2026-11-01): TTP2 の手順書をマーケットの /ttp2/ に移したのでリンク先を変更（旧 threadtoolspro2.vercel.app/docs は転送）

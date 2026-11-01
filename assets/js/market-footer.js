@@ -14,7 +14,7 @@
       ['XTP3・4・6 比較表', M + 'xtp-compare/'],
     ] },
     { title: 'ほかの SNS', items: [
-      ['ThreadsToolsPro2（Threads）', 'https://threadtoolspro2.vercel.app/'],
+      ['ThreadsToolsPro2（Threads）', 'https://ttp2.youpapatools.com/'],
       ['BskyToolsPro2（Bluesky）', M + 'bluesky/'],
       ['YayToolsPro（Yay!）', M + 'yay/'],
       ['FacebookToolsPro', M + 'fb-like/'],
@@ -87,5 +87,6 @@
 
 /*
 Version History
+- ver1.1 (2026-11-01): TTP2 のリンクを新住所 ttp2.youpapatools.com に
 - ver1.0 (2026-11-01): 新規。マーケットのトップのフッター（4 列のリンク＋ロゴ＋一言＋©）を共通部品に。TTP2 は LP（threadtoolspro2.vercel.app/）へ
 */
