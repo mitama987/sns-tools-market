@@ -308,7 +308,7 @@ function ToolIndex() {
         <ul className="grid grid-cols-2 sm:grid-cols-5 lg:grid-cols-10 gap-2">
           {PRODUCTS.map((p) => (
             <li key={p.id}>
-              <a href={p.href || ('#p-' + p.id)} className="flex sm:block items-center gap-2 h-full rounded-sm bg-[#FAF7F2] hover:bg-[#EFE9DD] p-1.5 sm:text-center transition-colors">
+              <a href={p.href || ('#p-' + p.id)} data-pid={p.id} data-cta="tile" className="flex sm:block items-center gap-2 h-full rounded-sm bg-[#FAF7F2] hover:bg-[#EFE9DD] p-1.5 sm:text-center transition-colors">
                 <div className="w-11 h-11 sm:w-auto sm:h-auto sm:aspect-square flex-shrink-0 rounded-sm overflow-hidden sm:mb-1.5"><Thumb p={p} small /></div>
                 <div className="min-w-0">
                   <div className="text-[14px] font-bold text-[#0F1111] leading-tight sm:min-h-[2.5em]"><ShortName s={p.short} /></div>
@@ -396,7 +396,7 @@ function ShelfCard({ p }) {
   ].filter(Boolean);
   return (
     <article id={'p-' + p.id} className="relative bg-white rounded-sm p-3 sm:p-4 hover:shadow-md transition-shadow flex flex-col h-full scroll-mt-24">
-      <a href={p.href || undefined} {...ext(p)} className={"relative block mb-3 " + (p.comingSoon ? 'pointer-events-none' : '')} aria-label={p.name}>
+      <a href={p.href || undefined} {...ext(p)} data-pid={p.id} data-cta="card_image" className={"relative block mb-3 " + (p.comingSoon ? 'pointer-events-none' : '')} aria-label={p.name}>
         <div className="rounded-sm overflow-hidden aspect-[4/3] bg-[#FAF7F2]"><Thumb p={p} /></div>
         {p.badges.length > 0 && (
           <span className="absolute top-2 left-2 flex flex-col items-start gap-1">
@@ -418,10 +418,10 @@ function ShelfCard({ p }) {
         {p.comingSoon ? (
           <span className="h-11 inline-flex items-center justify-center rounded-full bg-gray-100 border border-gray-200 text-gray-500 text-[15px]">近日公開</span>
         ) : (
-          <a href={p.ctaHref || p.href} {...ext(p)} className="h-11 inline-flex items-center justify-center rounded-full bg-[#C2533C] hover:bg-[#A8432F] border border-[#A8432F] text-[#FBEDD9] text-[15px] font-bold transition-colors">{p.cta}</a>
+          <a href={p.ctaHref || p.href} {...ext(p)} data-pid={p.id} data-cta={p.ctaHref ? 'free' : 'product_page'} className="h-11 inline-flex items-center justify-center rounded-full bg-[#C2533C] hover:bg-[#A8432F] border border-[#A8432F] text-[#FBEDD9] text-[15px] font-bold transition-colors">{p.cta}</a>
         )}
         {p.secondary && (
-          <a href={p.secondary.href} className="h-11 inline-flex items-center justify-center rounded-full bg-[#FBEDD9] hover:bg-[#F1DDB8] border border-[#3A2F25] text-[#1F1B16] text-[15px] font-medium transition-colors">{p.secondary.label}</a>
+          <a href={p.secondary.href} data-pid={p.id} data-cta="paid" className="h-11 inline-flex items-center justify-center rounded-full bg-[#FBEDD9] hover:bg-[#F1DDB8] border border-[#3A2F25] text-[#1F1B16] text-[15px] font-medium transition-colors">{p.secondary.label}</a>
         )}
       </div>
       {/* 補足（カードの内側に重ねる＝スマホの横スクロール棚でも切れない） */}
@@ -642,7 +642,7 @@ function ComparisonTable() {
                 <th scope="row" className={cell + ' ' + head + stick}></th>
                 {cols.map((c) => (
                   <td key={c.id} className={cell + " text-center"}>
-                    <a href={c.href} className={"inline-flex items-center justify-center min-h-10 px-2 sm:px-4 py-1 rounded-full text-[12px] sm:text-[15px] leading-tight font-bold border " +
+                    <a href={c.href} data-pid={c.id} data-cta="compare" className={"inline-flex items-center justify-center min-h-10 px-2 sm:px-4 py-1 rounded-full text-[12px] sm:text-[15px] leading-tight font-bold border " +
                       (c.recommended ? "bg-[#C2533C] hover:bg-[#A8432F] border-[#A8432F] text-[#FBEDD9]" : "bg-white hover:bg-gray-50 border-gray-300 text-[#0F1111]")}><span className="sm:hidden">{c.ctaShort}</span><span className="hidden sm:inline">{c.cta}</span></a>
                   </td>
                 ))}
@@ -784,6 +784,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(<App />);
 
 /*
 Version History
+- ver3.11 (2026-11-01): 計測用に data-pid・data-cta を付けた（一覧のマス・棚カードの画像とボタン 2 つ・比較表のボタン）。見た目は変更なし
 - ver3.0-mock2 (2026-10-31): 第 2 版。ゆうさん「情報量多い・最初にツールを並べる・XTP6→XTP3 は劣後」→ ヒーロー直下にツール一覧（10 マスの早見表）、4 枚タイル・棚のポップ・下部固定バー・浮きカードを削除、ヒーローを 1 文に、ステップアップ帯は棚の下で小さく、カードの箇条書きは 2 行・サムネは 4:3
 - ver3.0-mock (2026-10-31): v3 のモック。ver2.1 の Amazon 風の骨格と配色はそのまま、①ステップアップ帯（無料の XTP6 → 強化版 XTP3）②SNS 別の棚（9 製品＋Instagram 準備中・値札の高さをそろえる・スマホは棚ごとに横スクロール）③スマホの下部固定バー ④XTP6 の料金・上限を 27_XTP6 limits.ts に合わせる（無料 1 垢・1 日 10 件／ベース 月¥3,000・年払い月¥1,000・20 垢／プレミアム 100）。FAQ に「XTP6 から XTP3 に乗り換えられる？」
 - ver3.10 (2026-11-01): FAQ「支払い方法は？」を更新（XTP4・TTP2 の月額も Stripe）

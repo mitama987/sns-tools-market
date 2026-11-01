@@ -23,10 +23,25 @@
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZKGY7RFRGX"></script>
 <script>
+  // 計測（.docs/market-tracking.md）: ui_variant＝表示している版（フェーズ 2 の A/B ではここで cookie から決める）
+  // ?notrack=1 でこの端末を計測から外す（?notrack=0 で戻す）／?_dbg=1 で GA4 の DebugView に出す
+  (function () {
+    var q = new URLSearchParams(location.search);
+    window.MKT_VARIANT = 'light';
+    try {
+      if (q.get('notrack') === '1') localStorage.setItem('mkt_notrack', '1');
+      if (q.get('notrack') === '0') localStorage.removeItem('mkt_notrack');
+      if (localStorage.getItem('mkt_notrack') === '1') window['ga-disable-G-ZKGY7RFRGX'] = true;
+    } catch (e) {}
+    window.MKT_DEBUG = q.get('_dbg') === '1';
+  })();
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-ZKGY7RFRGX');
+  gtag('config', 'G-ZKGY7RFRGX', Object.assign(
+    { ui_variant: window.MKT_VARIANT, user_properties: { ui_variant: window.MKT_VARIANT } },
+    window.MKT_DEBUG ? { debug_mode: true } : {}
+  ));
 </script>
 
 <script type="application/ld+json">
@@ -270,12 +285,14 @@
 
 <script>window.MarketFooterManual = true;</script>
 <script src="assets/js/market-footer.js?v=20261101c"></script>
-<script type="text/babel" src="components-amazon.jsx?v=20261101j"></script>
+<script src="assets/js/market-track.js?v=20261101a" defer></script>
+<script type="text/babel" src="components-amazon.jsx?v=20261101k"></script>
 
 </body>
 </html>
 <!--
 Version History
+- ver3.11 (2026-11-01): 計測を追加（components ?v=20261101k・head で ui_variant・?notrack・?_dbg、assets/js/market-track.js を読む）。見た目は変更なし
 - ver3.10 (2026-11-01): components ver3.10（?v=20261101j）
 - ver3.9 (2026-11-01): components ver3.9（?v=20261101i）
 - ver3.8 (2026-11-01): components ver3.8（?v=20261101h）

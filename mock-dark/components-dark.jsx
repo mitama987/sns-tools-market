@@ -309,7 +309,7 @@ function ToolIndex() {
         <ul className="grid grid-cols-2 sm:grid-cols-5 lg:grid-cols-10 gap-2">
           {PRODUCTS.map((p) => (
             <li key={p.id}>
-              <a href={p.href || ('#p-' + p.id)} className="flex sm:block items-center gap-2 h-full rounded-sm bg-[#161F33] hover:bg-[#1C2740] p-1.5 sm:text-center transition-colors">
+              <a href={p.href || ('#p-' + p.id)} data-pid={p.id} data-cta="tile" className="flex sm:block items-center gap-2 h-full rounded-sm bg-[#161F33] hover:bg-[#1C2740] p-1.5 sm:text-center transition-colors">
                 <div className="w-11 h-11 sm:w-auto sm:h-auto sm:aspect-square flex-shrink-0 rounded-[10px] overflow-hidden sm:mb-1.5"><IndexTile p={p} /></div>
                 <div className="min-w-0">
                   <div className="text-[14px] font-bold text-[#E6EAF2] leading-tight sm:min-h-[2.5em]"><ShortName s={p.short} /></div>
@@ -441,7 +441,7 @@ function ShelfCard({ p }) {
   ].filter(Boolean);
   return (
     <article id={'p-' + p.id} className="relative flex flex-col h-full rounded-[16px] bg-[#0F1626] border border-white/[0.09] hover:border-white/25 transition-colors p-3 sm:p-4 scroll-mt-24" style={{ containerType: 'inline-size' }}>
-      <a href={p.href || undefined} {...ext(p)} className={"relative block " + (p.comingSoon ? 'pointer-events-none' : '')} aria-label={p.name}>
+      <a href={p.href || undefined} {...ext(p)} data-pid={p.id} data-cta="card_image" className={"relative block " + (p.comingSoon ? 'pointer-events-none' : '')} aria-label={p.name}>
         <DarkTile p={p} glow={m.glow} />
         {p.badges.length > 0 && (
           <span className="absolute top-2 left-2 flex flex-col items-start gap-1">
@@ -475,10 +475,10 @@ function ShelfCard({ p }) {
         {p.comingSoon ? (
           <span className="h-11 inline-flex items-center justify-center rounded-full bg-white/[0.04] border border-white/10 text-[#7B869C] text-[15px]">近日公開</span>
         ) : (
-          <a href={p.ctaHref || p.href} {...ext(p)} className="h-11 inline-flex items-center justify-center rounded-full bg-[#E6EAF2] hover:bg-white text-[#0B0F1A] text-[15px] font-bold transition-colors">{p.cta}</a>
+          <a href={p.ctaHref || p.href} {...ext(p)} data-pid={p.id} data-cta={p.ctaHref ? 'free' : 'product_page'} className="h-11 inline-flex items-center justify-center rounded-full bg-[#E6EAF2] hover:bg-white text-[#0B0F1A] text-[15px] font-bold transition-colors">{p.cta}</a>
         )}
         {p.secondary && (
-          <a href={p.secondary.href} className="h-11 inline-flex items-center justify-center rounded-full border border-white/25 hover:bg-white/[0.06] text-[#E6EAF2] text-[15px] font-medium transition-colors">{p.secondary.label}</a>
+          <a href={p.secondary.href} data-pid={p.id} data-cta="paid" className="h-11 inline-flex items-center justify-center rounded-full border border-white/25 hover:bg-white/[0.06] text-[#E6EAF2] text-[15px] font-medium transition-colors">{p.secondary.label}</a>
         )}
       </div>
       {/* 補足（カードの内側に重ねる） */}
@@ -719,7 +719,7 @@ function ComparisonTable() {
                 <th scope="row" className={cell + ' ' + head + stick}></th>
                 {cols.map((c) => (
                   <td key={c.id} className={cell + " text-center"}>
-                    <a href={c.href} className={"inline-flex items-center justify-center min-h-10 px-2 sm:px-4 py-1 rounded-full text-[12px] sm:text-[15px] leading-tight font-bold border " +
+                    <a href={c.href} data-pid={c.id} data-cta="compare" className={"inline-flex items-center justify-center min-h-10 px-2 sm:px-4 py-1 rounded-full text-[12px] sm:text-[15px] leading-tight font-bold border " +
                       (c.recommended ? "bg-[#C9A96E] hover:bg-[#B8955A] border-[#B8955A] text-[#0B0F1A]" : "bg-[#0F1626] hover:bg-[#161F33] border-[#1F2A44] text-[#E6EAF2]")}><span className="sm:hidden">{c.ctaShort}</span><span className="hidden sm:inline">{c.cta}</span></a>
                   </td>
                 ))}

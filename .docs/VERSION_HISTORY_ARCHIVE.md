@@ -2,6 +2,13 @@
 
 ## index.html（トップ）
 
+### ver3.11 (2026-11-01) — 計測（A/B テストのフェーズ 1）・見た目は変更なし
+- ゆうさん「今の LP でクリック率・維持率（どの画面を見てたか・離脱率）を計測 → その後ダーク版でテスト」。方式は計測 2 週間 → 50:50 の同時振り分け、道具は GA4＋Clarity（計画は SDK の Fable がレビュー）
+- index.html: head で ui_variant（light）・?notrack・?_dbg、assets/js/market-track.js（新規）を読む。components-amazon.jsx と mock の shelf_card.jsx に data-pid・data-cta（tile／card_image／free／paid／product_page／compare）
+- privacy/（新規）と共通フッター（market-footer.js ver1.3）にリンク。mock-dark は計測しない（build_mock_dark.py ver1.3）
+- 確認: ローカルで ?track=1 のとき 7 種のイベントが期待のパラメータで dataLayer に入る・localhost で ?track なしは 0 件・?notrack=1／0 の切替・エラー 0・モックとのリンク一致
+- 仕様と残りの管理画面の作業: .docs/market-tracking.md
+
 ### mock-dark ver1.2 (2026-11-01) — ツール一覧のマスを暗く（本番トップは未変更）
 - ゆうさん「ツール一覧がちょっと明るすぎる」→ 淡いサムネをそのまま出すのをやめ、IndexTile（暗いマス＋サムネのアイコン部分だけを切り抜き＋製品ごとの淡い色の光）に。焼き込みの製品名も出ない
 - 切り抜きは 640px サムネの x 165〜475・y 135〜445（10 枚の実測でアイコンはほぼ x 160〜480・y 135〜452）。ずれる製品は CARD_META に crop を足す。アイコンはマスの 64%（スマホは 80%）
