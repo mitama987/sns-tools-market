@@ -4,7 +4,7 @@ Unified design: soft pastel background (per-tool tint; XTP3/4/6 switched from da
 app icon with per-tool brand gradient and white glyph, tool name in white sans
 beneath the icon. Matches the XTP4 LP hero treatment.
 
-Reads OPENAI_API_KEY from C:/Users/mitam/Desktop/work/90_other/ClaudeCompany/.env
+Reads OPENAI_API_KEY from C:/Users/mitam/Desktop/work/10_ClaudeCompany/.env
 at runtime. Does not persist the key elsewhere.
 
 Usage (from project root):
@@ -19,7 +19,7 @@ import sys
 import urllib.request
 from pathlib import Path
 
-ENV_PATH = Path("C:/Users/mitam/Desktop/work/90_other/ClaudeCompany/.env")
+ENV_PATH = Path("C:/Users/mitam/Desktop/work/10_ClaudeCompany/.env")
 OUT_DIR = Path(__file__).resolve().parent.parent / "thumbs"
 MODEL = "gpt-image-2"
 SIZE = "1024x1024"

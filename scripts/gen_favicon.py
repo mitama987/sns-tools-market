@@ -7,7 +7,7 @@ small dot to the lower right (matches the SVG logo in components-amazon.jsx).
 Saves the 1024x1024 master to favicon-src.png in the project root. Downscaling
 to .ico / 32 / 16 / apple-touch is done separately with Pillow.
 
-Reads OPENAI_API_KEY from C:/Users/mitam/Desktop/work/90_other/ClaudeCompany/.env
+Reads OPENAI_API_KEY from C:/Users/mitam/Desktop/work/10_ClaudeCompany/.env
 at runtime (same convention as gen_thumbs.py). Does not persist the key.
 
 Usage (from project root):
@@ -22,7 +22,7 @@ import urllib.error
 import urllib.request
 from pathlib import Path
 
-ENV_PATH = Path("C:/Users/mitam/Desktop/work/90_other/ClaudeCompany/.env")
+ENV_PATH = Path("C:/Users/mitam/Desktop/work/10_ClaudeCompany/.env")
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "favicon-src.png"
 MODEL = "gpt-image-2"
