@@ -5,7 +5,7 @@
 ## 方式
 - **フェーズ 1（2026-11-01〜）**: 今の版（light）だけで計測。2 週間で基準値を取り、計測が正しく動くかを確かめる
 - **フェーズ 2（未着手）**: トップの訪問者を cookie `mkt_v`（90 日）で 50:50 に振り分け、light／dark を同じ期間に比べる。抽選は index.html の head（今 `window.MKT_VARIANT='light'` を入れている所）。`<html data-variant>` で CSS を先に決め、読む jsx を components-amazon.jsx／本番用 components-dark.jsx で切り替える。`?v=dark` で強制表示
-- 道具: GA4（測定 ID G-ZKGY7RFRGX）で数字を判断、Microsoft Clarity（ID 未設定）はヒートマップ・録画で目で確かめる用
+- 道具: GA4（プロパティ sns-tools-market・538666729・測定 ID G-ZKGY7RFRGX）で数字を判断、Microsoft Clarity（プロジェクト z7lx4t6frq・mitama987@gmail.com）はヒートマップ・録画で目で確かめる用。Clarity は本番ホストだけ・?notrack=1 の端末は読まない・タグ ui_variant
 
 ## 送っているイベント（assets/js/market-track.js）
 | イベント | いつ | パラメータ |
@@ -23,13 +23,13 @@
 - 送るのは本番ホストのトップ `/` だけ（vercel.app・localhost・mock-dark は送らない）。`?track=1` でテスト用に強制。`?notrack=1` でその端末を除外（`?notrack=0` で戻す・GA を丸ごと無効化）。`?_dbg=1` で DebugView
 
 ## GA4 管理画面の設定（人の作業・未完了のものは秘書の TODO）
-- [ ] プロパティのアクセス管理に SA `ga-mcp@gws-cli-mitama.iam.gserviceaccount.com`（閲覧者）＝ analytics-mcp でレポートを取るため
-- [ ] データ保持を 14 か月（既定 2 か月だと探索で比べられない）
-- [ ] 拡張計測の「スクロール数」をオフ（自前の scroll_depth と重なるため）
-- [ ] カスタムディメンション（イベント）: ui_variant・cta_type・product_id・area・section・percent_scrolled・faq_id／（ユーザー）ui_variant。登録より前のデータは見えないので早めに
-- [ ] cta_click をキーイベントに
-- [ ] 内部トラフィック（自分の IP）を定義して「有効」に
-- [ ] Clarity: プロジェクト作成 → ID を index.html に（`clarity('set','ui_variant', window.MKT_VARIANT)` も）。自分の IP を除外
+- [x] プロパティのアクセス管理に SA `ga-mcp@gws-cli-mitama.iam.gserviceaccount.com`（閲覧者）＝ analytics-mcp でレポートを取るため
+- [x] データ保持を 14 か月（既定 2 か月だと探索で比べられない）
+- [x] 拡張計測の「スクロール数」をオフ（自前の scroll_depth と重なるため）
+- [x] カスタムディメンション（イベント）: ui_variant・cta_type・product_id・area・section・percent_scrolled・faq_id／（ユーザー）ui_variant（表示名は `ui_variant user`＝括弧が使えないため）。登録より前のデータは見えないので早めに
+- [x] cta_click をキーイベントに
+- [x] 内部トラフィック（自分の IP 59.147.206.244・ルール owner）を定義して「有効」に
+- [x] Clarity: プロジェクト z7lx4t6frq を作成（アカウント作成はゆうさん）→ index.html に。マスクはバランス、IP 59.147.206.244 をブロック
 
 ## 基準値レポート（2 週間後・analytics-mcp）
 - 主指標: セッションあたり製品 CTA クリック率（cta_click が 1 回以上あったセッションの割合）
@@ -42,4 +42,5 @@
 
 ---
 Version History
+- ver1.1 (2026-11-03): GA4 管理画面の設定 6 項目と Clarity（z7lx4t6frq）を完了に
 - ver1.0 (2026-11-01): 新規（フェーズ 1 の計測仕様・管理画面の作業・基準値の見方）

@@ -2,6 +2,11 @@
 
 ## index.html（トップ）
 
+### ver3.12 (2026-11-03) — Microsoft Clarity を追加（見た目は変更なし）
+- プロジェクト z7lx4t6frq（Clarity アカウントの作成はゆうさん・設定は Claude）。マスクはバランス、IP 59.147.206.244 をブロック
+- index.html の head に公式タグ。本番ホスト（market.youpapatools.com）だけ・localStorage mkt_notrack（?notrack=1）の端末は読まない・`clarity('set','ui_variant', …)`。モックは build_mock_dark.py ver1.4 で外す
+- GA4 管理画面: SA 閲覧者・保持 14 か月・拡張計測のスクロール OFF・カスタムディメンション 8・cta_click をキーイベント・内部トラフィック（owner・有効）
+
 ### ver3.11 (2026-11-01) — 計測（A/B テストのフェーズ 1）・見た目は変更なし
 - ゆうさん「今の LP でクリック率・維持率（どの画面を見てたか・離脱率）を計測 → その後ダーク版でテスト」。方式は計測 2 週間 → 50:50 の同時振り分け、道具は GA4＋Clarity（計画は SDK の Fable がレビュー）
 - index.html: head で ui_variant（light）・?notrack・?_dbg、assets/js/market-track.js（新規）を読む。components-amazon.jsx と mock の shelf_card.jsx に data-pid・data-cta（tile／card_image／free／paid／product_page／compare）
