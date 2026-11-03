@@ -43,6 +43,19 @@
     window.MKT_DEBUG ? { debug_mode: true } : {}
   ));
 </script>
+<!-- Microsoft Clarity（ヒートマップ・録画・.docs/market-tracking.md）: 本番ホストだけ・?notrack=1 の端末は読まない -->
+<script>
+  (function () {
+    try { if (localStorage.getItem('mkt_notrack') === '1') return; } catch (e) {}
+    if (location.hostname !== 'market.youpapatools.com') return;
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "z7lx4t6frq");
+    window.clarity('set', 'ui_variant', window.MKT_VARIANT || 'light');
+  })();
+</script>
 
 <script type="application/ld+json">
 {
@@ -292,6 +305,7 @@
 </html>
 <!--
 Version History
+- ver3.12 (2026-11-03): Microsoft Clarity（z7lx4t6frq）を追加。本番ホストだけ・?notrack=1 の端末は読まない・ui_variant をタグに
 - ver3.11 (2026-11-01): 計測を追加（components ?v=20261101k・head で ui_variant・?notrack・?_dbg、assets/js/market-track.js を読む）。見た目は変更なし
 - ver3.10 (2026-11-01): components ver3.10（?v=20261101j）
 - ver3.9 (2026-11-01): components ver3.9（?v=20261101i）

@@ -161,6 +161,7 @@ def build_html(src: str) -> str:
     out = re.sub(r'<meta name="twitter:card"[^>]*/>\n', "", out)
     out = re.sub(r"<!-- Google tag \(gtag\.js\) -->.*?</script>\n<script>.*?</script>\n", "", out, flags=re.S)
     out = re.sub(r'<script type="application/ld\+json">.*?</script>\n', "", out, flags=re.S)
+    out = re.sub(r"<!-- Microsoft Clarity.*?</script>\n", "", out, flags=re.S)  # モックは計測しない
     out = re.sub(r"<title>.*?</title>", "<title>【モック】ダーク版｜Youパパツールマーケット</title>", out)
     # パス
     for f in ("favicon.ico", "favicon-32x32.png", "favicon-16x16.png", "apple-touch-icon.png"):
@@ -218,6 +219,7 @@ if __name__ == "__main__":
     main()
 
 # Version History
+# - ver1.4 (2026-11-03): モックから Microsoft Clarity のタグを外す
 # - ver1.3 (2026-11-01): モックから計測スクリプト（market-track.js）の読み込みを外す
 # - ver1.2 (2026-11-01): ツール一覧のマスを IndexTile に差し替える置換を追加
 # - ver1.1 (2026-11-01): 紺〜黒の配色トークン・ShelfCard のブロック差し替え（CARD_META と PRODUCTS の id 照合）
