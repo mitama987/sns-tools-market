@@ -1,7 +1,7 @@
 # VERSION_HISTORY_ARCHIVE — sns-tools-market
 
 ## 流入元を購入ボタンに付ける（2026-11-14・全ページ・見た目は変更なし）
-- きっかけ: 11/13 の XToolsPro3 フル買切り ¥29,800 が「どこ経由か」を、売上通知メールだけでは分からなかった（Functions のログと GA4 を手で突き合わせて、Google 検索 → /xtp-compare/ → /xtp3/ と推定）。
+- きっかけ: 11/13 の XToolsPro3 フル買切り ¥29,800 が「どこ経由か」を、売上通知メールだけでは分からなかった（Functions のログと GA4 を手で突き合わせて、Google → トップ → /xtp3/ → /xtp-compare/ → /xtp3/（11/14 訂正: 比較ページは検索からではなく LP から開いていた） と推定）。
   調べると **/xtp3/ にだけ GA4 のタグが無かった**
 - `assets/js/ref.js` ver1.1: 流入元を localStorage `mkt_attr`（90 日）に覚え、`a[href*="/api/buy/"]` に `a_src`（utm_source/medium → 参照元 → direct。再訪問は direct 以外だけ上書き）・`a_lp`（最初に見たページ）・`a_first`（初回訪問日）を付ける。
   読み込み時＋押す直前（pointerdown／touchstart／click ほか＝React で後から描くボタン・長押し対策）。クリックで GA4 に `begin_checkout`（sku・items）。`window.MKT_ATTR` で確認できる
