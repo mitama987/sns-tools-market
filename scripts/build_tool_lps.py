@@ -283,7 +283,7 @@ def page(t: dict) -> str:
 
 <div data-mk-footer></div>
 <script src="../assets/js/market-footer.js?v=20261101c"></script>
-<script src="../assets/js/ref.js?v=20261031"></script>
+<script src="../assets/js/ref.js?v=20261114"></script>
 </body>
 </html>
 <!--
@@ -308,3 +308,4 @@ if __name__ == "__main__":
 # Version History
 # ver1.0 (2026-10-31): 新規。FB・アメブロ・note・Yay!・Bluesky の簡易 LP を同じ型で生成
 # ver1.1 (2026-11-01): フッターをマーケット共通フッター（market-footer.js）に
+# ver1.2 (2026-11-14): ref.js の読み込みを ?v=20261114 に（ver1.1＝流入元を購入ボタンに付ける）

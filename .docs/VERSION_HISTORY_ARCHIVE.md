@@ -1,5 +1,16 @@
 # VERSION_HISTORY_ARCHIVE — sns-tools-market
 
+## 流入元を購入ボタンに付ける（2026-11-14・全ページ・見た目は変更なし）
+- きっかけ: 11/13 の XToolsPro3 フル買切り ¥29,800 が「どこ経由か」を、売上通知メールだけでは分からなかった（Functions のログと GA4 を手で突き合わせて、Google 検索 → /xtp-compare/ → /xtp3/ と推定）。
+  調べると **/xtp3/ にだけ GA4 のタグが無かった**
+- `assets/js/ref.js` ver1.1: 流入元を localStorage `mkt_attr`（90 日）に覚え、`a[href*="/api/buy/"]` に `a_src`（utm_source/medium → 参照元 → direct。再訪問は direct 以外だけ上書き）・`a_lp`（最初に見たページ）・`a_first`（初回訪問日）を付ける。
+  読み込み時＋押す直前（pointerdown／touchstart／click ほか＝React で後から描くボタン・長押し対策）。クリックで GA4 に `begin_checkout`（sku・items）。`window.MKT_ATTR` で確認できる
+- 受け側: 12_stripe-webhook `billing/attribution.js`（/api/buy → Stripe metadata `attr_*` → マスターの備考・売上通知メール「■流入元」ほか）
+- `xtp3/index.html` ver2.7: GA4 タグを追加・インラインの紹介コード処理を ref.js に置き換え
+- ref.js を読むページを追加: トップ（ver3.13）・`xtp-compare/`（ver1.2）・`xtp4/`（ver1.9）・`ttp2/`（ver1.19）・`privacy/`（ver1.1）。ツール LP 5 つと `scripts/build_tool_lps.py` は `?v=20261114` に
+- `privacy/index.html` ver1.1: 購入時に流入元を決済の記録に付けることを追記
+- テスト: `.docs/tests/e2e_ref_attribution.py`（新規・Playwright・手元のファイルでも `--base` で本番でも）20/20
+
 ## index.html（トップ）
 
 ### ver3.12 (2026-11-03) — Microsoft Clarity を追加（見た目は変更なし）
