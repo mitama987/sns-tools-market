@@ -27,6 +27,16 @@
 
 <link rel="stylesheet" href="assets/css/style.css">
 
+<!-- Google tag (gtag.js)（2026-11-14〜・マーケット共通の測定 ID。トップで ?notrack=1 にした端末は送らない） -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZKGY7RFRGX"></script>
+<script>
+  try { if (localStorage.getItem('mkt_notrack') === '1') window['ga-disable-G-ZKGY7RFRGX'] = true; } catch (e) {}
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZKGY7RFRGX');
+</script>
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -520,30 +530,13 @@
 <div data-mk-footer></div>
 <script src="../assets/js/market-footer.js?v=20261101c"></script>
 
-<!-- Stripe 直販（2026-10-17・2026-10-30 に /api/buy へ）: ?ref=<アフィリエイトID> を保存し、購入ボタン（Functions の /api/buy/<sku>）に ref として付ける（半角英数と - _ のみ）。サーバーが client_reference_id に流す -->
-<script>
-(function () {
-  try {
-    var params = new URLSearchParams(location.search);
-    var ref = params.get("ref");
-    if (ref) {
-      ref = ref.replace(/[^A-Za-z0-9_-]/g, "").slice(0, 64);
-      if (ref) localStorage.setItem("xtp3_ref", ref);
-    }
-    ref = ref || localStorage.getItem("xtp3_ref");
-    if (!ref) return;
-    document.querySelectorAll('a[href*="/api/buy/"]').forEach(function (a) {
-      var u = new URL(a.href);
-      u.searchParams.set("ref", ref);
-      a.href = u.toString();
-    });
-  } catch (e) { /* 計測は本体の邪魔をしない */ }
-})();
-</script>
+<!-- Stripe 直販: 紹介コード（?ref=）と流入元（a_src・a_lp・a_first）を購入ボタン（Functions の /api/buy/<sku>）に付ける。処理はマーケット共通の assets/js/ref.js（2026-11-14 にインラインから移した） -->
+<script src="../assets/js/ref.js?v=20261114"></script>
 <script src="assets/js/faq.js" defer></script>
 
 <!--
 Version History
+- ver2.7 (2026-11-14): head に GA4 タグ（G-ZKGY7RFRGX・?notrack=1 の端末は送らない）＝この LP だけ計測が入っていなかった。末尾のインラインの紹介コード処理をマーケット共通の ../assets/js/ref.js（ver1.1・流入元も付ける）に置き換え。見た目は変更なし
 - ver2.6 (2026-11-01): 元のフッター（XToolsPro3 by Youパパ・note・©）を削除し、マーケット共通フッターだけに（ゆうさん「2 重フッターじゃなくて共通のだけ」）
 - ver2.5 (2026-11-01): フッターの下にマーケット共通フッター（market-footer.js）。かぶるリンク（お問い合わせ・手順書・特商法）は元のフッターから削除
 - ver2.4 (2026-11-01): マーケットのロゴ帯を右寄せに（ゆうさん「やっぱり右側」）
