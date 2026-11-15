@@ -1,5 +1,11 @@
 # VERSION_HISTORY_ARCHIVE — sns-tools-market
 
+## 2026-11-15 XTP3 の価格から端数をやめる（branch: `feature/round-price`）
+- ゆうさん決定: ベースプラン ¥9,800 → ¥10,000・フル買切り ¥29,800 → ¥30,000（アドオンは変更なし）。XTP3 v4.27 の配布と Stripe の価格の切り替え（`12_stripe-webhook` の `stripe-setup.js --reprice`）と同じ日に公開
+- `xtp3/index.html`（構造化データの price・ボタン 3 つ・プランのカード・プレゼントの説明・比較表・Q&A）／`xtp-compare/index.html`（料金の行）／`index.html`（構造化データ・一覧）／`components-amazon.jsx`（XTP3 の price・priceNote・比較の表）／`xtp3/amazon/index.html`（構造化データ・価格の注記・Q&A）
+- 版履歴のコメント（過去の記録）と `mock-dark/` は触っていない
+- 手順の正本: `10_ClaudeCompany/.docs/xtp3-round-price.md`
+
 ## 流入元を購入ボタンに付ける（2026-11-14・全ページ・見た目は変更なし）
 - きっかけ: 11/13 の XToolsPro3 フル買切り ¥29,800 が「どこ経由か」を、売上通知メールだけでは分からなかった（Functions のログと GA4 を手で突き合わせて、Google → トップ → /xtp3/ → /xtp-compare/ → /xtp3/（11/14 訂正: 比較ページは検索からではなく LP から開いていた） と推定）。
   調べると **/xtp3/ にだけ GA4 のタグが無かった**
