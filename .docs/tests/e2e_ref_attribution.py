@@ -5,7 +5,7 @@
 外には何も送らない（GA4・/api/buy への通信は止めて、URL だけ見る）。
 
 使い方（Playwright が入っている Python で）:
-    C:/Users/mitam/Desktop/work/20_XTP3/.venv/Scripts/python.exe .docs/tests/e2e_ref_attribution.py
+    C:/Users/mitam/Desktop/work/1_own/20_x/20_XTP3/.venv/Scripts/python.exe .docs/tests/e2e_ref_attribution.py
     … --base https://market.youpapatools.com   # 本番のページで同じ確認（/api/buy と GA4 は止める）
 
 確かめること:
