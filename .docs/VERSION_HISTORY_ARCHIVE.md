@@ -1,5 +1,15 @@
 # VERSION_HISTORY_ARCHIVE — sns-tools-market
 
+## 2026-11-29 XTP3 の英語の事前登録ページ `en/xtp3/`（branch: `feature/en-xtp3-page`）
+- 見本 `mock-en-xtp3/`（ゆうさん OK 済み）を本番の形にした `en/xtp3/index.html`（ver1.0）を新規。見本は同じ commit で削除
+- スタイルは B（walnut）だけ。黄色い切り替えの帯・`data-style`／`data-price` を削除し、値段は「Founding price / from $49」に固定。字は Fraunces・Schibsted Grotesk・Martian Mono だけ
+- 名前を「XToolsPro3」（アプリの画面の表記）に、機能名「Buzz follow-up」→「Viral follow-up」（登録後の 3 問の選択肢も）
+- アプリの絵を実画面（英語・見本データ。`10_ClaudeCompany/outputs/20_xtp3/20261129_en_screens/`）の WebP に: `en/xtp3/img/`（ヒーロー 800／1600・カード 3 枚 960・og.jpg 1200x630・合計約 264KB）。ヒーローは「Preview · English version in development」の札つき
+- 事前登録を Google フォームへ送る（`formResponse` に no-cors の POST・離れるときは sendBeacon）。1 回目＝Email と Source `s1;<流入元>`、2 回目＝3 問の答えと `s2;<流入元>`（1 人 1 回）。流入元は utm_source → 参照元のホスト名 → direct。見えない入力欄が埋まっていたら送らない
+- GA4（G-ZKGY7RFRGX・`mkt_notrack` を見る）: `waitlist_signup`（source）・`waitlist_answers`（role・feature・os）。メールアドレスは送らない
+- `noindex` のまま（ゆうさんの最終確認のあとで外す・head に印）。ほかのページからはリンクしない。紹介動画の入れ場所は「What it does」の上にコメントの印だけ
+- 確かめ: page-kit `check_page.py`（1440・900・400 幅）外れ 0／本番の E2E `.docs/tests/e2e_en_waitlist_live.py`（登録 → 3 問 → フォームの回答 2 行）
+
 ## 2026-11-28 XTP3 の海外展開・段 0 の見本（branch: `feature/en-xtp3-waitlist`）
 - ゆうさん決定: 海外に売れるかを、英語の紹介ページ＋事前登録で 4 週間だけ確かめる（丸ごとの英語化・Fiverr などへの出品は後）。計画の正本は `~/.claude/plans/xtp3-expressive-tower-of-7cceaff2-1c52-4553-937b-f94d24f4c18e.md`、経緯は `10_ClaudeCompany/.company/secretary/notes/2026-11-28-decisions.md`
 - 新規 `mock-en-xtp3/index.html`（ver0.1・noindex・英語）: 見出し → アプリの見本（英語版は開発中の札つき）→ 事実 3 つ → 機能 3 つ → 仕組み → 値段 → 正直な注意書き → 事前登録 → よくある質問。画面の下の黄色い帯で、スタイル 3 案（A 白黒／B 茶＝マーケットと同じ色／C 紺）と値段の見せ方（$49 あり／なし）を切り替える
