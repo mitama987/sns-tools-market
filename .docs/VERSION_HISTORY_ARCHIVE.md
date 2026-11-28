@@ -1,5 +1,11 @@
 # VERSION_HISTORY_ARCHIVE — sns-tools-market
 
+## 2026-11-28 XTP3 の海外展開・段 0 の見本（branch: `feature/en-xtp3-waitlist`）
+- ゆうさん決定: 海外に売れるかを、英語の紹介ページ＋事前登録で 4 週間だけ確かめる（丸ごとの英語化・Fiverr などへの出品は後）。計画の正本は `~/.claude/plans/xtp3-expressive-tower-of-7cceaff2-1c52-4553-937b-f94d24f4c18e.md`、経緯は `10_ClaudeCompany/.company/secretary/notes/2026-11-28-decisions.md`
+- 新規 `mock-en-xtp3/index.html`（ver0.1・noindex・英語）: 見出し → アプリの見本（英語版は開発中の札つき）→ 事実 3 つ → 機能 3 つ → 仕組み → 値段 → 正直な注意書き → 事前登録 → よくある質問。画面の下の黄色い帯で、スタイル 3 案（A 白黒／B 茶＝マーケットと同じ色／C 紺）と値段の見せ方（$49 あり／なし）を切り替える
+- 入力欄は何も送らない（登録後の 3 問＝立場・欲しい機能・Windows か Mac か、の動きだけ）。本番ページ `en/xtp3/` と Google フォームへの送信は、見本の OK のあと
+- 確かめ: page-kit の `check_page.py`（1440・900・400 幅）で外れ 0／3 スタイル × 2 幅で横スクロール 0／入力欄の動き（まちがったメール → 注意・正しいメール → 3 問 → 3 つ答えて完了の文）
+
 ## 2026-11-15 XTP3 の価格から端数をやめる（branch: `feature/round-price`）
 - ゆうさん決定: ベースプラン ¥9,800 → ¥10,000・フル買切り ¥29,800 → ¥30,000（アドオンは変更なし）。XTP3 v4.27 の配布と Stripe の価格の切り替え（`12_stripe-webhook` の `stripe-setup.js --reprice`）と同じ日に公開
 - `xtp3/index.html`（構造化データの price・ボタン 3 つ・プランのカード・プレゼントの説明・比較表・Q&A）／`xtp-compare/index.html`（料金の行）／`index.html`（構造化データ・一覧）／`components-amazon.jsx`（XTP3 の price・priceNote・比較の表）／`xtp3/amazon/index.html`（構造化データ・価格の注記・Q&A）
