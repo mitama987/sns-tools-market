@@ -41,7 +41,7 @@ body{padding:0 max(4px,env(safe-area-inset-right,0px)) 0 max(4px,env(safe-area-i
 <div class="mk-back"><div class="mk-in"><a href="../" title="Youパパツールマーケット（ほかのツール）"><svg viewBox="0 0 22 22" aria-hidden="true"><rect x="1.5" y="1.5" width="19" height="19" rx="4" fill="#C2533C"/><path d="M6 15V7l3 5 3-5v8" fill="none" stroke="#FBEDD9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="15.5" cy="15" r="1.2" fill="#FBEDD9"/></svg><span class="mk-t"><span class="mk-name">Youパパツールマーケット</span><span class="mk-sub">SNS Tools · 9 items</span></span></a></div></div>
 <style>
 /* 並び: 題名 → 動画 → どれを選ぶ（カード 3 枚）→ 切り替え → 表 → ボタン。色は白・黒・グレー＋赤 1 色（おすすめの XTP6 とボタン）。○ だけ緑 */
-.xtpcmp{--page:#F5F6F8;--card:#FFFFFF;--ink:#14171C;--sub:#5B6472;--line:#E3E6EB;--red:#E8463A;--red-soft:#FDF0EE;--ok:#15A34A;--none:#A9B0BB;--on:#FFFFFF;
+.xtpcmp{--page:#F5F6F8;--card:#FFFFFF;--ink:#14171C;--sub:#5B6472;--line:#E3E6EB;--red:#E8463A;--head:#EEF0F3;--ok:#15A34A;--none:#A9B0BB;--on:#FFFFFF;
   font-family:"Yu Gothic UI","Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Meiryo",sans-serif;
   background:var(--page);color:var(--ink);max-width:760px;margin:0 auto;padding:24px 14px 28px;box-sizing:border-box;line-height:1.6}
 .xtpcmp *{box-sizing:border-box}
@@ -69,8 +69,10 @@ body{padding:0 max(4px,env(safe-area-inset-right,0px)) 0 max(4px,env(safe-area-i
 .xtpcmp table{width:100%;table-layout:fixed;border-collapse:separate;border-spacing:0;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:0}
 .xtpcmp col.k{width:31%} .xtpcmp col.v{width:23%}
 .xtpcmp th,.xtpcmp td{padding:10px 4px;text-align:center;vertical-align:middle;border-bottom:1px solid var(--line);font-size:14px;font-weight:500;line-height:1.35;word-break:keep-all;overflow-wrap:anywhere;color:var(--ink)}
-.xtpcmp th.k{text-align:left;padding-left:12px;font-size:13.5px;font-weight:700}
-.xtpcmp td.x6{background:var(--red-soft)}
+/* 左の列（項目名）は薄いグレーの地で「項目」と分かるように。XTP6 の列は地を塗らず、赤い枠で囲む */
+.xtpcmp th.k{text-align:left;padding-left:12px;font-size:13.5px;font-weight:700;background:var(--head)}
+.xtpcmp td.x6{box-shadow:inset 2px 0 0 var(--red),inset -2px 0 0 var(--red)}
+.xtpcmp tbody tr:last-child td.x6{box-shadow:inset 2px 0 0 var(--red),inset -2px 0 0 var(--red),inset 0 -2px 0 var(--red)}
 .xtpcmp tr.g th{background:var(--ink);color:var(--on);font-size:13px;font-weight:700;padding:8px 4px;border-bottom:0}
 .xtpcmp tr.g th:first-child{text-align:left;padding-left:12px;letter-spacing:.08em}
 .xtpcmp tr.g th.x6{background:var(--red)}
@@ -184,6 +186,7 @@ body{padding:0 max(4px,env(safe-area-inset-right,0px)) 0 max(4px,env(safe-area-i
 </html>
 <!--
 Version History
+- ver2.1 (2026-11-28): 表の左の列（項目名）に薄いグレーの地を付け、XTP6 の列は薄い赤の地をやめて赤い枠に（ゆうさん「左の項目も項目と分かるように網掛け・XTP6 は網掛けを外して赤枠」）
 - ver2.0 (2026-11-28): 見やすく作り直した（ゆうさん「もっとみやすくならないか？ 今回作った動画も埋め込んでおいて」）。結論を先に＝題名「どれを選ぶ？」→ 使い分けの動画（本編 2ExOyorUGX4）→ カード 3 枚（XTP6 おすすめ・XTP4・XTP3）→ 表。表は白地・モノトーン＋赤 1 色、途中から貼り付く見出しをやめて区切りの行に列名、［全部／違う所だけ］の切り替え、PC は幅 760px まで。行「バンのリスクが低い」を足した（動画の表と同じ）。下の 3 行の説明はカードへ移した。URL・リンク先・表の値は変えていない
 - ver1.2 (2026-11-14): assets/js/ref.js（ver1.1）を読む（最初に着いたページで流入元を記録）。見た目は変更なし
 - ver1.0 (2026-10-19): 新規。XTP3・XTP4・XTP6 の機能比較（スマホ幅向け）。元は ClaudeCompany .company/marketing/content-plan/xtp-compare-page.html。LINE の告知から短縮リンク x6-cmp-x3／x4／oc で流入
