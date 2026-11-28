@@ -57,10 +57,13 @@ body {
 }
 h1, h2, h3 { font-family: var(--font-display); font-weight: var(--display-weight); letter-spacing: var(--display-track); line-height: 1.08; margin: 0; text-wrap: balance; }
 p { margin: 0; text-wrap: pretty; }
+/* 短い文は行の長さをそろえて、最後の行に 1〜2 語だけ落ちるのを防ぐ */
+p, .straight b, .straight li > span, .facts span, .faq summary, footer .wrap > div { text-wrap: balance; }
 a { color: inherit; }
 img { max-width: 100%; height: auto; }
 :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
 .wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+.nw { white-space: nowrap; } /* 狭い幅で 1 語だけ次の行に落ちないよう、ひとまとまりで折り返す */
 .label { font-family: "Martian Mono", monospace; font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
 
 /* ── 上の帯（最初から固定）── */
@@ -119,7 +122,7 @@ img { max-width: 100%; height: auto; }
 .facts .wrap { display: grid; gap: 18px; padding-top: 26px; padding-bottom: 26px; }
 @media (min-width: 760px) { .facts .wrap { grid-template-columns: repeat(3, 1fr); gap: 28px; } }
 .facts b { display: block; font-family: var(--font-display); font-weight: var(--display-weight); font-size: 34px; letter-spacing: var(--display-track); line-height: 1.1; }
-.facts span { color: var(--dark-muted); font-size: 15px; }
+.facts span { display: block; color: var(--dark-muted); font-size: 15px; }
 
 /* ── 本文のブロック ── */
 section.block { padding: 64px 0; border-bottom: 1px solid var(--line); }
@@ -149,7 +152,7 @@ section.block { padding: 64px 0; border-bottom: 1px solid var(--line); }
 .straight { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; max-width: 820px; }
 .straight li { background: var(--panel); border-left: 6px solid var(--ink); border-radius: 0 var(--radius) var(--radius) 0; padding: 16px 18px; box-shadow: var(--shadow); }
 .straight b { display: block; font-size: 18px; }
-.straight span { color: var(--muted); }
+.straight li > span { display: block; color: var(--muted); }
 
 .cta { background: var(--dark-bg); color: var(--dark-ink); padding: 64px 0; }
 .cta h2 { font-size: clamp(30px, 4.4vw, 44px); max-width: 16em; }
@@ -192,7 +195,7 @@ footer a { text-underline-offset: 3px; }
 <main id="top">
   <div class="hero"><div class="wrap">
     <div>
-      <div class="label">Windows app · English version in development</div>
+      <div class="label">Windows app · <span class="nw">English version in development</span></div>
       <h1>Your X accounts keep posting while you’re at your day job.</h1>
       <p class="sub">XToolsPro3 queues your posts, follows up when one takes off, and handles replies across all your X accounts. <b>One-time payment. No X API bill.</b></p>
 
@@ -210,7 +213,7 @@ footer a { text-underline-offset: 3px; }
     </div>
 
     <figure class="preview">
-      <div class="pv-bar"><b>XToolsPro3 — Scheduled posts</b><span class="label">Preview · English version in development</span></div>
+      <div class="pv-bar"><b>XToolsPro3 — Scheduled posts</b><span class="label">Preview · <span class="nw">English version in development</span></span></div>
       <img src="img/scheduled-posts-800.webp"
            srcset="img/scheduled-posts-800.webp 800w, img/scheduled-posts-1600.webp 1600w"
            sizes="(min-width: 1120px) 500px, (min-width: 960px) 45vw, calc(100vw - 44px)"
@@ -241,8 +244,8 @@ footer a { text-underline-offset: 3px; }
     <div class="label">How it works</div>
     <h2>It runs on your PC, in real Chrome windows.</h2>
     <ol class="steps">
-      <li><div><h3>Install it on your Windows PC</h3><p>Windows 10 or later. 8 GB of memory recommended.</p></div></li>
-      <li><div><h3>Log in to your X accounts</h3><p>Each account gets its own Chrome window. No developer account and no API keys.</p></div></li>
+      <li><div><h3>Install it on <span class="nw">your Windows PC</span></h3><p>Windows 10 or later. 8 GB of memory recommended.</p></div></li>
+      <li><div><h3>Log in to <span class="nw">your X accounts</span></h3><p>Each account gets its own Chrome window. No developer account and no API keys.</p></div></li>
       <li><div><h3>Set the queue and the rules</h3><p>It works while the PC is on. Read the log when you get home.</p></div></li>
     </ol>
   </div></section>
@@ -269,7 +272,7 @@ footer a { text-underline-offset: 3px; }
       <li><b>Windows only.</b><span>There is no Mac version. Tell us after you sign up if you need one.</span></li>
       <li><b>The English version is not finished.</b><span>The app is sold in Japanese today. This list decides what we build in English first.</span></li>
       <li><b>X can limit or suspend automated accounts.</b><span>X restricts automation that does not go through its API. You use this tool at your own risk.</span></li>
-      <li><b>No tricks to hide from X.</b><span>We do not build detection-evasion features.</span></li>
+      <li><b>No tricks to hide from X.</b><span>We do not build <span class="nw">detection-evasion</span> features.</span></li>
       <li><b>Proxies are optional and cost extra.</b><span>If you use them, you pay your proxy provider directly.</span></li>
     </ul>
   </div></section>
